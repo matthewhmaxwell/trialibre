@@ -1,0 +1,49 @@
+{
+  "nct_id": "SAMPLE-NCT-008",
+  "brief_title": "Tau Aggregation Inhibitor in Mild Cognitive Impairment and Mild Alzheimer's Disease",
+  "official_title": "A Phase 2, Randomized, Double-Blind, Placebo-Controlled Study of a Novel Tau Aggregation Inhibitor (TAI-201) in Patients with Mild Cognitive Impairment or Mild Alzheimer's Disease",
+  "diseases": ["Alzheimer's Disease", "Mild Cognitive Impairment", "Tauopathy"],
+  "interventions": ["TAI-201 100mg oral capsule twice daily", "TAI-201 200mg oral capsule twice daily", "Placebo oral capsule twice daily"],
+  "brief_summary": "This Phase 2 study evaluates the safety, tolerability, and preliminary efficacy of TAI-201, a novel tau aggregation inhibitor, in patients with mild cognitive impairment or mild Alzheimer's disease. Primary endpoints include safety and change in plasma p-tau217 from baseline to 24 weeks.",
+  "phase": "Phase 2",
+  "status": "Recruiting",
+  "enrollment": 240,
+  "sponsor": "Cortex Neurosciences Ltd.",
+  "start_date": "2025-08-01",
+  "completion_date": "2027-12-31",
+  "raw_inclusion_text": "1. Adults aged 55-80 years\n\n2. Clinical diagnosis of mild cognitive impairment due to Alzheimer's disease or mild Alzheimer's disease\n\n3. MMSE score >= 18\n\n4. Positive tau PET scan or elevated CSF p-tau\n\n5. CDR Global Score of 0.5 or 1.0\n\n6. On stable medications for at least 4 weeks prior to screening\n\n7. Reliable informant available for study visits\n\n8. Able to complete neuropsychological assessments in English or local language\n\n9. Adequate hepatic function (ALT/AST <= 2x ULN)\n\n10. Written informed consent\n\n11. Willing to undergo lumbar puncture at baseline and week 24",
+  "raw_exclusion_text": "1. Moderate or severe Alzheimer's disease (MMSE < 18)\n\n2. Significant cerebrovascular disease on MRI (modified Hachinski score > 4)\n\n3. Other neurodegenerative diseases (Parkinson's disease, frontotemporal dementia, Lewy body dementia)\n\n4. Current use of strong CYP2D6 inhibitors\n\n5. History of significant head trauma with loss of consciousness > 30 minutes\n\n6. Major depressive episode within past 6 months\n\n7. Uncontrolled diabetes (HbA1c > 9%)\n\n8. eGFR < 30 mL/min/1.73m²\n\n9. Known hypersensitivity to study drug components",
+  "inclusion_criteria": [
+    {"index": 0, "text": "Adults aged 55-80 years", "category": "inclusion"},
+    {"index": 1, "text": "Clinical diagnosis of mild cognitive impairment due to Alzheimer's disease or mild Alzheimer's disease", "category": "inclusion"},
+    {"index": 2, "text": "MMSE score >= 18", "category": "inclusion"},
+    {"index": 3, "text": "Positive tau PET scan or elevated CSF p-tau", "category": "inclusion"},
+    {"index": 4, "text": "CDR Global Score of 0.5 or 1.0", "category": "inclusion"},
+    {"index": 5, "text": "On stable medications for at least 4 weeks prior to screening", "category": "inclusion"},
+    {"index": 6, "text": "Reliable informant available for study visits", "category": "inclusion"},
+    {"index": 7, "text": "Able to complete neuropsychological assessments in English or local language", "category": "inclusion"},
+    {"index": 8, "text": "Adequate hepatic function (ALT/AST <= 2x ULN)", "category": "inclusion"},
+    {"index": 9, "text": "Written informed consent", "category": "inclusion"},
+    {"index": 10, "text": "Willing to undergo lumbar puncture at baseline and week 24", "category": "inclusion"}
+  ],
+  "exclusion_criteria": [
+    {"index": 0, "text": "Moderate or severe Alzheimer's disease (MMSE < 18)", "category": "exclusion"},
+    {"index": 1, "text": "Significant cerebrovascular disease on MRI (modified Hachinski score > 4)", "category": "exclusion"},
+    {"index": 2, "text": "Other neurodegenerative diseases (Parkinson's disease, frontotemporal dementia, Lewy body dementia)", "category": "exclusion"},
+    {"index": 3, "text": "Current use of strong CYP2D6 inhibitors", "category": "exclusion"},
+    {"index": 4, "text": "History of significant head trauma with loss of consciousness > 30 minutes", "category": "exclusion"},
+    {"index": 5, "text": "Major depressive episode within past 6 months", "category": "exclusion"},
+    {"index": 6, "text": "Uncontrolled diabetes (HbA1c > 9%)", "category": "exclusion"},
+    {"index": 7, "text": "eGFR < 30 mL/min/1.73m²", "category": "exclusion"},
+    {"index": 8, "text": "Known hypersensitivity to study drug components", "category": "exclusion"}
+  ],
+  "min_age": "55 Years",
+  "max_age": "80 Years",
+  "sex": "ALL",
+  "sites": [
+    {"facility": "UCSF Memory and Aging Center", "city": "San Francisco", "country": "United States", "contact_name": "Dr. Robert Chang", "contact_email": "r.chang@ucsf.example.org"},
+    {"facility": "Amsterdam UMC Alzheimer Center", "city": "Amsterdam", "country": "Netherlands", "contact_name": "Dr. Pieter van der Berg", "contact_email": "p.vanderberg@amsterdamumc.example.nl"}
+  ],
+  "source_registry": "sandbox",
+  "metadata": {}
+}

@@ -1,0 +1,50 @@
+{
+  "nct_id": "SAMPLE-NCT-020",
+  "brief_title": "Adalimumab Biosimilar Versus Originator in Moderate-to-Severe Rheumatoid Arthritis",
+  "official_title": "A Phase 3, Randomized, Double-Blind Study Comparing the Efficacy, Safety, and Immunogenicity of ABP-501 (Adalimumab Biosimilar) to Reference Adalimumab in Patients with Moderate-to-Severe Rheumatoid Arthritis on Methotrexate",
+  "diseases": ["Rheumatoid Arthritis"],
+  "interventions": ["ABP-501 (adalimumab biosimilar) 40mg subcutaneous injection every 2 weeks", "Reference adalimumab 40mg subcutaneous injection every 2 weeks"],
+  "brief_summary": "This Phase 3 study compares the efficacy, safety, and immunogenicity of ABP-501 (adalimumab biosimilar) to reference adalimumab in patients with moderate-to-severe active rheumatoid arthritis on stable methotrexate. The primary endpoint is ACR20 response at week 24.",
+  "phase": "Phase 3",
+  "status": "Recruiting",
+  "enrollment": 520,
+  "sponsor": "BioEquity Pharmaceuticals",
+  "start_date": "2025-05-15",
+  "completion_date": "2027-11-30",
+  "raw_inclusion_text": "1. Adults aged 18-80 years\n\n2. Diagnosis of rheumatoid arthritis per ACR/EULAR 2010 criteria for >= 6 months\n\n3. Moderate-to-severe active disease: >= 4 swollen joints and >= 4 tender joints\n\n4. DAS28-ESR >= 3.2 at screening\n\n5. Positive for rheumatoid factor (RF) or anti-cyclic citrullinated peptide (anti-CCP) antibody\n\n6. On stable methotrexate (7.5-25 mg/week) for >= 12 weeks prior to screening\n\n7. Inadequate response to methotrexate monotherapy\n\n8. No prior biologic DMARD therapy (biologic-naive)\n\n9. Negative TB screening (QuantiFERON-TB Gold or tuberculin skin test)\n\n10. Adequate hepatic function\n\n11. Written informed consent\n\n12. Able to self-administer subcutaneous injections or have a caregiver do so",
+  "raw_exclusion_text": "1. Prior treatment with any biologic DMARD or targeted synthetic DMARD\n\n2. Active or latent tuberculosis\n\n3. History of demyelinating disease (e.g., multiple sclerosis)\n\n4. NYHA Class III-IV heart failure\n\n5. Known malignancy within past 5 years (except non-melanoma skin cancer)\n\n6. Active infection requiring IV antibiotics within 4 weeks or oral antibiotics within 2 weeks\n\n7. Live or attenuated vaccine within 4 weeks of baseline\n\n8. Known hypersensitivity to adalimumab or latex\n\n9. Pregnant or breastfeeding",
+  "inclusion_criteria": [
+    {"index": 0, "text": "Adults aged 18-80 years", "category": "inclusion"},
+    {"index": 1, "text": "Diagnosis of rheumatoid arthritis per ACR/EULAR 2010 criteria for >= 6 months", "category": "inclusion"},
+    {"index": 2, "text": "Moderate-to-severe active disease: >= 4 swollen joints and >= 4 tender joints", "category": "inclusion"},
+    {"index": 3, "text": "DAS28-ESR >= 3.2 at screening", "category": "inclusion"},
+    {"index": 4, "text": "Positive for rheumatoid factor (RF) or anti-cyclic citrullinated peptide (anti-CCP) antibody", "category": "inclusion"},
+    {"index": 5, "text": "On stable methotrexate (7.5-25 mg/week) for >= 12 weeks prior to screening", "category": "inclusion"},
+    {"index": 6, "text": "Inadequate response to methotrexate monotherapy", "category": "inclusion"},
+    {"index": 7, "text": "No prior biologic DMARD therapy (biologic-naive)", "category": "inclusion"},
+    {"index": 8, "text": "Negative TB screening (QuantiFERON-TB Gold or tuberculin skin test)", "category": "inclusion"},
+    {"index": 9, "text": "Adequate hepatic function", "category": "inclusion"},
+    {"index": 10, "text": "Written informed consent", "category": "inclusion"},
+    {"index": 11, "text": "Able to self-administer subcutaneous injections or have a caregiver do so", "category": "inclusion"}
+  ],
+  "exclusion_criteria": [
+    {"index": 0, "text": "Prior treatment with any biologic DMARD or targeted synthetic DMARD", "category": "exclusion"},
+    {"index": 1, "text": "Active or latent tuberculosis", "category": "exclusion"},
+    {"index": 2, "text": "History of demyelinating disease (e.g., multiple sclerosis)", "category": "exclusion"},
+    {"index": 3, "text": "NYHA Class III-IV heart failure", "category": "exclusion"},
+    {"index": 4, "text": "Known malignancy within past 5 years (except non-melanoma skin cancer)", "category": "exclusion"},
+    {"index": 5, "text": "Active infection requiring IV antibiotics within 4 weeks or oral antibiotics within 2 weeks", "category": "exclusion"},
+    {"index": 6, "text": "Live or attenuated vaccine within 4 weeks of baseline", "category": "exclusion"},
+    {"index": 7, "text": "Known hypersensitivity to adalimumab or latex", "category": "exclusion"},
+    {"index": 8, "text": "Pregnant or breastfeeding", "category": "exclusion"}
+  ],
+  "min_age": "18 Years",
+  "max_age": "80 Years",
+  "sex": "ALL",
+  "sites": [
+    {"facility": "Brigham and Women's Hospital Rheumatology", "city": "Boston", "country": "United States", "contact_name": "Dr. Jonathan Pike", "contact_email": "j.pike@bwh.example.org"},
+    {"facility": "Medanta - The Medicity Rheumatology", "city": "Gurugram", "country": "India", "contact_name": "Dr. Sanjay Mehta", "contact_email": "s.mehta@medanta.example.in"}
+  ],
+  "source_registry": "sandbox",
+  "metadata": {}
+}

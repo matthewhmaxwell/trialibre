@@ -1,0 +1,65 @@
+{
+  "SAMPLE-001": {
+    "SAMPLE-NCT-001": "strong",
+    "SAMPLE-NCT-002": "strong",
+    "SAMPLE-NCT-003": "unlikely",
+    "SAMPLE-NCT-004": "unlikely",
+    "SAMPLE-NCT-011": "possible",
+    "SAMPLE-NCT-012": "unlikely"
+  },
+  "SAMPLE-002": {
+    "SAMPLE-NCT-003": "strong",
+    "SAMPLE-NCT-004": "unlikely",
+    "SAMPLE-NCT-001": "unlikely",
+    "SAMPLE-NCT-005": "unlikely"
+  },
+  "SAMPLE-003": {
+    "SAMPLE-NCT-005": "strong",
+    "SAMPLE-NCT-006": "unlikely",
+    "SAMPLE-NCT-003": "unlikely"
+  },
+  "SAMPLE-004": {
+    "SAMPLE-NCT-007": "strong",
+    "SAMPLE-NCT-008": "possible",
+    "SAMPLE-NCT-015": "unlikely"
+  },
+  "SAMPLE-005": {
+    "SAMPLE-NCT-009": "strong",
+    "SAMPLE-NCT-010": "unlikely",
+    "SAMPLE-NCT-001": "unlikely"
+  },
+  "SAMPLE-006": {
+    "SAMPLE-NCT-011": "strong",
+    "SAMPLE-NCT-012": "possible",
+    "SAMPLE-NCT-001": "possible"
+  },
+  "SAMPLE-007": {
+    "SAMPLE-NCT-013": "strong",
+    "SAMPLE-NCT-014": "unlikely"
+  },
+  "SAMPLE-008": {
+    "SAMPLE-NCT-015": "strong",
+    "SAMPLE-NCT-016": "possible",
+    "SAMPLE-NCT-007": "unlikely"
+  },
+  "SAMPLE-009": {
+    "SAMPLE-NCT-017": "strong",
+    "SAMPLE-NCT-018": "possible",
+    "SAMPLE-NCT-009": "unlikely"
+  },
+  "SAMPLE-010": {
+    "SAMPLE-NCT-019": "strong",
+    "SAMPLE-NCT-020": "strong",
+    "SAMPLE-NCT-001": "unlikely"
+  },
+  "SAMPLE-011": {
+    "SAMPLE-NCT-021": "strong",
+    "SAMPLE-NCT-022": "unlikely",
+    "SAMPLE-NCT-013": "unlikely"
+  },
+  "SAMPLE-012": {
+    "SAMPLE-NCT-023": "strong",
+    "SAMPLE-NCT-024": "unlikely",
+    "SAMPLE-NCT-009": "unlikely"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "patient_id": "SAMPLE-009",
+  "raw_text": "HAEMATOLOGY CLINIC NOTE - Date: 2026-01-22\nFacility: Lagos University Teaching Hospital, Lagos, Nigeria\n\nPatient: 22-year-old Nigerian female presenting for routine sickle cell disease follow-up.\n\nHPI: Patient has known sickle cell disease (HbSS genotype) diagnosed at age 2 via haemoglobin electrophoresis. Over the past 12 months, she has experienced 6 vaso-occlusive crises (VOCs) requiring hospitalization, with the most severe episode 2 months ago involving acute chest syndrome requiring oxygen supplementation and exchange transfusion. She was started on hydroxyurea 500mg daily 8 months ago, subsequently titrated to 1000mg daily, but continues to have frequent crises. She reports chronic joint pain in bilateral hips and knees rated 4/10 at baseline, managed with paracetamol. She denies fever, jaundice worsening, or priapism. She is a university student studying pharmacy.\n\nVitals: BP 108/68 mmHg, HR 92 bpm, Temp 37.0C, RR 18, SpO2 96% RA. Weight 52 kg, Height 165 cm, BMI 19.1.\n\nPhysical Exam: Thin-appearing young woman. Mild scleral icterus. Pale conjunctivae. No lymphadenopathy. Heart: systolic flow murmur grade II/VI. Lungs clear. Abdomen: spleen not palpable (auto-splenectomy suspected). Mild tenderness bilateral hip joints without effusion. Chronic leg ulcer right medial malleolus (2 cm, granulating).\n\nLabs: Hgb 7.8 g/dL (baseline 7.5-8.5), HbF 12% (target >15%), HbS 78%, WBC 11.2, Plt 380, reticulocyte count 8.5%, total bilirubin 3.2 mg/dL (indirect predominant), LDH 420 U/L, ferritin 280 ng/mL, creatinine 0.7 mg/dL.\n\nAssessment and Plan:\n1. Sickle cell disease (HbSS) with frequent VOCs despite hydroxyurea. Increase hydroxyurea to 1500mg daily (target 20-25 mg/kg). Monitor CBC in 4 weeks for myelosuppression.\n2. If VOC frequency does not improve, consider crizanlizumab 5mg/kg IV as add-on therapy or evaluate for chronic transfusion programme.\n3. Right leg ulcer - continue wound care, zinc supplementation. Wound clinic referral.\n4. Ensure up-to-date vaccinations: pneumococcal, meningococcal, influenza, hepatitis B.\n5. Folic acid 5mg daily ongoing. Penicillin V 250mg BID for infection prophylaxis.\n6. Transcranial Doppler: not indicated at this age. Echocardiogram to screen for pulmonary hypertension.\n7. Follow-up in 6 weeks with CBC and HbF level.",
+  "language": "en",
+  "source_format": "text",
+  "age": 22,
+  "sex": "Female",
+  "diagnoses": [
+    "Sickle cell disease (HbSS genotype)",
+    "Recurrent vaso-occlusive crises",
+    "History of acute chest syndrome",
+    "Chronic leg ulcer",
+    "Suspected functional asplenia"
+  ],
+  "medications": [
+    "Hydroxyurea 1000mg daily (increasing to 1500mg)",
+    "Folic acid 5mg daily",
+    "Penicillin V 250mg BID",
+    "Paracetamol PRN for pain"
+  ],
+  "lab_values": {
+    "hemoglobin": "7.8 g/dL",
+    "HbF": "12%",
+    "HbS": "78%",
+    "WBC": "11.2 x10^9/L",
+    "platelets": "380 x10^9/L",
+    "reticulocyte_count": "8.5%",
+    "total_bilirubin": "3.2 mg/dL",
+    "LDH": "420 U/L",
+    "ferritin": "280 ng/mL",
+    "creatinine": "0.7 mg/dL"
+  },
+  "medical_history": [
+    "Sickle cell disease (HbSS) diagnosed age 2",
+    "6 vaso-occlusive crises in past 12 months",
+    "Acute chest syndrome 2 months ago requiring exchange transfusion",
+    "Chronic right medial malleolar ulcer",
+    "Suspected auto-splenectomy"
+  ],
+  "metadata": {
+    "ethnicity": "Black African (Nigerian, Yoruba)",
+    "bmi": "19.1",
+    "smoking_status": "Never smoker",
+    "ecog_status": null,
+    "sickle_cell_genotype": "HbSS",
+    "voc_frequency_12mo": 6,
+    "country": "Nigeria"
+  }
+}

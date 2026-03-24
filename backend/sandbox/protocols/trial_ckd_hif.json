@@ -1,0 +1,48 @@
+{
+  "nct_id": "SAMPLE-NCT-012",
+  "brief_title": "Roxadustat for Anemia of Chronic Kidney Disease in Non-Dialysis Patients",
+  "official_title": "A Phase 2, Randomized, Double-Blind, Placebo-Controlled Study of Roxadustat (HIF-PHI) for the Treatment of Anemia in Non-Dialysis Patients with Chronic Kidney Disease",
+  "diseases": ["Chronic Kidney Disease", "Anemia of Chronic Kidney Disease", "Renal Anemia"],
+  "interventions": ["Roxadustat oral tablet three times weekly (dose titrated to target Hgb 10-12 g/dL)", "Placebo oral tablet three times weekly"],
+  "brief_summary": "This Phase 2 study evaluates the efficacy and safety of roxadustat, a hypoxia-inducible factor prolyl hydroxylase inhibitor (HIF-PHI), for the treatment of anemia in non-dialysis patients with chronic kidney disease. The primary endpoint is change in hemoglobin from baseline to week 12.",
+  "phase": "Phase 2",
+  "status": "Recruiting",
+  "enrollment": 200,
+  "sponsor": "Cascade Renal Therapeutics",
+  "start_date": "2025-07-15",
+  "completion_date": "2027-07-31",
+  "raw_inclusion_text": "1. Adults aged 18-80 years\n\n2. Chronic kidney disease with eGFR 15-45 mL/min/1.73m² not on dialysis\n\n3. Hemoglobin < 10.0 g/dL at screening (mean of two values)\n\n4. Ferritin >= 30 ng/mL and TSAT >= 15%\n\n5. Not currently on erythropoiesis-stimulating agents (ESA) or ESA discontinued >= 4 weeks prior\n\n6. Folate and vitamin B12 levels within normal limits or adequately supplemented\n\n7. Systolic blood pressure <= 170 mmHg at screening\n\n8. No red blood cell transfusion within 4 weeks of screening\n\n9. Written informed consent\n\n10. Able to swallow oral tablets",
+  "raw_exclusion_text": "1. Expected to require dialysis within 3 months\n\n2. Known cause of anemia other than CKD (e.g., hemolytic anemia, aplastic anemia, GI bleeding)\n\n3. Active or history of macular edema or diabetic retinopathy requiring treatment\n\n4. Uncontrolled hypertension (systolic > 170 mmHg or diastolic > 110 mmHg)\n\n5. History of deep vein thrombosis or pulmonary embolism within 12 months\n\n6. History of seizure within past 12 months\n\n7. Active malignancy (except non-melanoma skin cancer)\n\n8. Pregnant or breastfeeding\n\n9. Significant hepatic impairment (Child-Pugh B or C)",
+  "inclusion_criteria": [
+    {"index": 0, "text": "Adults aged 18-80 years", "category": "inclusion"},
+    {"index": 1, "text": "Chronic kidney disease with eGFR 15-45 mL/min/1.73m² not on dialysis", "category": "inclusion"},
+    {"index": 2, "text": "Hemoglobin < 10.0 g/dL at screening (mean of two values)", "category": "inclusion"},
+    {"index": 3, "text": "Ferritin >= 30 ng/mL and TSAT >= 15%", "category": "inclusion"},
+    {"index": 4, "text": "Not currently on erythropoiesis-stimulating agents (ESA) or ESA discontinued >= 4 weeks prior", "category": "inclusion"},
+    {"index": 5, "text": "Folate and vitamin B12 levels within normal limits or adequately supplemented", "category": "inclusion"},
+    {"index": 6, "text": "Systolic blood pressure <= 170 mmHg at screening", "category": "inclusion"},
+    {"index": 7, "text": "No red blood cell transfusion within 4 weeks of screening", "category": "inclusion"},
+    {"index": 8, "text": "Written informed consent", "category": "inclusion"},
+    {"index": 9, "text": "Able to swallow oral tablets", "category": "inclusion"}
+  ],
+  "exclusion_criteria": [
+    {"index": 0, "text": "Expected to require dialysis within 3 months", "category": "exclusion"},
+    {"index": 1, "text": "Known cause of anemia other than CKD (e.g., hemolytic anemia, aplastic anemia, GI bleeding)", "category": "exclusion"},
+    {"index": 2, "text": "Active or history of macular edema or diabetic retinopathy requiring treatment", "category": "exclusion"},
+    {"index": 3, "text": "Uncontrolled hypertension (systolic > 170 mmHg or diastolic > 110 mmHg)", "category": "exclusion"},
+    {"index": 4, "text": "History of deep vein thrombosis or pulmonary embolism within 12 months", "category": "exclusion"},
+    {"index": 5, "text": "History of seizure within past 12 months", "category": "exclusion"},
+    {"index": 6, "text": "Active malignancy (except non-melanoma skin cancer)", "category": "exclusion"},
+    {"index": 7, "text": "Pregnant or breastfeeding", "category": "exclusion"},
+    {"index": 8, "text": "Significant hepatic impairment (Child-Pugh B or C)", "category": "exclusion"}
+  ],
+  "min_age": "18 Years",
+  "max_age": "80 Years",
+  "sex": "ALL",
+  "sites": [
+    {"facility": "Johns Hopkins Nephrology Division", "city": "Baltimore", "country": "United States", "contact_name": "Dr. Andrea Williams", "contact_email": "a.williams@jhmi.example.org"},
+    {"facility": "Hospital Universitário de São Paulo", "city": "São Paulo", "country": "Brazil", "contact_name": "Dr. Fernando Costa", "contact_email": "f.costa@husp.example.br"}
+  ],
+  "source_registry": "sandbox",
+  "metadata": {}
+}

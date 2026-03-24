@@ -1,0 +1,51 @@
+{
+  "nct_id": "SAMPLE-NCT-023",
+  "brief_title": "Bedaquiline-Pretomanid-Linezolid (BPaL) Regimen for Multidrug-Resistant Tuberculosis",
+  "official_title": "A Phase 3, Randomized, Open-Label Study Comparing the Bedaquiline-Pretomanid-Linezolid (BPaL) Regimen to WHO-Recommended Longer MDR-TB Regimen in Adults with Multidrug-Resistant Pulmonary Tuberculosis",
+  "diseases": ["Multidrug-Resistant Tuberculosis", "MDR-TB", "Pulmonary Tuberculosis"],
+  "interventions": ["BPaL regimen: Bedaquiline 400mg daily x 2 weeks then 200mg 3x/week, Pretomanid 200mg daily, Linezolid 1200mg daily (reduced to 600mg after 16 weeks) for 26 weeks", "WHO-recommended longer MDR-TB regimen (18-20 months)"],
+  "brief_summary": "This Phase 3 study compares the efficacy and safety of the shortened BPaL regimen (26 weeks) versus the WHO-recommended longer regimen for multidrug-resistant pulmonary tuberculosis. The primary endpoint is favorable outcome (culture conversion and no relapse) at 73 weeks post-randomization.",
+  "phase": "Phase 3",
+  "status": "Recruiting",
+  "enrollment": 450,
+  "sponsor": "TB Alliance Global",
+  "start_date": "2025-02-01",
+  "completion_date": "2028-06-30",
+  "raw_inclusion_text": "1. Adults aged 18-65 years\n\n2. Pulmonary tuberculosis confirmed by sputum culture or GeneXpert\n\n3. Documented multidrug-resistant TB (resistance to at least isoniazid and rifampicin)\n\n4. No prior treatment with bedaquiline, pretomanid, or delamanid\n\n5. Prior MDR-TB treatment of <= 2 weeks duration allowed\n\n6. Sputum smear positive or culture positive at screening\n\n7. Body weight >= 35 kg\n\n8. Adequate hepatic function (ALT/AST <= 3x ULN, total bilirubin <= 2x ULN)\n\n9. Serum albumin >= 2.8 g/dL\n\n10. QTcF < 500 ms on screening ECG\n\n11. HIV-positive patients eligible if on stable ART with CD4 > 100 cells/μL\n\n12. Written informed consent\n\n13. Willingness to be hospitalized for initial treatment phase if required",
+  "raw_exclusion_text": "1. Extensively drug-resistant TB (XDR-TB) with fluoroquinolone resistance\n\n2. Known allergy to any component of the BPaL regimen\n\n3. Peripheral neuropathy CTCAE Grade >= 2\n\n4. Optic neuritis or significant visual impairment\n\n5. Hemoglobin < 8 g/dL or platelet count < 50,000/μL\n\n6. Pregnant or breastfeeding\n\n7. Concurrent use of strong CYP3A4 inducers\n\n8. Active extrapulmonary TB involving the CNS\n\n9. Karnofsky Performance Status < 50",
+  "inclusion_criteria": [
+    {"index": 0, "text": "Adults aged 18-65 years", "category": "inclusion"},
+    {"index": 1, "text": "Pulmonary tuberculosis confirmed by sputum culture or GeneXpert", "category": "inclusion"},
+    {"index": 2, "text": "Documented multidrug-resistant TB (resistance to at least isoniazid and rifampicin)", "category": "inclusion"},
+    {"index": 3, "text": "No prior treatment with bedaquiline, pretomanid, or delamanid", "category": "inclusion"},
+    {"index": 4, "text": "Prior MDR-TB treatment of <= 2 weeks duration allowed", "category": "inclusion"},
+    {"index": 5, "text": "Sputum smear positive or culture positive at screening", "category": "inclusion"},
+    {"index": 6, "text": "Body weight >= 35 kg", "category": "inclusion"},
+    {"index": 7, "text": "Adequate hepatic function (ALT/AST <= 3x ULN, total bilirubin <= 2x ULN)", "category": "inclusion"},
+    {"index": 8, "text": "Serum albumin >= 2.8 g/dL", "category": "inclusion"},
+    {"index": 9, "text": "QTcF < 500 ms on screening ECG", "category": "inclusion"},
+    {"index": 10, "text": "HIV-positive patients eligible if on stable ART with CD4 > 100 cells/μL", "category": "inclusion"},
+    {"index": 11, "text": "Written informed consent", "category": "inclusion"},
+    {"index": 12, "text": "Willingness to be hospitalized for initial treatment phase if required", "category": "inclusion"}
+  ],
+  "exclusion_criteria": [
+    {"index": 0, "text": "Extensively drug-resistant TB (XDR-TB) with fluoroquinolone resistance", "category": "exclusion"},
+    {"index": 1, "text": "Known allergy to any component of the BPaL regimen", "category": "exclusion"},
+    {"index": 2, "text": "Peripheral neuropathy CTCAE Grade >= 2", "category": "exclusion"},
+    {"index": 3, "text": "Optic neuritis or significant visual impairment", "category": "exclusion"},
+    {"index": 4, "text": "Hemoglobin < 8 g/dL or platelet count < 50,000/μL", "category": "exclusion"},
+    {"index": 5, "text": "Pregnant or breastfeeding", "category": "exclusion"},
+    {"index": 6, "text": "Concurrent use of strong CYP3A4 inducers", "category": "exclusion"},
+    {"index": 7, "text": "Active extrapulmonary TB involving the CNS", "category": "exclusion"},
+    {"index": 8, "text": "Karnofsky Performance Status < 50", "category": "exclusion"}
+  ],
+  "min_age": "18 Years",
+  "max_age": "65 Years",
+  "sex": "ALL",
+  "sites": [
+    {"facility": "TASK Applied Science Clinical Research Centre", "city": "Cape Town", "country": "South Africa", "contact_name": "Dr. Nosipho Dlamini", "contact_email": "n.dlamini@task.example.za"},
+    {"facility": "National Institute for Research in Tuberculosis", "city": "Chennai", "country": "India", "contact_name": "Dr. Padmapriyadarsini Chandrasekaran", "contact_email": "p.chandrasekaran@nirt.example.in"}
+  ],
+  "source_registry": "sandbox",
+  "metadata": {}
+}

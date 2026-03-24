@@ -1,0 +1,40 @@
+{
+  "patient_id": "SAMPLE-007",
+  "raw_text": "PEDIATRIC PULMONOLOGY NOTE - Date: 2026-03-10\n\nPatient: 8-year-old male presenting for asthma management follow-up.\n\nHPI: Patient has a history of moderate persistent asthma diagnosed at age 4. He is currently on fluticasone/salmeterol 115/21 mcg, 1 puff BID via MDI with spacer, and albuterol PRN for rescue. Despite current therapy, he has had 3 emergency department visits in the past 12 months for asthma exacerbations, the most recent being 6 weeks ago requiring oral corticosteroids. His mother reports he uses his rescue inhaler 3-4 times per week, with nighttime awakening due to cough approximately twice per week. Triggers include upper respiratory infections, cold air, and exercise. He missed 12 school days in the past academic year due to asthma. He has no known drug allergies. Family history is significant for maternal asthma and paternal allergic rhinitis.\n\nVitals: BP 98/62 mmHg, HR 88 bpm, Temp 98.4F, RR 20, SpO2 98% RA. Weight 28 kg (55th percentile), Height 130 cm (60th percentile), BMI 16.6 (55th percentile).\n\nPhysical Exam: Well-appearing, playful child. No nasal polyps. Mild allergic shiners. Lungs: mild diffuse expiratory wheezing bilaterally, no accessory muscle use. Heart RRR. Skin: mild eczema in antecubital fossae.\n\nSpirometry: FEV1 78% predicted (post-bronchodilator 92%), FVC 88% predicted, FEV1/FVC 0.82. Positive bronchodilator response.\n\nAssessment and Plan:\n1. Moderate persistent asthma - not well controlled on current Step 3 therapy. Step up to Step 4: increase fluticasone/salmeterol to 230/21 mcg BID. Continue albuterol PRN.\n2. Consider add-on montelukast 5mg chewable daily.\n3. Allergy testing referral to identify specific triggers.\n4. Asthma action plan reviewed and updated with mother. Proper inhaler technique demonstrated and confirmed.\n5. Influenza and COVID-19 vaccination recommended.\n6. Follow-up in 6 weeks; if still uncontrolled, consider referral for biologic therapy evaluation.\n7. School asthma management plan provided.",
+  "language": "en",
+  "source_format": "text",
+  "age": 8,
+  "sex": "Male",
+  "diagnoses": [
+    "Moderate persistent asthma - not well controlled",
+    "Atopic dermatitis (eczema)"
+  ],
+  "medications": [
+    "Fluticasone/Salmeterol 230/21 mcg MDI 1 puff BID (step-up)",
+    "Albuterol 90mcg MDI 2 puffs PRN",
+    "Montelukast 5mg chewable daily (planned)"
+  ],
+  "lab_values": {
+    "FEV1_percent_predicted": "78%",
+    "FEV1_post_bronchodilator": "92%",
+    "FVC_percent_predicted": "88%",
+    "FEV1_FVC_ratio": "0.82",
+    "SpO2": "98%"
+  },
+  "medical_history": [
+    "Moderate persistent asthma diagnosed age 4",
+    "3 ED visits for asthma exacerbations in past 12 months",
+    "Atopic dermatitis",
+    "Family history: maternal asthma, paternal allergic rhinitis"
+  ],
+  "metadata": {
+    "ethnicity": "Caucasian",
+    "bmi": "16.6",
+    "bmi_percentile": "55th",
+    "smoking_status": "N/A (pediatric patient; no secondhand smoke exposure reported)",
+    "ecog_status": null,
+    "asthma_step": "Step 4 (stepped up)",
+    "school_days_missed": 12,
+    "country": "United States"
+  }
+}

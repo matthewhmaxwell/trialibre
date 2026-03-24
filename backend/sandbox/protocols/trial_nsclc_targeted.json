@@ -1,0 +1,49 @@
+{
+  "nct_id": "SAMPLE-NCT-004",
+  "brief_title": "Osimertinib in EGFR-Mutant Advanced Non-Small Cell Lung Cancer",
+  "official_title": "A Phase 2, Single-Arm Study of Osimertinib in Patients with EGFR Mutation-Positive Advanced Non-Small Cell Lung Cancer Who Have Progressed on Prior EGFR TKI Therapy",
+  "diseases": ["Non-Small Cell Lung Cancer", "NSCLC", "EGFR-Mutant Lung Cancer"],
+  "interventions": ["Osimertinib 80mg oral tablet once daily"],
+  "brief_summary": "This Phase 2 single-arm study evaluates the efficacy and safety of osimertinib in patients with EGFR mutation-positive advanced NSCLC who have progressed on prior EGFR tyrosine kinase inhibitor therapy. The primary endpoint is objective response rate per RECIST v1.1.",
+  "phase": "Phase 2",
+  "status": "Recruiting",
+  "enrollment": 180,
+  "sponsor": "Pacific Lung Research Consortium",
+  "start_date": "2025-07-01",
+  "completion_date": "2028-06-30",
+  "raw_inclusion_text": "1. Adults aged 18 years or older\n\n2. Histologically or cytologically confirmed stage IIIB/IV NSCLC\n\n3. Documented EGFR activating mutation (exon 19 deletion or L858R) confirmed by validated assay\n\n4. Documented T790M resistance mutation on tumor biopsy or plasma ctDNA\n\n5. Progression on at least one prior EGFR TKI (erlotinib, gefitinib, or afatinib)\n\n6. ECOG Performance Status 0-2\n\n7. At least one measurable lesion per RECIST v1.1\n\n8. Adequate bone marrow function\n\n9. Adequate hepatic function (ALT/AST <= 3x ULN)\n\n10. Adequate renal function (creatinine clearance >= 50 mL/min)\n\n11. Brain metastases allowed if stable and off steroids for >= 2 weeks\n\n12. Written informed consent",
+  "raw_exclusion_text": "1. Prior treatment with a third-generation EGFR TKI (e.g., osimertinib)\n\n2. Spinal cord compression unless treated and stable\n\n3. Leptomeningeal carcinomatosis\n\n4. Any unresolved toxicity CTCAE Grade >= 2 from prior therapy\n\n5. Interstitial lung disease or drug-induced pneumonitis\n\n6. Mean QTc interval > 470 ms on screening ECG\n\n7. Concurrent treatment with strong CYP3A4 inhibitors or inducers\n\n8. Active malignancy other than NSCLC within past 3 years",
+  "inclusion_criteria": [
+    {"index": 0, "text": "Adults aged 18 years or older", "category": "inclusion"},
+    {"index": 1, "text": "Histologically or cytologically confirmed stage IIIB/IV NSCLC", "category": "inclusion"},
+    {"index": 2, "text": "Documented EGFR activating mutation (exon 19 deletion or L858R) confirmed by validated assay", "category": "inclusion"},
+    {"index": 3, "text": "Documented T790M resistance mutation on tumor biopsy or plasma ctDNA", "category": "inclusion"},
+    {"index": 4, "text": "Progression on at least one prior EGFR TKI (erlotinib, gefitinib, or afatinib)", "category": "inclusion"},
+    {"index": 5, "text": "ECOG Performance Status 0-2", "category": "inclusion"},
+    {"index": 6, "text": "At least one measurable lesion per RECIST v1.1", "category": "inclusion"},
+    {"index": 7, "text": "Adequate bone marrow function", "category": "inclusion"},
+    {"index": 8, "text": "Adequate hepatic function (ALT/AST <= 3x ULN)", "category": "inclusion"},
+    {"index": 9, "text": "Adequate renal function (creatinine clearance >= 50 mL/min)", "category": "inclusion"},
+    {"index": 10, "text": "Brain metastases allowed if stable and off steroids for >= 2 weeks", "category": "inclusion"},
+    {"index": 11, "text": "Written informed consent", "category": "inclusion"}
+  ],
+  "exclusion_criteria": [
+    {"index": 0, "text": "Prior treatment with a third-generation EGFR TKI (e.g., osimertinib)", "category": "exclusion"},
+    {"index": 1, "text": "Spinal cord compression unless treated and stable", "category": "exclusion"},
+    {"index": 2, "text": "Leptomeningeal carcinomatosis", "category": "exclusion"},
+    {"index": 3, "text": "Any unresolved toxicity CTCAE Grade >= 2 from prior therapy", "category": "exclusion"},
+    {"index": 4, "text": "Interstitial lung disease or drug-induced pneumonitis", "category": "exclusion"},
+    {"index": 5, "text": "Mean QTc interval > 470 ms on screening ECG", "category": "exclusion"},
+    {"index": 6, "text": "Concurrent treatment with strong CYP3A4 inhibitors or inducers", "category": "exclusion"},
+    {"index": 7, "text": "Active malignancy other than NSCLC within past 3 years", "category": "exclusion"}
+  ],
+  "min_age": "18 Years",
+  "max_age": "99 Years",
+  "sex": "ALL",
+  "sites": [
+    {"facility": "Samsung Medical Center", "city": "Seoul", "country": "South Korea", "contact_name": "Dr. Min-Jae Kim", "contact_email": "mj.kim@samsung.example.kr"},
+    {"facility": "National Cancer Centre Singapore", "city": "Singapore", "country": "Singapore", "contact_name": "Dr. Wei Lin Tan", "contact_email": "wl.tan@nccs.example.sg"}
+  ],
+  "source_registry": "sandbox",
+  "metadata": {}
+}

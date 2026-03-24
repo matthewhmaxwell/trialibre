@@ -1,0 +1,48 @@
+{
+  "nct_id": "SAMPLE-NCT-014",
+  "brief_title": "Digital Smart Inhaler and Mobile App for Asthma Adherence and Outcomes",
+  "official_title": "A Phase 4, Randomized, Open-Label Study of a Digital Smart Inhaler with Mobile Application Versus Standard Care for Improving Medication Adherence and Outcomes in Patients with Persistent Asthma",
+  "diseases": ["Asthma", "Persistent Asthma"],
+  "interventions": ["Digital smart inhaler with Bluetooth-connected mobile app providing real-time adherence feedback", "Standard metered-dose inhaler with usual care"],
+  "brief_summary": "This Phase 4 study evaluates whether a digital smart inhaler system with connected mobile application improves medication adherence and clinical outcomes compared to standard inhaler use in patients aged 12-65 with persistent asthma. The primary endpoint is mean medication adherence over 24 weeks.",
+  "phase": "Phase 4",
+  "status": "Recruiting",
+  "enrollment": 400,
+  "sponsor": "Digital Health Respiratory Institute",
+  "start_date": "2025-09-01",
+  "completion_date": "2027-03-31",
+  "raw_inclusion_text": "1. Patients aged 12-65 years\n\n2. Physician-diagnosed persistent asthma for at least 6 months\n\n3. Currently prescribed daily inhaled corticosteroid (ICS) or ICS/LABA combination\n\n4. Ownership of a compatible smartphone (iOS 14+ or Android 11+)\n\n5. Able to read and write in English or Spanish\n\n6. Self-reported adherence to ICS of < 80% (by MARS-A questionnaire)\n\n7. At least one asthma exacerbation in the past 12 months\n\n8. FEV1 >= 60% predicted at screening\n\n9. Ability to use a metered-dose inhaler correctly after training\n\n10. Written informed consent (or parental consent for minors)\n\n11. Willingness to use the mobile application daily for 24 weeks\n\n12. Access to reliable internet or cellular data",
+  "raw_exclusion_text": "1. Current or former smoker with >= 10 pack-year history\n\n2. Diagnosis of COPD or other chronic respiratory disease\n\n3. Use of biologic therapy for asthma\n\n4. Cognitive impairment that would prevent app use\n\n5. Participation in another interventional study\n\n6. Planned change in residence that would affect follow-up\n\n7. History of non-adherence to study visits in previous clinical trials",
+  "inclusion_criteria": [
+    {"index": 0, "text": "Patients aged 12-65 years", "category": "inclusion"},
+    {"index": 1, "text": "Physician-diagnosed persistent asthma for at least 6 months", "category": "inclusion"},
+    {"index": 2, "text": "Currently prescribed daily inhaled corticosteroid (ICS) or ICS/LABA combination", "category": "inclusion"},
+    {"index": 3, "text": "Ownership of a compatible smartphone (iOS 14+ or Android 11+)", "category": "inclusion"},
+    {"index": 4, "text": "Able to read and write in English or Spanish", "category": "inclusion"},
+    {"index": 5, "text": "Self-reported adherence to ICS of < 80% (by MARS-A questionnaire)", "category": "inclusion"},
+    {"index": 6, "text": "At least one asthma exacerbation in the past 12 months", "category": "inclusion"},
+    {"index": 7, "text": "FEV1 >= 60% predicted at screening", "category": "inclusion"},
+    {"index": 8, "text": "Ability to use a metered-dose inhaler correctly after training", "category": "inclusion"},
+    {"index": 9, "text": "Written informed consent (or parental consent for minors)", "category": "inclusion"},
+    {"index": 10, "text": "Willingness to use the mobile application daily for 24 weeks", "category": "inclusion"},
+    {"index": 11, "text": "Access to reliable internet or cellular data", "category": "inclusion"}
+  ],
+  "exclusion_criteria": [
+    {"index": 0, "text": "Current or former smoker with >= 10 pack-year history", "category": "exclusion"},
+    {"index": 1, "text": "Diagnosis of COPD or other chronic respiratory disease", "category": "exclusion"},
+    {"index": 2, "text": "Use of biologic therapy for asthma", "category": "exclusion"},
+    {"index": 3, "text": "Cognitive impairment that would prevent app use", "category": "exclusion"},
+    {"index": 4, "text": "Participation in another interventional study", "category": "exclusion"},
+    {"index": 5, "text": "Planned change in residence that would affect follow-up", "category": "exclusion"},
+    {"index": 6, "text": "History of non-adherence to study visits in previous clinical trials", "category": "exclusion"}
+  ],
+  "min_age": "12 Years",
+  "max_age": "65 Years",
+  "sex": "ALL",
+  "sites": [
+    {"facility": "National Jewish Health", "city": "Denver", "country": "United States", "contact_name": "Dr. Michael Torres", "contact_email": "m.torres@njhealth.example.org"},
+    {"facility": "Hospital Clínic de Barcelona", "city": "Barcelona", "country": "Spain", "contact_name": "Dr. Marta García", "contact_email": "m.garcia@clinic.example.es"}
+  ],
+  "source_registry": "sandbox",
+  "metadata": {}
+}

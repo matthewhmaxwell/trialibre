@@ -1,0 +1,44 @@
+{
+  "nct_id": "SAMPLE-NCT-021",
+  "brief_title": "IV Artesunate Versus IV Quinine for Severe Plasmodium falciparum Malaria in Children",
+  "official_title": "A Phase 3, Randomized, Open-Label Study Comparing Intravenous Artesunate to Intravenous Quinine for the Treatment of Severe Plasmodium falciparum Malaria in Children Aged 6 Months to 14 Years",
+  "diseases": ["Severe Malaria", "Plasmodium falciparum Malaria", "Cerebral Malaria"],
+  "interventions": ["Artesunate 2.4 mg/kg IV at 0, 12, 24 hours then daily until oral therapy possible", "Quinine dihydrochloride 20 mg/kg loading dose then 10 mg/kg IV every 8 hours"],
+  "brief_summary": "This Phase 3 study compares the efficacy and safety of intravenous artesunate versus intravenous quinine for the treatment of severe Plasmodium falciparum malaria in children. The primary endpoint is in-hospital mortality.",
+  "phase": "Phase 3",
+  "status": "Recruiting",
+  "enrollment": 800,
+  "sponsor": "African Malaria Research Consortium",
+  "start_date": "2025-03-01",
+  "completion_date": "2027-12-31",
+  "raw_inclusion_text": "1. Children aged 6 months to 14 years\n\n2. Confirmed Plasmodium falciparum infection by microscopy or rapid diagnostic test\n\n3. At least one sign of severe malaria (WHO criteria): prostration, altered consciousness (Blantyre Coma Score < 5), respiratory distress, multiple convulsions, severe anemia (Hb < 5 g/dL), hypoglycemia (< 40 mg/dL), acidosis, jaundice with other vital organ dysfunction, or parasitemia > 10%\n\n4. Body weight >= 5 kg\n\n5. Parent or guardian able to provide informed consent\n\n6. Hospitalized or being admitted for treatment\n\n7. No IV artesunate or IV quinine given within 24 hours prior to enrollment\n\n8. Able to receive IV medications",
+  "raw_exclusion_text": "1. Known allergy to artesunate, artemisinin derivatives, or quinine\n\n2. Confirmed or suspected concurrent bacterial meningitis\n\n3. Severe malnutrition (weight-for-height z-score < -3 or MUAC < 115 mm)\n\n4. Known chronic illness (sickle cell disease, HIV on ART, chronic kidney disease)\n\n5. Received a full course of antimalarial treatment in the past 14 days\n\n6. Pregnancy (for post-pubertal females, urine pregnancy test required)\n\n7. Previously enrolled in this study",
+  "inclusion_criteria": [
+    {"index": 0, "text": "Children aged 6 months to 14 years", "category": "inclusion"},
+    {"index": 1, "text": "Confirmed Plasmodium falciparum infection by microscopy or rapid diagnostic test", "category": "inclusion"},
+    {"index": 2, "text": "At least one sign of severe malaria per WHO criteria: prostration, altered consciousness, respiratory distress, multiple convulsions, severe anemia, hypoglycemia, acidosis, jaundice, or hyperparasitemia > 10%", "category": "inclusion"},
+    {"index": 3, "text": "Body weight >= 5 kg", "category": "inclusion"},
+    {"index": 4, "text": "Parent or guardian able to provide informed consent", "category": "inclusion"},
+    {"index": 5, "text": "Hospitalized or being admitted for treatment", "category": "inclusion"},
+    {"index": 6, "text": "No IV artesunate or IV quinine given within 24 hours prior to enrollment", "category": "inclusion"},
+    {"index": 7, "text": "Able to receive IV medications", "category": "inclusion"}
+  ],
+  "exclusion_criteria": [
+    {"index": 0, "text": "Known allergy to artesunate, artemisinin derivatives, or quinine", "category": "exclusion"},
+    {"index": 1, "text": "Confirmed or suspected concurrent bacterial meningitis", "category": "exclusion"},
+    {"index": 2, "text": "Severe malnutrition (weight-for-height z-score < -3 or MUAC < 115 mm)", "category": "exclusion"},
+    {"index": 3, "text": "Known chronic illness (sickle cell disease, HIV on ART, chronic kidney disease)", "category": "exclusion"},
+    {"index": 4, "text": "Received a full course of antimalarial treatment in the past 14 days", "category": "exclusion"},
+    {"index": 5, "text": "Pregnancy (for post-pubertal females, urine pregnancy test required)", "category": "exclusion"},
+    {"index": 6, "text": "Previously enrolled in this study", "category": "exclusion"}
+  ],
+  "min_age": "6 Months",
+  "max_age": "14 Years",
+  "sex": "ALL",
+  "sites": [
+    {"facility": "Muhimbili National Hospital", "city": "Dar es Salaam", "country": "Tanzania", "contact_name": "Dr. Grace Mwambete", "contact_email": "g.mwambete@mnh.example.tz"},
+    {"facility": "Komfo Anokye Teaching Hospital", "city": "Kumasi", "country": "Ghana", "contact_name": "Dr. Daniel Ansong", "contact_email": "d.ansong@kath.example.gh"}
+  ],
+  "source_registry": "sandbox",
+  "metadata": {}
+}

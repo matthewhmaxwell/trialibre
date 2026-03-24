@@ -1,0 +1,38 @@
+{
+  "patient_id": "SAMPLE-005",
+  "raw_text": "INFECTIOUS DISEASE CLINIC NOTE - Date: 2026-02-18\nFacility: Kenyatta National Hospital, Nairobi, Kenya\n\nPatient: 29-year-old male presenting for initial evaluation after newly diagnosed HIV infection.\n\nHPI: Patient was diagnosed HIV-positive 2 weeks ago during routine voluntary counseling and testing at a community health center. He reports no prior knowledge of his HIV status and has never been on antiretroviral therapy. He was referred for treatment initiation. He denies any current symptoms including fever, weight loss, night sweats, chronic diarrhea, oral thrush, or skin lesions. He has no significant past medical history and takes no regular medications. He reports one steady female sexual partner over the past 3 years and inconsistent condom use. He works as an accountant and denies alcohol, tobacco, or recreational drug use.\n\nVitals: BP 120/74 mmHg, HR 72 bpm, Temp 36.8C, RR 16, SpO2 98% RA. Weight 72 kg, Height 175 cm, BMI 23.5.\n\nPhysical Exam: Well-nourished male in no acute distress. No oral thrush or hairy leukoplakia. No lymphadenopathy. Heart and lung exam normal. Abdomen soft, no hepatosplenomegaly. Skin without lesions, rashes, or Kaposi sarcoma. No neurological deficits.\n\nLabs: HIV-1 antibody positive (confirmed by Western blot). CD4 count 350 cells/uL. HIV-1 viral load 45,000 copies/mL. Genotype pending. CBC: Hgb 14.2 g/dL, WBC 5.6, Plt 220. CrAg negative. HBsAg negative. Anti-HCV negative. RPR non-reactive. Urinalysis normal. Chest X-ray: no active pulmonary disease.\n\nWHO Clinical Stage: 1\n\nAssessment and Plan:\n1. Newly diagnosed HIV-1 infection, treatment-naive, WHO Stage 1. Initiate dolutegravir/lamivudine/tenofovir disoproxil fumarate (TLD) fixed-dose combination once daily per Kenya national guidelines.\n2. Baseline resistance genotype pending - will adjust regimen if needed.\n3. Counseling on adherence, disclosure, and partner testing. Partner referral for HIV testing.\n4. Cotrimoxazole prophylaxis not indicated at current CD4 count.\n5. Screen for TB with GeneXpert if symptoms develop.\n6. Follow-up in 4 weeks with repeat viral load at 3 months.",
+  "language": "en",
+  "source_format": "text",
+  "age": 29,
+  "sex": "Male",
+  "diagnoses": [
+    "HIV-1 infection, newly diagnosed",
+    "WHO Clinical Stage 1"
+  ],
+  "medications": [
+    "Dolutegravir/Lamivudine/Tenofovir DF (TLD) fixed-dose combination once daily (planned)"
+  ],
+  "lab_values": {
+    "CD4_count": "350 cells/uL",
+    "HIV_viral_load": "45000 copies/mL",
+    "hemoglobin": "14.2 g/dL",
+    "WBC": "5.6 x10^9/L",
+    "platelets": "220 x10^9/L",
+    "CrAg": "Negative",
+    "HBsAg": "Negative",
+    "anti_HCV": "Negative",
+    "RPR": "Non-reactive"
+  },
+  "medical_history": [
+    "No significant past medical history"
+  ],
+  "metadata": {
+    "ethnicity": "Black African (Kenyan)",
+    "bmi": "23.5",
+    "smoking_status": "Never smoker",
+    "ecog_status": null,
+    "who_clinical_stage": 1,
+    "treatment_status": "Treatment-naive",
+    "country": "Kenya"
+  }
+}

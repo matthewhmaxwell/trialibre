@@ -1,0 +1,47 @@
+{
+  "nct_id": "SAMPLE-NCT-010",
+  "brief_title": "Broadly Neutralizing Antibody Combination for HIV Reservoir Reduction",
+  "official_title": "A Phase 1, Open-Label Study of a Broadly Neutralizing Antibody Combination (3BNC117 + 10-1074) for HIV-1 Reservoir Reduction in Virologically Suppressed Adults on Stable Antiretroviral Therapy",
+  "diseases": ["HIV-1 Infection", "HIV Reservoir"],
+  "interventions": ["3BNC117 30mg/kg IV infusion every 3 weeks for 3 doses", "10-1074 30mg/kg IV infusion every 3 weeks for 3 doses"],
+  "brief_summary": "This Phase 1 study evaluates the safety and effect on the HIV-1 reservoir of a combination of two broadly neutralizing antibodies (3BNC117 and 10-1074) in virologically suppressed adults on stable antiretroviral therapy for at least 2 years. The primary endpoints are safety and change in intact proviral DNA from baseline.",
+  "phase": "Phase 1",
+  "status": "Recruiting",
+  "enrollment": 30,
+  "sponsor": "Rockefeller University HIV Cure Initiative",
+  "start_date": "2025-10-01",
+  "completion_date": "2027-10-31",
+  "raw_inclusion_text": "1. Adults aged 18-60 years\n\n2. Documented HIV-1 infection\n\n3. On stable antiretroviral therapy for at least 2 years with no regimen changes\n\n4. HIV-1 RNA < 50 copies/mL for at least 2 years (single blip to < 200 allowed)\n\n5. CD4+ T-cell count > 500 cells/μL\n\n6. CD4 nadir > 200 cells/μL\n\n7. No documented resistance to current ART regimen\n\n8. HIV-1 sensitivity to both 3BNC117 and 10-1074 by in vitro neutralization assay\n\n9. Adequate venous access for IV infusions\n\n10. Written informed consent\n\n11. Willingness to undergo leukapheresis at baseline and week 24",
+  "raw_exclusion_text": "1. Current or recent (within 6 months) opportunistic infection\n\n2. Active hepatitis B or C\n\n3. History of infusion reactions to monoclonal antibodies\n\n4. Autoimmune disease requiring immunosuppression\n\n5. Chronic kidney disease (eGFR < 60 mL/min)\n\n6. Active malignancy\n\n7. Pregnant or breastfeeding\n\n8. Prior participation in HIV cure or vaccine study within 12 months",
+  "inclusion_criteria": [
+    {"index": 0, "text": "Adults aged 18-60 years", "category": "inclusion"},
+    {"index": 1, "text": "Documented HIV-1 infection", "category": "inclusion"},
+    {"index": 2, "text": "On stable antiretroviral therapy for at least 2 years with no regimen changes", "category": "inclusion"},
+    {"index": 3, "text": "HIV-1 RNA < 50 copies/mL for at least 2 years (single blip to < 200 allowed)", "category": "inclusion"},
+    {"index": 4, "text": "CD4+ T-cell count > 500 cells/μL", "category": "inclusion"},
+    {"index": 5, "text": "CD4 nadir > 200 cells/μL", "category": "inclusion"},
+    {"index": 6, "text": "No documented resistance to current ART regimen", "category": "inclusion"},
+    {"index": 7, "text": "HIV-1 sensitivity to both 3BNC117 and 10-1074 by in vitro neutralization assay", "category": "inclusion"},
+    {"index": 8, "text": "Adequate venous access for IV infusions", "category": "inclusion"},
+    {"index": 9, "text": "Written informed consent", "category": "inclusion"},
+    {"index": 10, "text": "Willingness to undergo leukapheresis at baseline and week 24", "category": "inclusion"}
+  ],
+  "exclusion_criteria": [
+    {"index": 0, "text": "Current or recent (within 6 months) opportunistic infection", "category": "exclusion"},
+    {"index": 1, "text": "Active hepatitis B or C", "category": "exclusion"},
+    {"index": 2, "text": "History of infusion reactions to monoclonal antibodies", "category": "exclusion"},
+    {"index": 3, "text": "Autoimmune disease requiring immunosuppression", "category": "exclusion"},
+    {"index": 4, "text": "Chronic kidney disease (eGFR < 60 mL/min)", "category": "exclusion"},
+    {"index": 5, "text": "Active malignancy", "category": "exclusion"},
+    {"index": 6, "text": "Pregnant or breastfeeding", "category": "exclusion"},
+    {"index": 7, "text": "Prior participation in HIV cure or vaccine study within 12 months", "category": "exclusion"}
+  ],
+  "min_age": "18 Years",
+  "max_age": "60 Years",
+  "sex": "ALL",
+  "sites": [
+    {"facility": "Rockefeller University Hospital", "city": "New York", "country": "United States", "contact_name": "Dr. Jennifer Huang", "contact_email": "j.huang@rockefeller.example.org"}
+  ],
+  "source_registry": "sandbox",
+  "metadata": {}
+}

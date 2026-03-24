@@ -1,0 +1,50 @@
+{
+  "patient_id": "SAMPLE-011",
+  "raw_text": "PAEDIATRIC INPATIENT ADMISSION NOTE - Date: 2026-03-05\nFacility: Muhimbili National Hospital, Dar es Salaam, Tanzania\n\nPatient: 5-year-old female admitted from rural health dispensary in Morogoro region with severe P. falciparum malaria.\n\nHPI: Child was brought by her mother with a 3-day history of high fever (up to 40.2C at home), rigors, vomiting, and progressive lethargy. On day 2 of illness, she was seen at a local dispensary where a malaria rapid diagnostic test (mRDT) was positive for P. falciparum. She was given oral artemether-lumefantrine but vomited the doses. She became increasingly lethargic and was referred to district hospital, then transferred here. Mother reports the child has had 2 prior episodes of uncomplicated malaria in the past year. The child sleeps under an insecticide-treated net intermittently. She is not on malaria chemoprophylaxis. She has received all EPI vaccinations per Tanzania schedule. No known drug allergies.\n\nVitals on Admission: HR 148 bpm, RR 42 (deep breathing), Temp 39.8C, BP 85/50 mmHg, SpO2 94% RA. Weight 16 kg (25th percentile for age), Height 108 cm.\n\nPhysical Exam: Lethargic but rousable child. Severely pale conjunctivae and palms. Jaundiced sclerae. No neck stiffness. Tachycardic, no murmurs. Tachypneic with deep (Kussmaul) breathing. Abdomen: hepatomegaly 3 cm below costal margin, splenomegaly 4 cm. No skin petechiae or purpura.\n\nBlinding test score (BCS): 3/5 (obtunded but localizes pain)\n\nLabs: Thick blood smear positive for P. falciparum, parasite density 120,000/uL (hyperparasitaemia). Haemoglobin 5.2 g/dL (severe malarial anaemia). WBC 14.8, Plt 68 (thrombocytopenia). Blood glucose 52 mg/dL (borderline hypoglycaemia). Lactate 5.8 mmol/L (elevated). Creatinine 0.5 mg/dL. Total bilirubin 4.1 mg/dL. Urinalysis: no haemoglobinuria.\n\nAssessment and Plan:\n1. Severe P. falciparum malaria with severe anaemia, hyperparasitaemia, and metabolic acidosis. Meets WHO criteria for severe malaria.\n2. Start IV artesunate 2.4 mg/kg at 0, 12, and 24 hours, then daily until oral medication tolerated. Transition to full course of oral artemether-lumefantrine.\n3. Packed red blood cell transfusion 10 mL/kg (160 mL) for severe anaemia (Hgb 5.2).\n4. IV dextrose bolus 5 mL/kg of 10% dextrose for borderline hypoglycaemia. Monitor blood glucose every 4 hours.\n5. Tepid sponging and paracetamol 15 mg/kg for fever.\n6. Nil by mouth until improved consciousness. IV maintenance fluids (4:1 dextrose-saline).\n7. Monitor for complications: cerebral malaria, renal failure, DIC, blackwater fever.\n8. Repeat parasite density at 12 and 24 hours to confirm clearance. CBC and chemistry daily.\n9. Counsel mother on consistent ITN use and prompt care-seeking for fever.",
+  "language": "en",
+  "source_format": "text",
+  "age": 5,
+  "sex": "Female",
+  "diagnoses": [
+    "Severe Plasmodium falciparum malaria",
+    "Severe malarial anaemia",
+    "Hyperparasitaemia",
+    "Metabolic acidosis",
+    "Thrombocytopenia",
+    "Borderline hypoglycaemia"
+  ],
+  "medications": [
+    "IV Artesunate 2.4 mg/kg at 0, 12, 24h then daily",
+    "Artemether-lumefantrine (planned oral transition)",
+    "Paracetamol 15 mg/kg PRN",
+    "IV 10% Dextrose bolus",
+    "IV maintenance fluids (4:1 dextrose-saline)"
+  ],
+  "lab_values": {
+    "parasite_density": "120000/uL",
+    "hemoglobin": "5.2 g/dL",
+    "WBC": "14.8 x10^9/L",
+    "platelets": "68 x10^9/L",
+    "blood_glucose": "52 mg/dL",
+    "lactate": "5.8 mmol/L",
+    "creatinine": "0.5 mg/dL",
+    "total_bilirubin": "4.1 mg/dL"
+  },
+  "medical_history": [
+    "2 prior episodes of uncomplicated malaria in past year",
+    "No prior severe malaria",
+    "No chronic medical conditions",
+    "EPI vaccinations up to date"
+  ],
+  "metadata": {
+    "ethnicity": "Black African (Tanzanian)",
+    "bmi": "13.7",
+    "smoking_status": "N/A (pediatric)",
+    "ecog_status": null,
+    "who_severity": "Severe malaria",
+    "malaria_species": "P. falciparum",
+    "itn_use": "Intermittent",
+    "country": "Tanzania",
+    "setting": "Rural, referred from dispensary"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "nct_id": "SAMPLE-NCT-011",
+  "brief_title": "Empagliflozin for Kidney Outcomes in Patients with Chronic Kidney Disease and Type 2 Diabetes",
+  "official_title": "A Phase 3, Randomized, Double-Blind, Placebo-Controlled Study of Empagliflozin 10mg in Patients with Chronic Kidney Disease and Type 2 Diabetes Mellitus (EMPA-KIDNEY-DM)",
+  "diseases": ["Chronic Kidney Disease", "Diabetic Nephropathy", "Type 2 Diabetes Mellitus"],
+  "interventions": ["Empagliflozin 10mg oral tablet once daily", "Placebo oral tablet once daily"],
+  "brief_summary": "This Phase 3 study evaluates the renal protective effects of empagliflozin in patients with chronic kidney disease and type 2 diabetes. The primary composite endpoint is sustained decline in eGFR of >= 40%, end-stage kidney disease, renal death, or cardiovascular death.",
+  "phase": "Phase 3",
+  "status": "Recruiting",
+  "enrollment": 1500,
+  "sponsor": "Renal Outcomes Research Network",
+  "start_date": "2025-02-01",
+  "completion_date": "2028-12-31",
+  "raw_inclusion_text": "1. Adults aged 18-85 years\n\n2. Diagnosis of type 2 diabetes mellitus\n\n3. Chronic kidney disease with eGFR 25-60 mL/min/1.73m² at screening\n\n4. Urine albumin-to-creatinine ratio (UACR) >= 200 mg/g at screening\n\n5. On stable dose of ACE inhibitor or ARB at maximum tolerated dose for >= 4 weeks\n\n6. HbA1c 6.5-12.0%\n\n7. Systolic blood pressure <= 160 mmHg and diastolic <= 100 mmHg\n\n8. On stable antidiabetic therapy for >= 8 weeks\n\n9. BMI 20-45 kg/m²\n\n10. Written informed consent",
+  "raw_exclusion_text": "1. Type 1 diabetes mellitus\n\n2. Non-diabetic kidney disease (polycystic kidney disease, lupus nephritis, etc.)\n\n3. eGFR < 25 mL/min/1.73m² or on dialysis\n\n4. Kidney transplant recipient\n\n5. History of diabetic ketoacidosis within past 6 months\n\n6. NYHA Class III-IV heart failure\n\n7. Active urinary tract infection at screening\n\n8. History of recurrent genital infections (>= 4 episodes/year)\n\n9. Pregnant or breastfeeding\n\n10. Use of SGLT2 inhibitor within past 8 weeks",
+  "inclusion_criteria": [
+    {"index": 0, "text": "Adults aged 18-85 years", "category": "inclusion"},
+    {"index": 1, "text": "Diagnosis of type 2 diabetes mellitus", "category": "inclusion"},
+    {"index": 2, "text": "Chronic kidney disease with eGFR 25-60 mL/min/1.73m² at screening", "category": "inclusion"},
+    {"index": 3, "text": "Urine albumin-to-creatinine ratio (UACR) >= 200 mg/g at screening", "category": "inclusion"},
+    {"index": 4, "text": "On stable dose of ACE inhibitor or ARB at maximum tolerated dose for >= 4 weeks", "category": "inclusion"},
+    {"index": 5, "text": "HbA1c 6.5-12.0%", "category": "inclusion"},
+    {"index": 6, "text": "Systolic blood pressure <= 160 mmHg and diastolic <= 100 mmHg", "category": "inclusion"},
+    {"index": 7, "text": "On stable antidiabetic therapy for >= 8 weeks", "category": "inclusion"},
+    {"index": 8, "text": "BMI 20-45 kg/m²", "category": "inclusion"},
+    {"index": 9, "text": "Written informed consent", "category": "inclusion"}
+  ],
+  "exclusion_criteria": [
+    {"index": 0, "text": "Type 1 diabetes mellitus", "category": "exclusion"},
+    {"index": 1, "text": "Non-diabetic kidney disease (polycystic kidney disease, lupus nephritis, etc.)", "category": "exclusion"},
+    {"index": 2, "text": "eGFR < 25 mL/min/1.73m² or on dialysis", "category": "exclusion"},
+    {"index": 3, "text": "Kidney transplant recipient", "category": "exclusion"},
+    {"index": 4, "text": "History of diabetic ketoacidosis within past 6 months", "category": "exclusion"},
+    {"index": 5, "text": "NYHA Class III-IV heart failure", "category": "exclusion"},
+    {"index": 6, "text": "Active urinary tract infection at screening", "category": "exclusion"},
+    {"index": 7, "text": "History of recurrent genital infections (>= 4 episodes/year)", "category": "exclusion"},
+    {"index": 8, "text": "Pregnant or breastfeeding", "category": "exclusion"},
+    {"index": 9, "text": "Use of SGLT2 inhibitor within past 8 weeks", "category": "exclusion"}
+  ],
+  "min_age": "18 Years",
+  "max_age": "85 Years",
+  "sex": "ALL",
+  "sites": [
+    {"facility": "Stanford Nephrology Clinical Research Center", "city": "Palo Alto", "country": "United States", "contact_name": "Dr. Lisa Nakamura", "contact_email": "l.nakamura@stanford.example.org"},
+    {"facility": "Christian Medical College Nephrology", "city": "Vellore", "country": "India", "contact_name": "Dr. Priya Sharma", "contact_email": "p.sharma@cmcvellore.example.in"}
+  ],
+  "source_registry": "sandbox",
+  "metadata": {}
+}

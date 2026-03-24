@@ -1,0 +1,49 @@
+{
+  "nct_id": "SAMPLE-NCT-013",
+  "brief_title": "Mepolizumab in Children and Adolescents with Severe Eosinophilic Asthma",
+  "official_title": "A Phase 3, Randomized, Double-Blind, Placebo-Controlled Study of Mepolizumab (Anti-IL5 Monoclonal Antibody) in Children and Adolescents Aged 6-17 Years with Severe Eosinophilic Asthma",
+  "diseases": ["Asthma", "Severe Eosinophilic Asthma", "Pediatric Asthma"],
+  "interventions": ["Mepolizumab 40mg (6-11 years) or 100mg (12-17 years) subcutaneous injection every 4 weeks", "Placebo subcutaneous injection every 4 weeks"],
+  "brief_summary": "This Phase 3 study evaluates the efficacy and safety of mepolizumab in children and adolescents aged 6-17 with severe eosinophilic asthma who have had at least 2 exacerbations in the past year despite medium-to-high dose inhaled corticosteroids. The primary endpoint is the annualized rate of clinically significant asthma exacerbations.",
+  "phase": "Phase 3",
+  "status": "Recruiting",
+  "enrollment": 350,
+  "sponsor": "Pediatric Respiratory Research Network",
+  "start_date": "2025-04-15",
+  "completion_date": "2027-10-31",
+  "raw_inclusion_text": "1. Children and adolescents aged 6-17 years at screening\n\n2. Physician-diagnosed asthma for at least 12 months\n\n3. On medium-to-high dose inhaled corticosteroids plus at least one additional controller for >= 3 months\n\n4. Blood eosinophil count >= 150 cells/μL at screening or >= 300 cells/μL within the past 12 months\n\n5. At least 2 asthma exacerbations requiring systemic corticosteroids or ER visit/hospitalization in the past 12 months\n\n6. Pre-bronchodilator FEV1 < 90% predicted at screening\n\n7. Documented reversibility (FEV1 increase >= 12% post-bronchodilator) or positive methacholine challenge within past 12 months\n\n8. Ability to perform reproducible spirometry\n\n9. Parent/guardian capable of providing informed consent\n\n10. Assent from participant where appropriate per local regulations\n\n11. Willingness to maintain current asthma medications during run-in",
+  "raw_exclusion_text": "1. Current smoker or former smoker with >= 5 pack-year history (for adolescents >= 14 years)\n\n2. Other chronic lung disease (cystic fibrosis, bronchiectasis, primary ciliary dyskinesia)\n\n3. Asthma exacerbation or respiratory infection within 4 weeks of screening\n\n4. Prior use of any biologic therapy for asthma\n\n5. Known immunodeficiency or chronic immunosuppressive therapy\n\n6. Parasitic infection within 6 months\n\n7. Known hypersensitivity to mepolizumab or excipients\n\n8. Participation in another interventional study within 30 days or 5 half-lives\n\n9. Body weight < 20 kg at screening",
+  "inclusion_criteria": [
+    {"index": 0, "text": "Children and adolescents aged 6-17 years at screening", "category": "inclusion"},
+    {"index": 1, "text": "Physician-diagnosed asthma for at least 12 months", "category": "inclusion"},
+    {"index": 2, "text": "On medium-to-high dose inhaled corticosteroids plus at least one additional controller for >= 3 months", "category": "inclusion"},
+    {"index": 3, "text": "Blood eosinophil count >= 150 cells/μL at screening or >= 300 cells/μL within the past 12 months", "category": "inclusion"},
+    {"index": 4, "text": "At least 2 asthma exacerbations requiring systemic corticosteroids or ER visit/hospitalization in the past 12 months", "category": "inclusion"},
+    {"index": 5, "text": "Pre-bronchodilator FEV1 < 90% predicted at screening", "category": "inclusion"},
+    {"index": 6, "text": "Documented reversibility (FEV1 increase >= 12% post-bronchodilator) or positive methacholine challenge within past 12 months", "category": "inclusion"},
+    {"index": 7, "text": "Ability to perform reproducible spirometry", "category": "inclusion"},
+    {"index": 8, "text": "Parent/guardian capable of providing informed consent", "category": "inclusion"},
+    {"index": 9, "text": "Assent from participant where appropriate per local regulations", "category": "inclusion"},
+    {"index": 10, "text": "Willingness to maintain current asthma medications during run-in", "category": "inclusion"}
+  ],
+  "exclusion_criteria": [
+    {"index": 0, "text": "Current smoker or former smoker with >= 5 pack-year history (for adolescents >= 14 years)", "category": "exclusion"},
+    {"index": 1, "text": "Other chronic lung disease (cystic fibrosis, bronchiectasis, primary ciliary dyskinesia)", "category": "exclusion"},
+    {"index": 2, "text": "Asthma exacerbation or respiratory infection within 4 weeks of screening", "category": "exclusion"},
+    {"index": 3, "text": "Prior use of any biologic therapy for asthma", "category": "exclusion"},
+    {"index": 4, "text": "Known immunodeficiency or chronic immunosuppressive therapy", "category": "exclusion"},
+    {"index": 5, "text": "Parasitic infection within 6 months", "category": "exclusion"},
+    {"index": 6, "text": "Known hypersensitivity to mepolizumab or excipients", "category": "exclusion"},
+    {"index": 7, "text": "Participation in another interventional study within 30 days or 5 half-lives", "category": "exclusion"},
+    {"index": 8, "text": "Body weight < 20 kg at screening", "category": "exclusion"}
+  ],
+  "min_age": "6 Years",
+  "max_age": "17 Years",
+  "sex": "ALL",
+  "sites": [
+    {"facility": "Children's Hospital of Philadelphia Pulmonology", "city": "Philadelphia", "country": "United States", "contact_name": "Dr. Katherine Reynolds", "contact_email": "k.reynolds@chop.example.org"},
+    {"facility": "Great Ormond Street Hospital", "city": "London", "country": "United Kingdom", "contact_name": "Dr. Ian Foster", "contact_email": "i.foster@gosh.example.uk"}
+  ],
+  "source_registry": "sandbox",
+  "metadata": {}
+}

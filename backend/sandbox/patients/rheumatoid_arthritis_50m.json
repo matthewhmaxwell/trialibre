@@ -1,0 +1,48 @@
+{
+  "patient_id": "SAMPLE-010",
+  "raw_text": "RHEUMATOLOGY CLINIC NOTE - Date: 2026-02-12\n\nPatient: 50-year-old Caucasian male presenting for follow-up of rheumatoid arthritis with inadequate response to conventional DMARDs.\n\nHPI: Patient was diagnosed with seropositive rheumatoid arthritis 3 years ago after presenting with bilateral MCP and PIP joint swelling, morning stiffness exceeding 2 hours, and elevated inflammatory markers. He has been on methotrexate 20mg weekly (subcutaneous) for 2 years and hydroxychloroquine 200mg BID for 18 months. Despite dual DMARD therapy and adequate folic acid supplementation, he continues to have active disease with persistent synovitis in bilateral wrists, MCPs, and knees. He reports morning stiffness lasting 90 minutes, difficulty with fine motor tasks (buttoning shirts, opening jars), and fatigue that limits his work as a carpenter. He rates his overall disease activity as 7/10. He denies eye dryness, mouth ulcers, or skin nodules. No history of tuberculosis or hepatitis B.\n\nVitals: BP 132/82 mmHg, HR 78 bpm, Temp 98.6F, RR 16, SpO2 98% RA. Weight 190 lbs, Height 5'9\", BMI 28.1.\n\nPhysical Exam: Bilateral wrist synovitis with boggy swelling. Tender and swollen MCPs 2-4 bilaterally. PIPs 2-3 bilateral tenderness. Bilateral knee effusions, small. Grip strength reduced bilaterally (18 kg R, 16 kg L). No rheumatoid nodules. No scleritis.\n\nDAS28-ESR: 5.8 (high disease activity)\nSwollen joint count: 10/28. Tender joint count: 14/28. Patient Global Assessment: 70mm.\n\nLabs: ESR 48 mm/hr, CRP 2.8 mg/dL, RF 128 IU/mL (positive), anti-CCP 245 U/mL (strongly positive). CBC normal. AST 22, ALT 28. Creatinine 0.9. Hepatitis B core antibody negative. QuantiFERON-TB Gold: negative.\n\nImaging: Hand X-rays show periarticular osteopenia and marginal erosions at MCP 2 and 3 bilaterally (progression from prior films).\n\nAssessment and Plan:\n1. Rheumatoid arthritis - high disease activity (DAS28 5.8) with radiographic progression despite MTX + HCQ. Inadequate response to conventional DMARDs.\n2. Initiate adalimumab 40mg SC every 2 weeks as add-on to methotrexate. Pre-biologic screening complete (TB negative, Hep B negative).\n3. Continue methotrexate 20mg SC weekly with folic acid 1mg daily.\n4. Discontinue hydroxychloroquine.\n5. Short course prednisone 10mg daily x2 weeks as bridge therapy, then taper to off over 2 weeks.\n6. Ophthalmology referral for hydroxychloroquine screening (prior to discontinuation baseline).\n7. Follow-up in 12 weeks to assess biologic response. Target: DAS28 <3.2 (low disease activity).",
+  "language": "en",
+  "source_format": "text",
+  "age": 50,
+  "sex": "Male",
+  "diagnoses": [
+    "Seropositive rheumatoid arthritis",
+    "Inadequate response to conventional DMARDs",
+    "Radiographic erosive disease"
+  ],
+  "medications": [
+    "Methotrexate 20mg SC weekly",
+    "Hydroxychloroquine 200mg BID (discontinuing)",
+    "Folic acid 1mg daily",
+    "Adalimumab 40mg SC every 2 weeks (newly initiated)",
+    "Prednisone 10mg daily (bridge therapy, tapering)"
+  ],
+  "lab_values": {
+    "ESR": "48 mm/hr",
+    "CRP": "2.8 mg/dL",
+    "RF": "128 IU/mL",
+    "anti_CCP": "245 U/mL",
+    "DAS28_ESR": "5.8",
+    "swollen_joint_count": "10/28",
+    "tender_joint_count": "14/28",
+    "AST": "22 U/L",
+    "ALT": "28 U/L"
+  },
+  "medical_history": [
+    "Rheumatoid arthritis diagnosed 2023",
+    "No prior biologic therapy",
+    "No history of tuberculosis",
+    "No history of hepatitis B",
+    "Hyperlipidemia"
+  ],
+  "metadata": {
+    "ethnicity": "Caucasian",
+    "bmi": "28.1",
+    "smoking_status": "Never smoker",
+    "ecog_status": null,
+    "disease_activity": "High (DAS28-ESR 5.8)",
+    "serostatus": "RF positive, anti-CCP positive",
+    "erosive_disease": true,
+    "country": "United States"
+  }
+}

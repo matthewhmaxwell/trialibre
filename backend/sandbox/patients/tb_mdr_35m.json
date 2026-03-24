@@ -1,0 +1,61 @@
+{
+  "patient_id": "SAMPLE-012",
+  "raw_text": "DIRECTLY OBSERVED THERAPY (DOT) CENTRE - INITIAL EVALUATION\nDate: 2026-01-08\nFacility: Rajan Babu Institute for Pulmonary Medicine and Tuberculosis, New Delhi, India\n\nPatient: 35-year-old Indian male referred for management of multi-drug resistant tuberculosis (MDR-TB).\n\nHPI: Patient initially presented 10 months ago with chronic productive cough, low-grade evening fever, night sweats, and 9 kg weight loss over 4 months. He was diagnosed with pulmonary tuberculosis based on sputum smear positivity (2+ AFB) and started on first-line RNTCP Category I regimen (2HRZE/4HR). After 5 months of treatment, he continued to have persistent cough with sputum production. Repeat sputum smear remained positive (1+ AFB). GeneXpert MTB/RIF detected rifampicin resistance. Culture and phenotypic drug susceptibility testing (DST) confirmed resistance to both isoniazid and rifampicin, consistent with MDR-TB. Second-line DST showed susceptibility to fluoroquinolones, bedaquiline, linezolid, and amikacin. He is HIV negative (tested twice). He has no history of diabetes mellitus. He works as an auto-rickshaw driver and lives in a one-room dwelling with his wife and two children (ages 4 and 7). He is a non-smoker and denies alcohol use.\n\nVitals: BP 110/70 mmHg, HR 88 bpm, Temp 37.6C, RR 20, SpO2 95% RA. Weight 52 kg (from baseline 61 kg), Height 170 cm, BMI 18.0.\n\nPhysical Exam: Thin, chronically ill-appearing male. No peripheral lymphadenopathy. Respiratory: decreased breath sounds right upper zone with coarse crackles. No wheeze. Heart normal. Abdomen soft, no hepatosplenomegaly. No clubbing.\n\nLabs: Sputum smear: 1+ AFB. GeneXpert: MTB detected, rifampicin resistance detected. Culture: M. tuberculosis, resistant to isoniazid (MIC >1 mcg/mL) and rifampicin (MIC >1 mcg/mL). Susceptible to levofloxacin, moxifloxacin, bedaquiline, linezolid, clofazimine, amikacin. HIV 1/2 antibody: Negative. HbA1c 5.4%. Hepatitis B and C: negative. CBC: Hgb 11.2, WBC 8.4, Plt 310. LFTs: AST 28, ALT 32, bilirubin 0.6. Creatinine 0.8. Baseline audiometry: normal. Baseline ECG: QTc 410 ms (normal). Visual acuity: 6/6 bilaterally.\n\nChest X-ray: Right upper lobe cavity (3.5 cm) with surrounding infiltrates. Left lung clear.\n\nAssessment and Plan:\n1. Multi-drug resistant pulmonary tuberculosis (MDR-TB), sputum smear positive. HIV negative. Initiate all-oral shorter MDR-TB regimen per India NTEP 2025 guidelines: bedaquiline 400mg daily x2 weeks then 200mg 3x/week, levofloxacin 750mg daily, linezolid 600mg daily, and clofazimine 100mg daily for 9 months.\n2. Monthly sputum smear and culture for conversion monitoring. Target: sputum culture conversion by month 4.\n3. ECG monitoring every 2 weeks for QTc prolongation (bedaquiline + levofloxacin). Hold medications if QTc >500ms.\n4. Monthly CBC for linezolid-related myelosuppression. Visual acuity checks monthly (linezolid optic neuropathy).\n5. LFTs monthly. Baseline and monthly audiometry.\n6. Nutritional supplementation: high-protein diet counseling, pyridoxine 100mg daily.\n7. Household contact screening: wife and children require clinical evaluation, TST/IGRA, and chest X-ray. Refer for TB preventive therapy if indicated.\n8. DOT supervision confirmed. Social support referral for nutritional and financial assistance.\n9. Follow-up weekly for first month, then monthly.",
+  "language": "en",
+  "source_format": "text",
+  "age": 35,
+  "sex": "Male",
+  "diagnoses": [
+    "Multi-drug resistant pulmonary tuberculosis (MDR-TB)",
+    "Resistant to isoniazid and rifampicin",
+    "Right upper lobe cavitary disease"
+  ],
+  "medications": [
+    "Bedaquiline 400mg daily x2 weeks then 200mg 3x/week",
+    "Levofloxacin 750mg daily",
+    "Linezolid 600mg daily",
+    "Clofazimine 100mg daily",
+    "Pyridoxine 100mg daily",
+    "Prior: Failed first-line RNTCP Category I regimen (2HRZE/4HR)"
+  ],
+  "lab_values": {
+    "sputum_smear": "1+ AFB",
+    "GeneXpert": "MTB detected, rifampicin resistance detected",
+    "HIV": "Negative",
+    "HbA1c": "5.4%",
+    "hemoglobin": "11.2 g/dL",
+    "WBC": "8.4 x10^9/L",
+    "platelets": "310 x10^9/L",
+    "AST": "28 U/L",
+    "ALT": "32 U/L",
+    "creatinine": "0.8 mg/dL",
+    "QTc": "410 ms"
+  },
+  "medical_history": [
+    "Pulmonary tuberculosis diagnosed 10 months ago",
+    "Failed first-line anti-TB therapy (Category I)",
+    "No history of diabetes mellitus",
+    "HIV negative",
+    "No prior hospitalizations"
+  ],
+  "metadata": {
+    "ethnicity": "South Asian (Indian)",
+    "bmi": "18.0",
+    "smoking_status": "Never smoker",
+    "ecog_status": null,
+    "resistance_pattern": {
+      "isoniazid": "Resistant",
+      "rifampicin": "Resistant",
+      "levofloxacin": "Susceptible",
+      "moxifloxacin": "Susceptible",
+      "bedaquiline": "Susceptible",
+      "linezolid": "Susceptible",
+      "clofazimine": "Susceptible",
+      "amikacin": "Susceptible"
+    },
+    "treatment_regimen": "All-oral shorter MDR-TB regimen (9 months)",
+    "dot_supervision": true,
+    "country": "India",
+    "household_contacts": 3
+  }
+}

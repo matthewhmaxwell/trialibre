@@ -1,0 +1,39 @@
+{
+  "patient_id": "SAMPLE-008",
+  "raw_text": "PSYCHIATRY CLINIC NOTE - Date: 2026-02-05\n\nPatient: 41-year-old Caucasian female presenting for evaluation of treatment-resistant major depressive disorder.\n\nHPI: Patient has a 15-year history of recurrent major depressive disorder. Her current episode began approximately 18 months ago and has been refractory to multiple medication trials. She has had adequate trials (at least 8 weeks at therapeutic dose) of sertraline 200mg, fluoxetine 60mg, escitalopram 20mg, and venlafaxine XR 225mg, all with minimal or no response. Her current regimen is venlafaxine XR 225mg daily, which she has been on for 4 months with no meaningful improvement. She reports persistent depressed mood, anhedonia, poor concentration, hypersomnia (sleeping 10-12 hours), psychomotor retardation, feelings of worthlessness, and passive suicidal ideation without plan or intent. She denies active suicidal ideation, hallucinations, or delusions. She has been on disability leave from her job as a school teacher for 3 months. She lives alone with no children. She has no history of manic or hypomanic episodes.\n\nVitals: BP 124/78 mmHg, HR 70 bpm, Weight 158 lbs, Height 5'6\", BMI 25.5.\n\nMental Status Exam: Appearance: casually dressed, poor grooming. Behavior: psychomotor retardation, poor eye contact. Speech: soft, slow rate, low volume. Mood: \"empty.\" Affect: flat, constricted range. Thought process: linear, goal-directed. Thought content: feelings of worthlessness, passive SI (\"sometimes think my family would be better off without me\"), no plan or intent. Denies AH/VH. Cognition: alert, oriented x4, concentration impaired on serial 7s. Insight: fair. Judgment: fair.\n\nPHQ-9 Score: 22 (severe depression)\nColumbia Suicide Severity Rating Scale: passive ideation without plan\n\nAssessment and Plan:\n1. Treatment-resistant major depressive disorder (failed 3 SSRIs + 1 SNRI). No psychotic features. PHQ-9 22.\n2. Taper venlafaxine XR over 2 weeks. Initiate lithium augmentation 300mg BID with target level 0.6-0.8 mEq/L.\n3. Refer for esketamine (Spravato) nasal spray evaluation given TRD criteria.\n4. Psychotherapy: continue weekly CBT. Consider adding behavioral activation.\n5. Safety plan reviewed and updated. Emergency contacts confirmed. Crisis hotline number provided.\n6. Thyroid function and lithium level in 2 weeks.\n7. Follow-up in 2 weeks. Patient to call or present to ED if SI worsens.",
+  "language": "en",
+  "source_format": "text",
+  "age": 41,
+  "sex": "Female",
+  "diagnoses": [
+    "Treatment-resistant major depressive disorder, recurrent, severe without psychotic features",
+    "Passive suicidal ideation without plan or intent"
+  ],
+  "medications": [
+    "Venlafaxine XR 225mg daily (tapering)",
+    "Lithium 300mg BID (newly initiated)",
+    "Esketamine nasal spray (referral pending)"
+  ],
+  "lab_values": {
+    "PHQ_9": "22",
+    "C_SSRS": "Passive ideation without plan"
+  },
+  "medical_history": [
+    "Recurrent major depressive disorder x15 years",
+    "Failed adequate trials of sertraline, fluoxetine, escitalopram, venlafaxine",
+    "No history of mania or hypomania",
+    "No history of psychosis",
+    "No prior psychiatric hospitalizations",
+    "No substance use disorders"
+  ],
+  "metadata": {
+    "ethnicity": "Caucasian",
+    "bmi": "25.5",
+    "smoking_status": "Never smoker",
+    "ecog_status": null,
+    "employment_status": "Disability leave",
+    "living_situation": "Lives alone",
+    "psychotherapy": "Weekly CBT",
+    "country": "United States"
+  }
+}

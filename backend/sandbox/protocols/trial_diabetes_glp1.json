@@ -1,0 +1,50 @@
+{
+  "nct_id": "SAMPLE-NCT-002",
+  "brief_title": "Semaglutide in Obese Adults with Type 2 Diabetes and Elevated HbA1c",
+  "official_title": "A Phase 2, Randomized, Double-Blind, Dose-Ranging Study of Subcutaneous Semaglutide in Obese Adults with Type 2 Diabetes Mellitus and Inadequate Glycemic Control",
+  "diseases": ["Type 2 Diabetes Mellitus", "Obesity"],
+  "interventions": ["Semaglutide 0.5mg subcutaneous injection weekly", "Semaglutide 1.0mg subcutaneous injection weekly", "Placebo subcutaneous injection weekly"],
+  "brief_summary": "This Phase 2 dose-ranging study evaluates the efficacy and safety of two doses of subcutaneous semaglutide versus placebo in obese adults with type 2 diabetes mellitus and elevated HbA1c. Co-primary endpoints include change in HbA1c and body weight at 16 weeks.",
+  "phase": "Phase 2",
+  "status": "Recruiting",
+  "enrollment": 360,
+  "sponsor": "Nordisk Biopharmaceuticals Ltd.",
+  "start_date": "2025-09-15",
+  "completion_date": "2027-06-30",
+  "raw_inclusion_text": "1. Adults aged 30-65 years\n\n2. Documented diagnosis of type 2 diabetes mellitus\n\n3. HbA1c between 8.0% and 11.0% at screening\n\n4. Body mass index (BMI) > 30 kg/m²\n\n5. On stable oral antidiabetic therapy (metformin, sulfonylurea, or combination) for >= 8 weeks\n\n6. Fasting C-peptide >= 0.7 ng/mL\n\n7. eGFR >= 30 mL/min/1.73m²\n\n8. Stable body weight (< 5% change in past 3 months)\n\n9. Ability to self-administer subcutaneous injections\n\n10. Written informed consent obtained\n\n11. Willingness to adhere to study visit schedule",
+  "raw_exclusion_text": "1. Type 1 diabetes mellitus\n\n2. Currently using insulin therapy\n\n3. Prior use of GLP-1 receptor agonist within 6 months\n\n4. History of pancreatitis\n\n5. Personal or family history of medullary thyroid carcinoma or MEN2 syndrome\n\n6. History of bariatric surgery\n\n7. Severe hepatic impairment (Child-Pugh C)\n\n8. Active malignancy (except non-melanoma skin cancer)\n\n9. Pregnant, breastfeeding, or planning pregnancy during study period\n\n10. Uncontrolled psychiatric illness",
+  "inclusion_criteria": [
+    {"index": 0, "text": "Adults aged 30-65 years", "category": "inclusion"},
+    {"index": 1, "text": "Documented diagnosis of type 2 diabetes mellitus", "category": "inclusion"},
+    {"index": 2, "text": "HbA1c between 8.0% and 11.0% at screening", "category": "inclusion"},
+    {"index": 3, "text": "Body mass index (BMI) > 30 kg/m²", "category": "inclusion"},
+    {"index": 4, "text": "On stable oral antidiabetic therapy (metformin, sulfonylurea, or combination) for >= 8 weeks", "category": "inclusion"},
+    {"index": 5, "text": "Fasting C-peptide >= 0.7 ng/mL", "category": "inclusion"},
+    {"index": 6, "text": "eGFR >= 30 mL/min/1.73m²", "category": "inclusion"},
+    {"index": 7, "text": "Stable body weight (< 5% change in past 3 months)", "category": "inclusion"},
+    {"index": 8, "text": "Ability to self-administer subcutaneous injections", "category": "inclusion"},
+    {"index": 9, "text": "Written informed consent obtained", "category": "inclusion"},
+    {"index": 10, "text": "Willingness to adhere to study visit schedule", "category": "inclusion"}
+  ],
+  "exclusion_criteria": [
+    {"index": 0, "text": "Type 1 diabetes mellitus", "category": "exclusion"},
+    {"index": 1, "text": "Currently using insulin therapy", "category": "exclusion"},
+    {"index": 2, "text": "Prior use of GLP-1 receptor agonist within 6 months", "category": "exclusion"},
+    {"index": 3, "text": "History of pancreatitis", "category": "exclusion"},
+    {"index": 4, "text": "Personal or family history of medullary thyroid carcinoma or MEN2 syndrome", "category": "exclusion"},
+    {"index": 5, "text": "History of bariatric surgery", "category": "exclusion"},
+    {"index": 6, "text": "Severe hepatic impairment (Child-Pugh C)", "category": "exclusion"},
+    {"index": 7, "text": "Active malignancy (except non-melanoma skin cancer)", "category": "exclusion"},
+    {"index": 8, "text": "Pregnant, breastfeeding, or planning pregnancy during study period", "category": "exclusion"},
+    {"index": 9, "text": "Uncontrolled psychiatric illness", "category": "exclusion"}
+  ],
+  "min_age": "30 Years",
+  "max_age": "65 Years",
+  "sex": "ALL",
+  "sites": [
+    {"facility": "Joslin Diabetes Center", "city": "Boston", "country": "United States", "contact_name": "Dr. Maria Chen", "contact_email": "m.chen@joslin.example.org"},
+    {"facility": "All India Institute of Medical Sciences", "city": "New Delhi", "country": "India", "contact_name": "Dr. Rajesh Gupta", "contact_email": "r.gupta@aiims.example.in"}
+  ],
+  "source_registry": "sandbox",
+  "metadata": {}
+}

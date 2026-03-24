@@ -1,0 +1,51 @@
+{
+  "nct_id": "SAMPLE-NCT-016",
+  "brief_title": "Psilocybin-Assisted Therapy for Major Depressive Disorder",
+  "official_title": "A Phase 2, Randomized, Double-Blind, Placebo-Controlled Study of Psilocybin-Assisted Therapy in Adults with Moderate-to-Severe Major Depressive Disorder Without Psychotic Features",
+  "diseases": ["Major Depressive Disorder", "Depression"],
+  "interventions": ["Psilocybin 25mg single oral dose with psychological support (two sessions, 3 weeks apart)", "Placebo (niacin 100mg) with identical psychological support"],
+  "brief_summary": "This Phase 2 study evaluates the efficacy and safety of two psilocybin-assisted therapy sessions, 3 weeks apart, compared to placebo with identical psychological support in adults with moderate-to-severe major depressive disorder. The primary endpoint is change in MADRS total score at week 6.",
+  "phase": "Phase 2",
+  "status": "Recruiting",
+  "enrollment": 160,
+  "sponsor": "Compass Psychedelic Research Institute",
+  "start_date": "2025-06-01",
+  "completion_date": "2027-06-30",
+  "raw_inclusion_text": "1. Adults aged 25-65 years\n\n2. DSM-5 diagnosis of major depressive disorder without psychotic features\n\n3. Current depressive episode duration >= 3 months\n\n4. PHQ-9 score >= 15 at screening (moderate-to-severe depression)\n\n5. MADRS total score >= 20 at screening\n\n6. Either treatment-naive or has tried at least one antidepressant medication\n\n7. If on antidepressant, must complete washout period before dosing session\n\n8. Medically healthy based on physical exam, ECG, and laboratory tests\n\n9. Able to attend all preparatory, dosing, and integration therapy sessions\n\n10. Written informed consent\n\n11. Agreement not to use recreational psychedelics during the study\n\n12. Reliable emergency contact available",
+  "raw_exclusion_text": "1. Current or lifetime psychotic disorder (schizophrenia, schizoaffective disorder)\n\n2. First-degree relative with psychotic disorder\n\n3. Bipolar disorder (type I or II)\n\n4. Current PTSD, OCD, or personality disorder as primary diagnosis\n\n5. Active suicidal ideation with specific plan or recent attempt (within 12 months)\n\n6. Substance use disorder within past 12 months (excluding nicotine or caffeine)\n\n7. Uncontrolled seizure disorder\n\n8. Cardiovascular disease (uncontrolled hypertension, recent MI, arrhythmia)\n\n9. Pregnant or breastfeeding\n\n10. Prior adverse reaction to a psychedelic substance",
+  "inclusion_criteria": [
+    {"index": 0, "text": "Adults aged 25-65 years", "category": "inclusion"},
+    {"index": 1, "text": "DSM-5 diagnosis of major depressive disorder without psychotic features", "category": "inclusion"},
+    {"index": 2, "text": "Current depressive episode duration >= 3 months", "category": "inclusion"},
+    {"index": 3, "text": "PHQ-9 score >= 15 at screening (moderate-to-severe depression)", "category": "inclusion"},
+    {"index": 4, "text": "MADRS total score >= 20 at screening", "category": "inclusion"},
+    {"index": 5, "text": "Either treatment-naive or has tried at least one antidepressant medication", "category": "inclusion"},
+    {"index": 6, "text": "If on antidepressant, must complete washout period before dosing session", "category": "inclusion"},
+    {"index": 7, "text": "Medically healthy based on physical exam, ECG, and laboratory tests", "category": "inclusion"},
+    {"index": 8, "text": "Able to attend all preparatory, dosing, and integration therapy sessions", "category": "inclusion"},
+    {"index": 9, "text": "Written informed consent", "category": "inclusion"},
+    {"index": 10, "text": "Agreement not to use recreational psychedelics during the study", "category": "inclusion"},
+    {"index": 11, "text": "Reliable emergency contact available", "category": "inclusion"}
+  ],
+  "exclusion_criteria": [
+    {"index": 0, "text": "Current or lifetime psychotic disorder (schizophrenia, schizoaffective disorder)", "category": "exclusion"},
+    {"index": 1, "text": "First-degree relative with psychotic disorder", "category": "exclusion"},
+    {"index": 2, "text": "Bipolar disorder (type I or II)", "category": "exclusion"},
+    {"index": 3, "text": "Current PTSD, OCD, or personality disorder as primary diagnosis", "category": "exclusion"},
+    {"index": 4, "text": "Active suicidal ideation with specific plan or recent attempt (within 12 months)", "category": "exclusion"},
+    {"index": 5, "text": "Substance use disorder within past 12 months (excluding nicotine or caffeine)", "category": "exclusion"},
+    {"index": 6, "text": "Uncontrolled seizure disorder", "category": "exclusion"},
+    {"index": 7, "text": "Cardiovascular disease (uncontrolled hypertension, recent MI, arrhythmia)", "category": "exclusion"},
+    {"index": 8, "text": "Pregnant or breastfeeding", "category": "exclusion"},
+    {"index": 9, "text": "Prior adverse reaction to a psychedelic substance", "category": "exclusion"}
+  ],
+  "min_age": "25 Years",
+  "max_age": "65 Years",
+  "sex": "ALL",
+  "sites": [
+    {"facility": "Johns Hopkins Center for Psychedelic and Consciousness Research", "city": "Baltimore", "country": "United States", "contact_name": "Dr. Emily Bradshaw", "contact_email": "e.bradshaw@jhmi.example.org"},
+    {"facility": "Imperial College London Centre for Psychedelic Research", "city": "London", "country": "United Kingdom", "contact_name": "Dr. James Whitfield", "contact_email": "j.whitfield@imperial.example.uk"}
+  ],
+  "source_registry": "sandbox",
+  "metadata": {}
+}

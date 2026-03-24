@@ -1,0 +1,51 @@
+{
+  "nct_id": "SAMPLE-NCT-003",
+  "brief_title": "Pembrolizumab Monotherapy in PD-L1 High Advanced Non-Small Cell Lung Cancer",
+  "official_title": "A Phase 3, Randomized, Open-Label Study Comparing Pembrolizumab Monotherapy to Platinum-Based Chemotherapy in Treatment-Naive Patients with PD-L1 High (TPS >= 50%) Advanced Non-Small Cell Lung Cancer",
+  "diseases": ["Non-Small Cell Lung Cancer", "NSCLC"],
+  "interventions": ["Pembrolizumab 200mg IV every 3 weeks", "Investigator's choice platinum-based doublet chemotherapy"],
+  "brief_summary": "This Phase 3, randomized, open-label study compares the efficacy and safety of pembrolizumab monotherapy versus platinum-based chemotherapy as first-line treatment for advanced NSCLC with high PD-L1 expression (TPS >= 50%). The primary endpoint is progression-free survival.",
+  "phase": "Phase 3",
+  "status": "Recruiting",
+  "enrollment": 540,
+  "sponsor": "Keystone Oncology Research Group",
+  "start_date": "2025-04-01",
+  "completion_date": "2028-12-31",
+  "raw_inclusion_text": "1. Adults aged 18 years or older\n\n2. Histologically or cytologically confirmed stage IIIB/IIIC or stage IV non-small cell lung cancer\n\n3. PD-L1 tumor proportion score (TPS) >= 50% by immunohistochemistry\n\n4. No prior systemic therapy for advanced/metastatic NSCLC\n\n5. ECOG Performance Status 0 or 1\n\n6. At least one measurable lesion per RECIST v1.1\n\n7. Adequate organ function including ANC >= 1500/μL, platelets >= 100,000/μL, hemoglobin >= 9 g/dL\n\n8. eGFR >= 30 mL/min/1.73m²\n\n9. Total bilirubin <= 1.5x upper limit of normal\n\n10. AST and ALT <= 2.5x upper limit of normal (or <= 5x ULN if liver metastases)\n\n11. Tumor tissue available for PD-L1 and biomarker analysis\n\n12. Life expectancy >= 3 months\n\n13. Written informed consent",
+  "raw_exclusion_text": "1. Known EGFR mutations or ALK rearrangements for which targeted therapy is indicated\n\n2. Active autoimmune disease requiring systemic immunosuppression\n\n3. Symptomatic or untreated brain metastases\n\n4. Prior treatment with anti-PD-1, anti-PD-L1, or anti-CTLA-4 agents\n\n5. Active interstitial lung disease or history of pneumonitis requiring steroids\n\n6. Active or prior documented autoimmune or inflammatory disorder requiring systemic treatment within past 2 years\n\n7. Live vaccine within 30 days of first dose\n\n8. Concurrent systemic corticosteroids > 10mg/day prednisone equivalent\n\n9. Known HIV, active Hepatitis B or C infection",
+  "inclusion_criteria": [
+    {"index": 0, "text": "Adults aged 18 years or older", "category": "inclusion"},
+    {"index": 1, "text": "Histologically or cytologically confirmed stage IIIB/IIIC or stage IV non-small cell lung cancer", "category": "inclusion"},
+    {"index": 2, "text": "PD-L1 tumor proportion score (TPS) >= 50% by immunohistochemistry", "category": "inclusion"},
+    {"index": 3, "text": "No prior systemic therapy for advanced/metastatic NSCLC", "category": "inclusion"},
+    {"index": 4, "text": "ECOG Performance Status 0 or 1", "category": "inclusion"},
+    {"index": 5, "text": "At least one measurable lesion per RECIST v1.1", "category": "inclusion"},
+    {"index": 6, "text": "Adequate organ function including ANC >= 1500/μL, platelets >= 100,000/μL, hemoglobin >= 9 g/dL", "category": "inclusion"},
+    {"index": 7, "text": "eGFR >= 30 mL/min/1.73m²", "category": "inclusion"},
+    {"index": 8, "text": "Total bilirubin <= 1.5x upper limit of normal", "category": "inclusion"},
+    {"index": 9, "text": "AST and ALT <= 2.5x upper limit of normal (or <= 5x ULN if liver metastases)", "category": "inclusion"},
+    {"index": 10, "text": "Tumor tissue available for PD-L1 and biomarker analysis", "category": "inclusion"},
+    {"index": 11, "text": "Life expectancy >= 3 months", "category": "inclusion"},
+    {"index": 12, "text": "Written informed consent", "category": "inclusion"}
+  ],
+  "exclusion_criteria": [
+    {"index": 0, "text": "Known EGFR mutations or ALK rearrangements for which targeted therapy is indicated", "category": "exclusion"},
+    {"index": 1, "text": "Active autoimmune disease requiring systemic immunosuppression", "category": "exclusion"},
+    {"index": 2, "text": "Symptomatic or untreated brain metastases", "category": "exclusion"},
+    {"index": 3, "text": "Prior treatment with anti-PD-1, anti-PD-L1, or anti-CTLA-4 agents", "category": "exclusion"},
+    {"index": 4, "text": "Active interstitial lung disease or history of pneumonitis requiring steroids", "category": "exclusion"},
+    {"index": 5, "text": "Active or prior documented autoimmune or inflammatory disorder requiring systemic treatment within past 2 years", "category": "exclusion"},
+    {"index": 6, "text": "Live vaccine within 30 days of first dose", "category": "exclusion"},
+    {"index": 7, "text": "Concurrent systemic corticosteroids > 10mg/day prednisone equivalent", "category": "exclusion"},
+    {"index": 8, "text": "Known HIV, active Hepatitis B or C infection", "category": "exclusion"}
+  ],
+  "min_age": "18 Years",
+  "max_age": "99 Years",
+  "sex": "ALL",
+  "sites": [
+    {"facility": "Memorial Sloan Kettering Cancer Center", "city": "New York", "country": "United States", "contact_name": "Dr. James Park", "contact_email": "j.park@mskcc.example.org"},
+    {"facility": "Gustave Roussy Cancer Campus", "city": "Villejuif", "country": "France", "contact_name": "Dr. Sophie Lefèvre", "contact_email": "s.lefevre@gustaveroussy.example.fr"}
+  ],
+  "source_registry": "sandbox",
+  "metadata": {}
+}

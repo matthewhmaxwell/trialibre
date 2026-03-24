@@ -1,0 +1,51 @@
+{
+  "nct_id": "SAMPLE-NCT-009",
+  "brief_title": "Long-Acting Cabotegravir Plus Rilpivirine Injections in Treatment-Naive Adults with HIV-1",
+  "official_title": "A Phase 3, Randomized, Open-Label Study Comparing Long-Acting Injectable Cabotegravir Plus Rilpivirine to Standard Oral Antiretroviral Therapy in Treatment-Naive Adults with HIV-1 Infection",
+  "diseases": ["HIV-1 Infection", "Human Immunodeficiency Virus"],
+  "interventions": ["Cabotegravir 600mg IM injection monthly plus Rilpivirine 900mg IM injection monthly", "Investigator-selected oral ART regimen (INSTI-based)"],
+  "brief_summary": "This Phase 3 study compares the efficacy and safety of long-acting injectable cabotegravir plus rilpivirine administered monthly versus standard oral antiretroviral therapy in treatment-naive adults with HIV-1. The primary endpoint is proportion of participants with HIV-1 RNA < 50 copies/mL at week 48.",
+  "phase": "Phase 3",
+  "status": "Recruiting",
+  "enrollment": 700,
+  "sponsor": "Global HIV Research Alliance",
+  "start_date": "2025-05-01",
+  "completion_date": "2028-05-31",
+  "raw_inclusion_text": "1. Adults aged 18-65 years\n\n2. Documented HIV-1 infection by licensed diagnostic test\n\n3. Antiretroviral treatment-naive (no prior ART exposure)\n\n4. HIV-1 RNA >= 1000 copies/mL at screening\n\n5. CD4+ T-cell count > 200 cells/μL\n\n6. No documented resistance to integrase inhibitors or rilpivirine by genotype\n\n7. Hepatitis B surface antigen negative\n\n8. eGFR >= 50 mL/min by CKD-EPI equation\n\n9. ALT <= 5x upper limit of normal\n\n10. Willing to receive intramuscular injections monthly\n\n11. Women of childbearing potential must use effective contraception\n\n12. Written informed consent",
+  "raw_exclusion_text": "1. HIV-2 co-infection\n\n2. Active or untreated opportunistic infection at screening\n\n3. Active hepatitis B or C co-infection requiring treatment\n\n4. Chronic hepatitis B (HBsAg positive)\n\n5. History of malignancy within past 5 years (except cutaneous Kaposi's sarcoma, basal cell carcinoma)\n\n6. Current use of drugs known to prolong QTc interval\n\n7. Known hypersensitivity to cabotegravir or rilpivirine\n\n8. Pregnant or breastfeeding\n\n9. Active substance use disorder that may interfere with study compliance\n\n10. Participation in another investigational drug study within 30 days",
+  "inclusion_criteria": [
+    {"index": 0, "text": "Adults aged 18-65 years", "category": "inclusion"},
+    {"index": 1, "text": "Documented HIV-1 infection by licensed diagnostic test", "category": "inclusion"},
+    {"index": 2, "text": "Antiretroviral treatment-naive (no prior ART exposure)", "category": "inclusion"},
+    {"index": 3, "text": "HIV-1 RNA >= 1000 copies/mL at screening", "category": "inclusion"},
+    {"index": 4, "text": "CD4+ T-cell count > 200 cells/μL", "category": "inclusion"},
+    {"index": 5, "text": "No documented resistance to integrase inhibitors or rilpivirine by genotype", "category": "inclusion"},
+    {"index": 6, "text": "Hepatitis B surface antigen negative", "category": "inclusion"},
+    {"index": 7, "text": "eGFR >= 50 mL/min by CKD-EPI equation", "category": "inclusion"},
+    {"index": 8, "text": "ALT <= 5x upper limit of normal", "category": "inclusion"},
+    {"index": 9, "text": "Willing to receive intramuscular injections monthly", "category": "inclusion"},
+    {"index": 10, "text": "Women of childbearing potential must use effective contraception", "category": "inclusion"},
+    {"index": 11, "text": "Written informed consent", "category": "inclusion"}
+  ],
+  "exclusion_criteria": [
+    {"index": 0, "text": "HIV-2 co-infection", "category": "exclusion"},
+    {"index": 1, "text": "Active or untreated opportunistic infection at screening", "category": "exclusion"},
+    {"index": 2, "text": "Active hepatitis B or C co-infection requiring treatment", "category": "exclusion"},
+    {"index": 3, "text": "Chronic hepatitis B (HBsAg positive)", "category": "exclusion"},
+    {"index": 4, "text": "History of malignancy within past 5 years (except cutaneous Kaposi's sarcoma, basal cell carcinoma)", "category": "exclusion"},
+    {"index": 5, "text": "Current use of drugs known to prolong QTc interval", "category": "exclusion"},
+    {"index": 6, "text": "Known hypersensitivity to cabotegravir or rilpivirine", "category": "exclusion"},
+    {"index": 7, "text": "Pregnant or breastfeeding", "category": "exclusion"},
+    {"index": 8, "text": "Active substance use disorder that may interfere with study compliance", "category": "exclusion"},
+    {"index": 9, "text": "Participation in another investigational drug study within 30 days", "category": "exclusion"}
+  ],
+  "min_age": "18 Years",
+  "max_age": "65 Years",
+  "sex": "ALL",
+  "sites": [
+    {"facility": "Emory University HIV Clinical Trials Unit", "city": "Atlanta", "country": "United States", "contact_name": "Dr. Marcus Thompson", "contact_email": "m.thompson@emory.example.org"},
+    {"facility": "Desmond Tutu HIV Centre", "city": "Cape Town", "country": "South Africa", "contact_name": "Dr. Noluthando Mzimela", "contact_email": "n.mzimela@hiv.example.za"}
+  ],
+  "source_registry": "sandbox",
+  "metadata": {}
+}

@@ -1,0 +1,48 @@
+{
+  "nct_id": "SAMPLE-NCT-007",
+  "brief_title": "Lecanemab in Early Alzheimer's Disease with Confirmed Amyloid Pathology",
+  "official_title": "A Phase 3, Randomized, Double-Blind, Placebo-Controlled Study of Lecanemab (Anti-Amyloid Beta Protofibril Antibody) in Participants with Early Alzheimer's Disease and Confirmed Amyloid Pathology",
+  "diseases": ["Alzheimer's Disease", "Early Alzheimer's Disease", "Mild Cognitive Impairment due to Alzheimer's Disease"],
+  "interventions": ["Lecanemab 10 mg/kg IV biweekly", "Placebo IV biweekly"],
+  "brief_summary": "This Phase 3 study evaluates the efficacy and safety of lecanemab in participants with early Alzheimer's disease who have confirmed amyloid pathology on PET or CSF biomarkers. The primary endpoint is change in CDR-SB (Clinical Dementia Rating Sum of Boxes) from baseline to 18 months.",
+  "phase": "Phase 3",
+  "status": "Recruiting",
+  "enrollment": 1200,
+  "sponsor": "NeuroVantage Research Inc.",
+  "start_date": "2025-01-15",
+  "completion_date": "2028-07-31",
+  "raw_inclusion_text": "1. Adults aged 50-85 years\n\n2. Diagnosis of mild cognitive impairment due to Alzheimer's disease or mild Alzheimer's disease dementia\n\n3. Mini-Mental State Examination (MMSE) score of 20-26 (inclusive) at screening\n\n4. CDR Global Score of 0.5 or 1.0\n\n5. Positive amyloid PET scan or CSF amyloid beta 42/40 ratio consistent with amyloid pathology\n\n6. On stable dose of cholinesterase inhibitor and/or memantine for >= 3 months (if taking)\n\n7. Reliable study partner who spends >= 10 hours/week with participant\n\n8. Adequate vision and hearing for neuropsychological testing\n\n9. MRI of the brain within 90 days of screening with no clinically significant findings other than AD pathology\n\n10. Written informed consent from participant and study partner",
+  "raw_exclusion_text": "1. Any significant neurological disease other than Alzheimer's disease\n\n2. History of clinically significant stroke within past 12 months\n\n3. History of seizure disorder\n\n4. Presence of brain MRI findings of > 4 microhemorrhages or any macrohemorrhage or superficial siderosis\n\n5. Current use of anticoagulant therapy (aspirin <= 325mg/day allowed)\n\n6. Uncontrolled hypertension (systolic > 160 mmHg or diastolic > 100 mmHg)\n\n7. Major psychiatric disorder within past 2 years (e.g., major depression, bipolar disorder)\n\n8. Known or suspected history of alcohol or substance abuse within past 2 years\n\n9. Contraindication to MRI (e.g., pacemaker, metallic implants)",
+  "inclusion_criteria": [
+    {"index": 0, "text": "Adults aged 50-85 years", "category": "inclusion"},
+    {"index": 1, "text": "Diagnosis of mild cognitive impairment due to Alzheimer's disease or mild Alzheimer's disease dementia", "category": "inclusion"},
+    {"index": 2, "text": "Mini-Mental State Examination (MMSE) score of 20-26 (inclusive) at screening", "category": "inclusion"},
+    {"index": 3, "text": "CDR Global Score of 0.5 or 1.0", "category": "inclusion"},
+    {"index": 4, "text": "Positive amyloid PET scan or CSF amyloid beta 42/40 ratio consistent with amyloid pathology", "category": "inclusion"},
+    {"index": 5, "text": "On stable dose of cholinesterase inhibitor and/or memantine for >= 3 months (if taking)", "category": "inclusion"},
+    {"index": 6, "text": "Reliable study partner who spends >= 10 hours/week with participant", "category": "inclusion"},
+    {"index": 7, "text": "Adequate vision and hearing for neuropsychological testing", "category": "inclusion"},
+    {"index": 8, "text": "MRI of the brain within 90 days of screening with no clinically significant findings other than AD pathology", "category": "inclusion"},
+    {"index": 9, "text": "Written informed consent from participant and study partner", "category": "inclusion"}
+  ],
+  "exclusion_criteria": [
+    {"index": 0, "text": "Any significant neurological disease other than Alzheimer's disease", "category": "exclusion"},
+    {"index": 1, "text": "History of clinically significant stroke within past 12 months", "category": "exclusion"},
+    {"index": 2, "text": "History of seizure disorder", "category": "exclusion"},
+    {"index": 3, "text": "Presence of brain MRI findings of > 4 microhemorrhages or any macrohemorrhage or superficial siderosis", "category": "exclusion"},
+    {"index": 4, "text": "Current use of anticoagulant therapy (aspirin <= 325mg/day allowed)", "category": "exclusion"},
+    {"index": 5, "text": "Uncontrolled hypertension (systolic > 160 mmHg or diastolic > 100 mmHg)", "category": "exclusion"},
+    {"index": 6, "text": "Major psychiatric disorder within past 2 years (e.g., major depression, bipolar disorder)", "category": "exclusion"},
+    {"index": 7, "text": "Known or suspected history of alcohol or substance abuse within past 2 years", "category": "exclusion"},
+    {"index": 8, "text": "Contraindication to MRI (e.g., pacemaker, metallic implants)", "category": "exclusion"}
+  ],
+  "min_age": "50 Years",
+  "max_age": "85 Years",
+  "sex": "ALL",
+  "sites": [
+    {"facility": "Mayo Clinic Alzheimer's Disease Research Center", "city": "Rochester", "country": "United States", "contact_name": "Dr. David Petersen", "contact_email": "d.petersen@mayo.example.org"},
+    {"facility": "Karolinska University Hospital Memory Clinic", "city": "Stockholm", "country": "Sweden", "contact_name": "Dr. Anna Lindström", "contact_email": "a.lindstrom@karolinska.example.se"}
+  ],
+  "source_registry": "sandbox",
+  "metadata": {}
+}

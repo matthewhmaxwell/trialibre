@@ -1,0 +1,51 @@
+{
+  "nct_id": "SAMPLE-NCT-019",
+  "brief_title": "Upadacitinib in Rheumatoid Arthritis with Inadequate Response to csDMARDs",
+  "official_title": "A Phase 3, Randomized, Double-Blind, Placebo-Controlled Study of Upadacitinib (JAK1 Inhibitor) in Patients with Active Rheumatoid Arthritis and Inadequate Response to Conventional Synthetic Disease-Modifying Antirheumatic Drugs",
+  "diseases": ["Rheumatoid Arthritis"],
+  "interventions": ["Upadacitinib 15mg oral tablet once daily", "Upadacitinib 30mg oral tablet once daily", "Placebo oral tablet once daily"],
+  "brief_summary": "This Phase 3 study evaluates the efficacy and safety of two doses of upadacitinib versus placebo in patients with moderately to severely active rheumatoid arthritis who have had an inadequate response to conventional synthetic DMARDs. Co-primary endpoints are ACR20 response at week 12 and DAS28-CRP remission at week 24.",
+  "phase": "Phase 3",
+  "status": "Recruiting",
+  "enrollment": 750,
+  "sponsor": "Autoimmune Research Partners Inc.",
+  "start_date": "2025-04-01",
+  "completion_date": "2027-12-31",
+  "raw_inclusion_text": "1. Adults aged 18-75 years\n\n2. Diagnosis of rheumatoid arthritis per 2010 ACR/EULAR classification criteria for >= 3 months\n\n3. Active disease: >= 6 swollen joints (66 joint count) and >= 6 tender joints (68 joint count)\n\n4. DAS28-CRP > 5.1 (high disease activity) at screening\n\n5. Inadequate response to at least one csDMARD (methotrexate, leflunomide, sulfasalazine, or hydroxychloroquine)\n\n6. On stable background methotrexate (10-25 mg/week) for >= 4 weeks prior to baseline\n\n7. CRP > 0.5 mg/dL or ESR > 28 mm/hr at screening\n\n8. Positive rheumatoid factor (RF) or anti-CCP antibody\n\n9. Screening labs: ANC >= 1000/μL, lymphocyte count >= 500/μL, hemoglobin >= 8 g/dL, platelets >= 50,000/μL\n\n10. eGFR >= 40 mL/min/1.73m²\n\n11. Written informed consent\n\n12. Chest radiograph within 3 months showing no active TB or other significant pulmonary disease",
+  "raw_exclusion_text": "1. Prior use of any JAK inhibitor\n\n2. Prior treatment with more than one biologic DMARD (bDMARD)\n\n3. Current or recent (within 4 weeks) use of bDMARD\n\n4. Active or latent tuberculosis not adequately treated\n\n5. History of herpes zoster within 12 months\n\n6. History of lymphoproliferative disease or known malignancy within 5 years\n\n7. History of venous thromboembolism or pulmonary embolism\n\n8. Current liver disease or ALT/AST > 2x ULN\n\n9. Known HIV, Hepatitis B or C infection\n\n10. Pregnant or breastfeeding",
+  "inclusion_criteria": [
+    {"index": 0, "text": "Adults aged 18-75 years", "category": "inclusion"},
+    {"index": 1, "text": "Diagnosis of rheumatoid arthritis per 2010 ACR/EULAR classification criteria for >= 3 months", "category": "inclusion"},
+    {"index": 2, "text": "Active disease: >= 6 swollen joints (66 joint count) and >= 6 tender joints (68 joint count)", "category": "inclusion"},
+    {"index": 3, "text": "DAS28-CRP > 5.1 (high disease activity) at screening", "category": "inclusion"},
+    {"index": 4, "text": "Inadequate response to at least one csDMARD (methotrexate, leflunomide, sulfasalazine, or hydroxychloroquine)", "category": "inclusion"},
+    {"index": 5, "text": "On stable background methotrexate (10-25 mg/week) for >= 4 weeks prior to baseline", "category": "inclusion"},
+    {"index": 6, "text": "CRP > 0.5 mg/dL or ESR > 28 mm/hr at screening", "category": "inclusion"},
+    {"index": 7, "text": "Positive rheumatoid factor (RF) or anti-CCP antibody", "category": "inclusion"},
+    {"index": 8, "text": "Screening labs: ANC >= 1000/μL, lymphocyte count >= 500/μL, hemoglobin >= 8 g/dL, platelets >= 50,000/μL", "category": "inclusion"},
+    {"index": 9, "text": "eGFR >= 40 mL/min/1.73m²", "category": "inclusion"},
+    {"index": 10, "text": "Written informed consent", "category": "inclusion"},
+    {"index": 11, "text": "Chest radiograph within 3 months showing no active TB or other significant pulmonary disease", "category": "inclusion"}
+  ],
+  "exclusion_criteria": [
+    {"index": 0, "text": "Prior use of any JAK inhibitor", "category": "exclusion"},
+    {"index": 1, "text": "Prior treatment with more than one biologic DMARD (bDMARD)", "category": "exclusion"},
+    {"index": 2, "text": "Current or recent (within 4 weeks) use of bDMARD", "category": "exclusion"},
+    {"index": 3, "text": "Active or latent tuberculosis not adequately treated", "category": "exclusion"},
+    {"index": 4, "text": "History of herpes zoster within 12 months", "category": "exclusion"},
+    {"index": 5, "text": "History of lymphoproliferative disease or known malignancy within 5 years", "category": "exclusion"},
+    {"index": 6, "text": "History of venous thromboembolism or pulmonary embolism", "category": "exclusion"},
+    {"index": 7, "text": "Current liver disease or ALT/AST > 2x ULN", "category": "exclusion"},
+    {"index": 8, "text": "Known HIV, Hepatitis B or C infection", "category": "exclusion"},
+    {"index": 9, "text": "Pregnant or breastfeeding", "category": "exclusion"}
+  ],
+  "min_age": "18 Years",
+  "max_age": "75 Years",
+  "sex": "ALL",
+  "sites": [
+    {"facility": "Hospital for Special Surgery Rheumatology Division", "city": "New York", "country": "United States", "contact_name": "Dr. Steven Goldberg", "contact_email": "s.goldberg@hss.example.org"},
+    {"facility": "Universidade de São Paulo Hospital das Clínicas", "city": "São Paulo", "country": "Brazil", "contact_name": "Dr. Ana Beatriz Lima", "contact_email": "ab.lima@hcusp.example.br"}
+  ],
+  "source_registry": "sandbox",
+  "metadata": {}
+}

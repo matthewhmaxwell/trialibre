@@ -1,0 +1,48 @@
+{
+  "nct_id": "SAMPLE-NCT-022",
+  "brief_title": "R21/Matrix-M Malaria Vaccine in Healthy Young Children in Endemic Areas",
+  "official_title": "A Phase 2, Randomized, Controlled Study of the R21/Matrix-M Malaria Vaccine Administered as a Three-Dose Primary Series in Healthy Children Aged 5-17 Months in Malaria-Endemic Areas",
+  "diseases": ["Malaria Prevention", "Plasmodium falciparum"],
+  "interventions": ["R21/Matrix-M vaccine 5μg R21 + 50μg Matrix-M adjuvant IM, 3 doses at 4-week intervals", "Rabies vaccine (Verorab) as active comparator, IM, 3 doses at 4-week intervals"],
+  "brief_summary": "This Phase 2 study evaluates the efficacy and safety of the R21/Matrix-M malaria vaccine in healthy children aged 5-17 months in malaria-endemic areas. The primary endpoint is vaccine efficacy against clinical malaria (defined as fever >= 37.5°C plus P. falciparum parasitemia > 5000/μL) over 12 months of follow-up.",
+  "phase": "Phase 2",
+  "status": "Recruiting",
+  "enrollment": 900,
+  "sponsor": "Jenner Vaccine Institute",
+  "start_date": "2025-04-01",
+  "completion_date": "2027-09-30",
+  "raw_inclusion_text": "1. Healthy children aged 5-17 months at first vaccination\n\n2. Residing in the study area with no plans to relocate within 18 months\n\n3. Written informed consent from parent/guardian\n\n4. Up to date on routine EPI vaccinations per local schedule\n\n5. Body weight >= 5 kg and appropriate weight-for-age (z-score >= -3)\n\n6. No acute illness or fever (>= 37.5°C) at time of vaccination\n\n7. Available for the full 18-month follow-up period\n\n8. No history of severe allergic reaction to any vaccine\n\n9. No blood product received within 3 months\n\n10. Parent/guardian able to bring child for scheduled visits",
+  "raw_exclusion_text": "1. Current acute malaria infection requiring treatment\n\n2. History of severe malaria\n\n3. Known immunodeficiency (including HIV-exposed uninfected on prophylaxis)\n\n4. Chronic use of immunosuppressive medications\n\n5. Known or suspected hypersensitivity to vaccine components\n\n6. Participation in another interventional vaccine trial\n\n7. Severe malnutrition (weight-for-height z-score < -3)\n\n8. Congenital abnormalities or chronic disease requiring ongoing treatment\n\n9. Receipt of another investigational vaccine or drug within 30 days",
+  "inclusion_criteria": [
+    {"index": 0, "text": "Healthy children aged 5-17 months at first vaccination", "category": "inclusion"},
+    {"index": 1, "text": "Residing in the study area with no plans to relocate within 18 months", "category": "inclusion"},
+    {"index": 2, "text": "Written informed consent from parent/guardian", "category": "inclusion"},
+    {"index": 3, "text": "Up to date on routine EPI vaccinations per local schedule", "category": "inclusion"},
+    {"index": 4, "text": "Body weight >= 5 kg and appropriate weight-for-age (z-score >= -3)", "category": "inclusion"},
+    {"index": 5, "text": "No acute illness or fever (>= 37.5°C) at time of vaccination", "category": "inclusion"},
+    {"index": 6, "text": "Available for the full 18-month follow-up period", "category": "inclusion"},
+    {"index": 7, "text": "No history of severe allergic reaction to any vaccine", "category": "inclusion"},
+    {"index": 8, "text": "No blood product received within 3 months", "category": "inclusion"},
+    {"index": 9, "text": "Parent/guardian able to bring child for scheduled visits", "category": "inclusion"}
+  ],
+  "exclusion_criteria": [
+    {"index": 0, "text": "Current acute malaria infection requiring treatment", "category": "exclusion"},
+    {"index": 1, "text": "History of severe malaria", "category": "exclusion"},
+    {"index": 2, "text": "Known immunodeficiency (including HIV-exposed uninfected on prophylaxis)", "category": "exclusion"},
+    {"index": 3, "text": "Chronic use of immunosuppressive medications", "category": "exclusion"},
+    {"index": 4, "text": "Known or suspected hypersensitivity to vaccine components", "category": "exclusion"},
+    {"index": 5, "text": "Participation in another interventional vaccine trial", "category": "exclusion"},
+    {"index": 6, "text": "Severe malnutrition (weight-for-height z-score < -3)", "category": "exclusion"},
+    {"index": 7, "text": "Congenital abnormalities or chronic disease requiring ongoing treatment", "category": "exclusion"},
+    {"index": 8, "text": "Receipt of another investigational vaccine or drug within 30 days", "category": "exclusion"}
+  ],
+  "min_age": "5 Months",
+  "max_age": "17 Months",
+  "sex": "ALL",
+  "sites": [
+    {"facility": "Kilifi County Hospital Clinical Trials Facility", "city": "Kilifi", "country": "Kenya", "contact_name": "Dr. Patricia Njuguna", "contact_email": "p.njuguna@kemri.example.ke"},
+    {"facility": "Centre National de Recherche et de Formation sur le Paludisme", "city": "Ouagadougou", "country": "Burkina Faso", "contact_name": "Dr. Sodiomon Sirima", "contact_email": "s.sirima@cnrfp.example.bf"}
+  ],
+  "source_registry": "sandbox",
+  "metadata": {}
+}

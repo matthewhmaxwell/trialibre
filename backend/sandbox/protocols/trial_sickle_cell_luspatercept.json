@@ -1,0 +1,48 @@
+{
+  "nct_id": "SAMPLE-NCT-018",
+  "brief_title": "Luspatercept for Transfusion-Dependent Anemia in Sickle Cell Disease",
+  "official_title": "A Phase 3, Randomized, Double-Blind, Placebo-Controlled Study of Luspatercept in Adults and Adolescents with Sickle Cell Disease and Transfusion-Dependent Anemia",
+  "diseases": ["Sickle Cell Disease", "Transfusion-Dependent Anemia", "Sickle Cell Anemia"],
+  "interventions": ["Luspatercept 1.0-1.75 mg/kg subcutaneous injection every 3 weeks", "Placebo subcutaneous injection every 3 weeks"],
+  "brief_summary": "This Phase 3 study evaluates the efficacy and safety of luspatercept, a modified activin receptor IIA fusion protein, in reducing transfusion burden in patients with sickle cell disease who require regular red blood cell transfusions. The primary endpoint is proportion achieving >= 33% reduction in transfusion burden over 24 weeks.",
+  "phase": "Phase 3",
+  "status": "Recruiting",
+  "enrollment": 300,
+  "sponsor": "Hematology Therapeutics Global",
+  "start_date": "2025-08-01",
+  "completion_date": "2028-02-28",
+  "raw_inclusion_text": "1. Adults and adolescents aged 16-65 years\n\n2. Confirmed sickle cell disease (HbSS, HbS/beta0-thalassemia, or HbSC)\n\n3. Transfusion-dependent: >= 4 RBC transfusion units in the 8 weeks prior to screening\n\n4. Chronic transfusion therapy for at least 6 months\n\n5. On stable dose of hydroxyurea for >= 3 months or not a candidate for hydroxyurea\n\n6. Serum ferritin >= 300 ng/mL (evidence of iron loading)\n\n7. ECOG Performance Status 0-2\n\n8. Adequate hepatic function (ALT/AST <= 3x ULN)\n\n9. eGFR >= 40 mL/min/1.73m²\n\n10. Written informed consent",
+  "raw_exclusion_text": "1. Prior treatment with luspatercept or sotatercept\n\n2. Prior hematopoietic stem cell transplant or gene therapy\n\n3. Planned hematopoietic stem cell transplant during study period\n\n4. Uncontrolled hypertension\n\n5. History of thromboembolic events within past 12 months\n\n6. Concurrent use of erythropoiesis-stimulating agents\n\n7. Active infection requiring systemic antibiotic or antiviral therapy\n\n8. Pregnant, breastfeeding, or planning pregnancy\n\n9. Known hypersensitivity to luspatercept or excipients",
+  "inclusion_criteria": [
+    {"index": 0, "text": "Adults and adolescents aged 16-65 years", "category": "inclusion"},
+    {"index": 1, "text": "Confirmed sickle cell disease (HbSS, HbS/beta0-thalassemia, or HbSC)", "category": "inclusion"},
+    {"index": 2, "text": "Transfusion-dependent: >= 4 RBC transfusion units in the 8 weeks prior to screening", "category": "inclusion"},
+    {"index": 3, "text": "Chronic transfusion therapy for at least 6 months", "category": "inclusion"},
+    {"index": 4, "text": "On stable dose of hydroxyurea for >= 3 months or not a candidate for hydroxyurea", "category": "inclusion"},
+    {"index": 5, "text": "Serum ferritin >= 300 ng/mL (evidence of iron loading)", "category": "inclusion"},
+    {"index": 6, "text": "ECOG Performance Status 0-2", "category": "inclusion"},
+    {"index": 7, "text": "Adequate hepatic function (ALT/AST <= 3x ULN)", "category": "inclusion"},
+    {"index": 8, "text": "eGFR >= 40 mL/min/1.73m²", "category": "inclusion"},
+    {"index": 9, "text": "Written informed consent", "category": "inclusion"}
+  ],
+  "exclusion_criteria": [
+    {"index": 0, "text": "Prior treatment with luspatercept or sotatercept", "category": "exclusion"},
+    {"index": 1, "text": "Prior hematopoietic stem cell transplant or gene therapy", "category": "exclusion"},
+    {"index": 2, "text": "Planned hematopoietic stem cell transplant during study period", "category": "exclusion"},
+    {"index": 3, "text": "Uncontrolled hypertension", "category": "exclusion"},
+    {"index": 4, "text": "History of thromboembolic events within past 12 months", "category": "exclusion"},
+    {"index": 5, "text": "Concurrent use of erythropoiesis-stimulating agents", "category": "exclusion"},
+    {"index": 6, "text": "Active infection requiring systemic antibiotic or antiviral therapy", "category": "exclusion"},
+    {"index": 7, "text": "Pregnant, breastfeeding, or planning pregnancy", "category": "exclusion"},
+    {"index": 8, "text": "Known hypersensitivity to luspatercept or excipients", "category": "exclusion"}
+  ],
+  "min_age": "16 Years",
+  "max_age": "65 Years",
+  "sex": "ALL",
+  "sites": [
+    {"facility": "St. Jude Children's Research Hospital", "city": "Memphis", "country": "United States", "contact_name": "Dr. Keisha Williams", "contact_email": "k.williams@stjude.example.org"},
+    {"facility": "Korle Bu Teaching Hospital Sickle Cell Clinic", "city": "Accra", "country": "Ghana", "contact_name": "Dr. Kwame Asante", "contact_email": "k.asante@kbth.example.gh"}
+  ],
+  "source_registry": "sandbox",
+  "metadata": {}
+}

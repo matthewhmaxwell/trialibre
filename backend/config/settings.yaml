@@ -1,0 +1,52 @@
+# Trialibre Configuration
+# Override any setting via environment variables: CTM_<SECTION>__<KEY>=value
+
+llm:
+  provider: anthropic
+  model: claude-sonnet-4-20250514
+  temperature: 0.0
+  max_retries: 5
+
+embedding:
+  provider: sentence_transformer
+  model: "pritamdeka/PubMedBERT-mnli-snli-scinli-scitail-mednli-stsb"
+  device: auto
+
+retrieval:
+  top_n: 2000
+  fusion_k: 20
+  enable_bm25: true
+  enable_dense: false
+
+matching:
+  max_criteria_per_prompt: 15
+  concurrency: 5
+  append_consent_sentence: false
+
+ranking:
+  matching_weight: 0.5
+  aggregation_weight: 0.5
+  strong_match_threshold: 0.7
+  possible_match_threshold: 0.4
+
+privacy:
+  level: maximum
+  deid_mode: auto
+  delete_after_match: true
+  retain_match_logs: false
+  allow_local_storage: false
+
+database:
+  backend: sqlite
+  sqlite_path: trialibre.db
+
+audit:
+  enabled: true
+  crypto_chain: true
+  log_prompts: true
+
+sandbox:
+  enabled: false
+
+language: en
+log_level: INFO

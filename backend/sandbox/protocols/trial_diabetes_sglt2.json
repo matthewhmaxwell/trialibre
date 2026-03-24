@@ -1,0 +1,49 @@
+{
+  "nct_id": "SAMPLE-NCT-001",
+  "brief_title": "Dapagliflozin vs Placebo in Adults with Inadequately Controlled Type 2 Diabetes on Metformin",
+  "official_title": "A Randomized, Double-Blind, Placebo-Controlled Phase 3 Study Evaluating the Efficacy and Safety of Dapagliflozin 10mg in Adults with Type 2 Diabetes Mellitus Inadequately Controlled on Metformin Monotherapy",
+  "diseases": ["Type 2 Diabetes Mellitus"],
+  "interventions": ["Dapagliflozin 10mg oral tablet once daily", "Placebo oral tablet once daily"],
+  "brief_summary": "This Phase 3 randomized, double-blind, placebo-controlled study evaluates the efficacy and safety of dapagliflozin 10mg added to metformin in adults with type 2 diabetes mellitus who have inadequate glycemic control on metformin monotherapy. The primary endpoint is change in HbA1c from baseline at 24 weeks.",
+  "phase": "Phase 3",
+  "status": "Recruiting",
+  "enrollment": 680,
+  "sponsor": "Meridian Therapeutics Inc.",
+  "start_date": "2025-06-01",
+  "completion_date": "2027-08-31",
+  "raw_inclusion_text": "1. Adults aged 18-75 years at screening\n\n2. Diagnosis of type 2 diabetes mellitus for at least 6 months\n\n3. Currently on stable metformin monotherapy (>=1500 mg/day) for at least 12 weeks prior to screening\n\n4. HbA1c between 7.5% and 10.0% (inclusive) at screening\n\n5. Body mass index (BMI) between 25 and 45 kg/m²\n\n6. Estimated glomerular filtration rate (eGFR) >= 45 mL/min/1.73m²\n\n7. Fasting plasma glucose <= 270 mg/dL at screening\n\n8. Willingness to perform self-monitoring of blood glucose\n\n9. Women of childbearing potential must use adequate contraception\n\n10. Able to provide written informed consent",
+  "raw_exclusion_text": "1. Type 1 diabetes mellitus or latent autoimmune diabetes in adults (LADA)\n\n2. History of diabetic ketoacidosis\n\n3. Use of any antidiabetic medication other than metformin within 12 weeks of screening\n\n4. eGFR < 45 mL/min/1.73m²\n\n5. History of recurrent urinary tract infections (>= 3 in past year)\n\n6. History of recurrent genital mycotic infections\n\n7. Uncontrolled hypertension (systolic BP > 180 mmHg or diastolic BP > 110 mmHg)\n\n8. New York Heart Association (NYHA) Class IV heart failure\n\n9. Pregnant or breastfeeding women\n\n10. Known hypersensitivity to SGLT2 inhibitors",
+  "inclusion_criteria": [
+    {"index": 0, "text": "Adults aged 18-75 years at screening", "category": "inclusion"},
+    {"index": 1, "text": "Diagnosis of type 2 diabetes mellitus for at least 6 months", "category": "inclusion"},
+    {"index": 2, "text": "Currently on stable metformin monotherapy (>=1500 mg/day) for at least 12 weeks prior to screening", "category": "inclusion"},
+    {"index": 3, "text": "HbA1c between 7.5% and 10.0% (inclusive) at screening", "category": "inclusion"},
+    {"index": 4, "text": "Body mass index (BMI) between 25 and 45 kg/m²", "category": "inclusion"},
+    {"index": 5, "text": "Estimated glomerular filtration rate (eGFR) >= 45 mL/min/1.73m²", "category": "inclusion"},
+    {"index": 6, "text": "Fasting plasma glucose <= 270 mg/dL at screening", "category": "inclusion"},
+    {"index": 7, "text": "Willingness to perform self-monitoring of blood glucose", "category": "inclusion"},
+    {"index": 8, "text": "Women of childbearing potential must use adequate contraception", "category": "inclusion"},
+    {"index": 9, "text": "Able to provide written informed consent", "category": "inclusion"}
+  ],
+  "exclusion_criteria": [
+    {"index": 0, "text": "Type 1 diabetes mellitus or latent autoimmune diabetes in adults (LADA)", "category": "exclusion"},
+    {"index": 1, "text": "History of diabetic ketoacidosis", "category": "exclusion"},
+    {"index": 2, "text": "Use of any antidiabetic medication other than metformin within 12 weeks of screening", "category": "exclusion"},
+    {"index": 3, "text": "eGFR < 45 mL/min/1.73m²", "category": "exclusion"},
+    {"index": 4, "text": "History of recurrent urinary tract infections (>= 3 in past year)", "category": "exclusion"},
+    {"index": 5, "text": "History of recurrent genital mycotic infections", "category": "exclusion"},
+    {"index": 6, "text": "Uncontrolled hypertension (systolic BP > 180 mmHg or diastolic BP > 110 mmHg)", "category": "exclusion"},
+    {"index": 7, "text": "New York Heart Association (NYHA) Class IV heart failure", "category": "exclusion"},
+    {"index": 8, "text": "Pregnant or breastfeeding women", "category": "exclusion"},
+    {"index": 9, "text": "Known hypersensitivity to SGLT2 inhibitors", "category": "exclusion"}
+  ],
+  "min_age": "18 Years",
+  "max_age": "75 Years",
+  "sex": "ALL",
+  "sites": [
+    {"facility": "Cleveland Clinic Endocrinology Center", "city": "Cleveland", "country": "United States", "contact_name": "Dr. Sarah Mitchell", "contact_email": "mitchell.s@clevelandclinic.example.org"},
+    {"facility": "Charité Universitätsmedizin Berlin", "city": "Berlin", "country": "Germany", "contact_name": "Dr. Klaus Weber", "contact_email": "k.weber@charite.example.de"}
+  ],
+  "source_registry": "sandbox",
+  "metadata": {}
+}

@@ -1,0 +1,50 @@
+{
+  "nct_id": "SAMPLE-NCT-017",
+  "brief_title": "Gene Therapy with LentiGlobin for Severe Sickle Cell Disease",
+  "official_title": "A Phase 1/2, Open-Label Study of Gene Therapy with LentiGlobin BB305 (Autologous CD34+ Cells Transduced with BB305 Lentiviral Vector Encoding Beta-A-T87Q-Globin) in Patients with Severe Sickle Cell Disease",
+  "diseases": ["Sickle Cell Disease", "Sickle Cell Anemia", "Hemoglobin SS Disease"],
+  "interventions": ["LentiGlobin BB305 gene therapy (autologous transplant of gene-modified CD34+ hematopoietic stem cells)"],
+  "brief_summary": "This Phase 1/2 open-label study evaluates the safety and efficacy of LentiGlobin gene therapy in patients with severe sickle cell disease (HbSS genotype) who experience frequent vaso-occlusive crises. The primary endpoints are safety (engraftment, adverse events) and proportion of patients achieving sustained HbAT87Q expression.",
+  "phase": "Phase 1/Phase 2",
+  "status": "Recruiting",
+  "enrollment": 40,
+  "sponsor": "GeneCure Hematology Inc.",
+  "start_date": "2025-06-01",
+  "completion_date": "2029-06-30",
+  "raw_inclusion_text": "1. Patients aged 12-35 years\n\n2. Confirmed diagnosis of sickle cell disease (HbSS) by hemoglobin electrophoresis or HPLC\n\n3. History of >= 4 vaso-occlusive crises (VOC) requiring medical attention in the preceding 24 months\n\n4. Adequate organ function: cardiac ejection fraction >= 40%, pulmonary function tests >= 50% predicted\n\n5. eGFR >= 60 mL/min/1.73m²\n\n6. Karnofsky/Lansky performance score >= 60\n\n7. Failed or intolerant to hydroxyurea, or hydroxyurea not appropriate\n\n8. Negative for HIV-1/2 antibodies, HTLV-1/2, HBsAg, and HCV RNA\n\n9. Female patients of childbearing potential must use contraception for 12 months post-transplant\n\n10. Written informed consent (or parental consent with assent)\n\n11. Willingness to undergo myeloablative conditioning with busulfan\n\n12. Adequate venous access for apheresis",
+  "raw_exclusion_text": "1. Availability of a matched sibling donor for allogeneic transplant (unless patient declines)\n\n2. Prior allogeneic or autologous hematopoietic stem cell transplant\n\n3. Presence of > 2 RBC alloantibodies\n\n4. History of stroke with permanent neurological deficit within 12 months\n\n5. Uncontrolled bacterial, viral, or fungal infection at time of enrollment\n\n6. Active or history of malignancy\n\n7. Severe iron overload (liver iron concentration > 15 mg Fe/g dry weight) not adequately managed\n\n8. Pregnant or breastfeeding\n\n9. Known myelodysplasia or clonal hematopoiesis",
+  "inclusion_criteria": [
+    {"index": 0, "text": "Patients aged 12-35 years", "category": "inclusion"},
+    {"index": 1, "text": "Confirmed diagnosis of sickle cell disease (HbSS) by hemoglobin electrophoresis or HPLC", "category": "inclusion"},
+    {"index": 2, "text": "History of >= 4 vaso-occlusive crises (VOC) requiring medical attention in the preceding 24 months", "category": "inclusion"},
+    {"index": 3, "text": "Adequate organ function: cardiac ejection fraction >= 40%, pulmonary function tests >= 50% predicted", "category": "inclusion"},
+    {"index": 4, "text": "eGFR >= 60 mL/min/1.73m²", "category": "inclusion"},
+    {"index": 5, "text": "Karnofsky/Lansky performance score >= 60", "category": "inclusion"},
+    {"index": 6, "text": "Failed or intolerant to hydroxyurea, or hydroxyurea not appropriate", "category": "inclusion"},
+    {"index": 7, "text": "Negative for HIV-1/2 antibodies, HTLV-1/2, HBsAg, and HCV RNA", "category": "inclusion"},
+    {"index": 8, "text": "Female patients of childbearing potential must use contraception for 12 months post-transplant", "category": "inclusion"},
+    {"index": 9, "text": "Written informed consent (or parental consent with assent)", "category": "inclusion"},
+    {"index": 10, "text": "Willingness to undergo myeloablative conditioning with busulfan", "category": "inclusion"},
+    {"index": 11, "text": "Adequate venous access for apheresis", "category": "inclusion"}
+  ],
+  "exclusion_criteria": [
+    {"index": 0, "text": "Availability of a matched sibling donor for allogeneic transplant (unless patient declines)", "category": "exclusion"},
+    {"index": 1, "text": "Prior allogeneic or autologous hematopoietic stem cell transplant", "category": "exclusion"},
+    {"index": 2, "text": "Presence of > 2 RBC alloantibodies", "category": "exclusion"},
+    {"index": 3, "text": "History of stroke with permanent neurological deficit within 12 months", "category": "exclusion"},
+    {"index": 4, "text": "Uncontrolled bacterial, viral, or fungal infection at time of enrollment", "category": "exclusion"},
+    {"index": 5, "text": "Active or history of malignancy", "category": "exclusion"},
+    {"index": 6, "text": "Severe iron overload (liver iron concentration > 15 mg Fe/g dry weight) not adequately managed", "category": "exclusion"},
+    {"index": 7, "text": "Pregnant or breastfeeding", "category": "exclusion"},
+    {"index": 8, "text": "Known myelodysplasia or clonal hematopoiesis", "category": "exclusion"}
+  ],
+  "min_age": "12 Years",
+  "max_age": "35 Years",
+  "sex": "ALL",
+  "sites": [
+    {"facility": "NIH Clinical Center Hematology Branch", "city": "Bethesda", "country": "United States", "contact_name": "Dr. Aisha Johnson", "contact_email": "a.johnson@nih.example.org"},
+    {"facility": "Hôpital Robert-Debré Sickle Cell Center", "city": "Paris", "country": "France", "contact_name": "Dr. Jean-Baptiste Moreau", "contact_email": "jb.moreau@aphp.example.fr"}
+  ],
+  "source_registry": "sandbox",
+  "metadata": {}
+}

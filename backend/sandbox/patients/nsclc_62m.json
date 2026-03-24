@@ -1,0 +1,45 @@
+{
+  "patient_id": "SAMPLE-002",
+  "raw_text": "ONCOLOGY CONSULTATION NOTE - Date: 2026-02-10\n\nPatient: 62-year-old Caucasian male referred for evaluation of progressive non-small cell lung cancer.\n\nHPI: Patient was diagnosed with Stage IIIB adenocarcinoma of the right lung 14 months ago after presenting with persistent cough and hemoptysis. Initial biopsy confirmed adenocarcinoma, EGFR wild-type, ALK negative, ROS1 negative, PD-L1 TPS 60%. He completed 4 cycles of carboplatin/pemetrexed with partial response, followed by 2 cycles of maintenance pemetrexed before progression was noted on restaging CT showing enlarging primary mass and new mediastinal lymphadenopathy. He is a former smoker with a 35 pack-year history, quit 8 years ago. He reports mild dyspnea on exertion, decreased appetite with 8 lb weight loss over 2 months, and intermittent right-sided chest discomfort.\n\nVitals: BP 128/76 mmHg, HR 82 bpm, Temp 98.6F, RR 18, SpO2 94% RA. Weight 168 lbs, Height 5'11\", BMI 23.4.\n\nECOG Performance Status: 1\n\nPhysical Exam: Thin male appearing stated age. Decreased breath sounds right middle and lower lobes. No cervical or supraclavicular lymphadenopathy palpable. No hepatomegaly. No digital clubbing.\n\nLabs: CBC within normal limits. WBC 6.8, Hgb 12.4, Plt 198. CMP unremarkable. LDH 245 U/L (mildly elevated). CEA 12.4 ng/mL.\n\nImaging: CT chest/abdomen/pelvis (2026-02-05): 4.2 cm right hilar mass (previously 3.1 cm), subcarinal and right paratracheal lymphadenopathy. No distant metastases identified. Brain MRI negative.\n\nAssessment and Plan:\n1. Stage IIIB NSCLC (adenocarcinoma), progressive after first-line carboplatin/pemetrexed. Given PD-L1 TPS 60%, recommend pembrolizumab 200mg IV q3 weeks as second-line therapy.\n2. Obtain molecular profiling to rule out actionable mutations (KRAS G12C, MET exon 14).\n3. Supportive care: nutritional counseling, pulmonary rehabilitation.\n4. Restaging CT in 9 weeks. Follow-up in 3 weeks after first cycle.",
+  "language": "en",
+  "source_format": "text",
+  "age": 62,
+  "sex": "Male",
+  "diagnoses": [
+    "Stage IIIB non-small cell lung cancer (adenocarcinoma)",
+    "Progressive disease after first-line chemotherapy"
+  ],
+  "medications": [
+    "Pembrolizumab 200mg IV q3 weeks (planned)",
+    "Prior: Carboplatin/Pemetrexed x4 cycles",
+    "Prior: Maintenance Pemetrexed x2 cycles"
+  ],
+  "lab_values": {
+    "WBC": "6.8 x10^9/L",
+    "hemoglobin": "12.4 g/dL",
+    "platelets": "198 x10^9/L",
+    "LDH": "245 U/L",
+    "CEA": "12.4 ng/mL",
+    "PD-L1_TPS": "60%"
+  },
+  "medical_history": [
+    "Former smoker - 35 pack-year history, quit 2018",
+    "NSCLC diagnosed 2024-12",
+    "Completed first-line carboplatin/pemetrexed"
+  ],
+  "metadata": {
+    "ethnicity": "Caucasian",
+    "bmi": "23.4",
+    "smoking_status": "Former smoker (35 pack-years, quit 2018)",
+    "ecog_status": 1,
+    "tumor_stage": "IIIB",
+    "histology": "Adenocarcinoma",
+    "biomarkers": {
+      "EGFR": "Wild-type",
+      "ALK": "Negative",
+      "ROS1": "Negative",
+      "PD-L1_TPS": "60%"
+    },
+    "country": "United States"
+  }
+}

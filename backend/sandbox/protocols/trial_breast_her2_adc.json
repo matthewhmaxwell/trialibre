@@ -1,0 +1,49 @@
+{
+  "nct_id": "SAMPLE-NCT-005",
+  "brief_title": "Trastuzumab Deruxtecan in HER2-Positive Metastatic Breast Cancer After Prior Trastuzumab",
+  "official_title": "A Phase 3, Randomized, Open-Label Study of Trastuzumab Deruxtecan (T-DXd) Versus Treatment of Physician's Choice in Patients with HER2-Positive Unresectable or Metastatic Breast Cancer Previously Treated with Trastuzumab-Based Therapy",
+  "diseases": ["Breast Cancer", "HER2-Positive Breast Cancer", "Metastatic Breast Cancer"],
+  "interventions": ["Trastuzumab deruxtecan 5.4 mg/kg IV every 3 weeks", "Treatment of physician's choice (capecitabine + lapatinib, or trastuzumab + capecitabine)"],
+  "brief_summary": "This Phase 3 study evaluates the efficacy and safety of trastuzumab deruxtecan versus physician's choice therapy in patients with HER2-positive metastatic breast cancer who have received prior trastuzumab-based treatment. The co-primary endpoints are progression-free survival and overall survival.",
+  "phase": "Phase 3",
+  "status": "Recruiting",
+  "enrollment": 600,
+  "sponsor": "Avalon Oncology Partners",
+  "start_date": "2025-03-15",
+  "completion_date": "2028-09-30",
+  "raw_inclusion_text": "1. Women or men aged 18 years or older\n\n2. Histologically confirmed HER2-positive (IHC 3+ or ISH-amplified) breast cancer\n\n3. Unresectable or metastatic disease\n\n4. Prior treatment with trastuzumab and a taxane in any setting\n\n5. At least one and no more than three prior lines of anti-HER2 therapy in the metastatic setting\n\n6. ECOG Performance Status 0 or 1\n\n7. At least one measurable lesion per RECIST v1.1\n\n8. Left ventricular ejection fraction (LVEF) >= 50% by echocardiogram or MUGA\n\n9. Adequate organ and bone marrow function\n\n10. Known hormone receptor status\n\n11. Willingness to use adequate contraception\n\n12. Written informed consent",
+  "raw_exclusion_text": "1. Prior treatment with trastuzumab deruxtecan or any antibody-drug conjugate containing a topoisomerase I inhibitor\n\n2. History of interstitial lung disease or pneumonitis\n\n3. Clinically significant cardiac disease within past 6 months\n\n4. Uncontrolled brain metastases (treated and stable brain metastases allowed)\n\n5. Active autoimmune disease requiring systemic treatment\n\n6. Concurrent treatment with other anticancer therapy\n\n7. Known HIV, active HBV or HCV infection\n\n8. Pregnant or breastfeeding",
+  "inclusion_criteria": [
+    {"index": 0, "text": "Women or men aged 18 years or older", "category": "inclusion"},
+    {"index": 1, "text": "Histologically confirmed HER2-positive (IHC 3+ or ISH-amplified) breast cancer", "category": "inclusion"},
+    {"index": 2, "text": "Unresectable or metastatic disease", "category": "inclusion"},
+    {"index": 3, "text": "Prior treatment with trastuzumab and a taxane in any setting", "category": "inclusion"},
+    {"index": 4, "text": "At least one and no more than three prior lines of anti-HER2 therapy in the metastatic setting", "category": "inclusion"},
+    {"index": 5, "text": "ECOG Performance Status 0 or 1", "category": "inclusion"},
+    {"index": 6, "text": "At least one measurable lesion per RECIST v1.1", "category": "inclusion"},
+    {"index": 7, "text": "Left ventricular ejection fraction (LVEF) >= 50% by echocardiogram or MUGA", "category": "inclusion"},
+    {"index": 8, "text": "Adequate organ and bone marrow function", "category": "inclusion"},
+    {"index": 9, "text": "Known hormone receptor status", "category": "inclusion"},
+    {"index": 10, "text": "Willingness to use adequate contraception", "category": "inclusion"},
+    {"index": 11, "text": "Written informed consent", "category": "inclusion"}
+  ],
+  "exclusion_criteria": [
+    {"index": 0, "text": "Prior treatment with trastuzumab deruxtecan or any antibody-drug conjugate containing a topoisomerase I inhibitor", "category": "exclusion"},
+    {"index": 1, "text": "History of interstitial lung disease or pneumonitis", "category": "exclusion"},
+    {"index": 2, "text": "Clinically significant cardiac disease within past 6 months", "category": "exclusion"},
+    {"index": 3, "text": "Uncontrolled brain metastases (treated and stable brain metastases allowed)", "category": "exclusion"},
+    {"index": 4, "text": "Active autoimmune disease requiring systemic treatment", "category": "exclusion"},
+    {"index": 5, "text": "Concurrent treatment with other anticancer therapy", "category": "exclusion"},
+    {"index": 6, "text": "Known HIV, active HBV or HCV infection", "category": "exclusion"},
+    {"index": 7, "text": "Pregnant or breastfeeding", "category": "exclusion"}
+  ],
+  "min_age": "18 Years",
+  "max_age": "99 Years",
+  "sex": "ALL",
+  "sites": [
+    {"facility": "MD Anderson Cancer Center", "city": "Houston", "country": "United States", "contact_name": "Dr. Angela Rivera", "contact_email": "a.rivera@mdanderson.example.org"},
+    {"facility": "Instituto Nacional de Cancerología", "city": "Mexico City", "country": "Mexico", "contact_name": "Dr. Carlos Mendoza", "contact_email": "c.mendoza@incan.example.mx"}
+  ],
+  "source_registry": "sandbox",
+  "metadata": {}
+}

@@ -1,0 +1,54 @@
+{
+  "patient_id": "SAMPLE-006",
+  "raw_text": "NEPHROLOGY CLINIC NOTE - Date: 2026-02-24\n\nPatient: 55-year-old Hispanic female presenting for follow-up of chronic kidney disease stage 3b.\n\nHPI: Patient has a 12-year history of Type 2 diabetes mellitus and a 15-year history of hypertension. She was referred to nephrology 2 years ago when her eGFR declined below 45 mL/min/1.73m2. Current eGFR is 38 mL/min/1.73m2, down from 42 six months ago. She reports bilateral lower extremity edema that is worse at end of day, occasional nausea, and reduced appetite. She denies gross hematuria, dysuria, or flank pain. Her diabetes is managed with insulin glargine 24 units at bedtime and she monitors blood glucose daily. She has a history of diabetic retinopathy (non-proliferative) and peripheral neuropathy. She follows a renal diet with reduced sodium and protein intake.\n\nVitals: BP 148/92 mmHg, HR 76 bpm, Temp 98.3F, RR 16, SpO2 97% RA. Weight 176 lbs, Height 5'2\", BMI 32.2.\n\nPhysical Exam: Overweight female, no acute distress. Bilateral 1+ pitting edema to mid-shins. AV fistula not present. Heart RRR, S4 gallop noted. Lungs clear. Abdomen obese, non-tender.\n\nLabs: Creatinine 1.6 mg/dL, BUN 34 mg/dL, eGFR 38 mL/min/1.73m2. Potassium 4.8 mEq/L. Bicarbonate 20 mEq/L. Phosphorus 4.9 mg/dL. Calcium 8.8 mg/dL. Albumin 3.4 g/dL. Hemoglobin 10.8 g/dL. HbA1c 7.8%. UACR 580 mg/g (A3 - severely increased). Intact PTH 88 pg/mL.\n\nAssessment and Plan:\n1. CKD Stage 3b (eGFR 38), likely diabetic nephropathy with severe albuminuria. Continue lisinopril 20mg daily for renoprotection. Add finerenone 10mg daily given persistent albuminuria despite ACEi.\n2. Metabolic acidosis - start sodium bicarbonate 650mg TID.\n3. CKD-associated anemia (Hgb 10.8) - check iron studies, consider ESA if iron-replete.\n4. Secondary hyperparathyroidism - start calcitriol 0.25mcg daily. Dietary phosphorus restriction reinforced.\n5. Type 2 diabetes - continue insulin glargine 24 units QHS, target HbA1c <8% given CKD.\n6. Hypertension - increase lisinopril to 40mg daily, target BP <130/80.\n7. AV fistula planning discussion if eGFR continues to decline. Follow-up in 3 months.",
+  "language": "en",
+  "source_format": "text",
+  "age": 55,
+  "sex": "Female",
+  "diagnoses": [
+    "Chronic kidney disease stage 3b",
+    "Diabetic nephropathy with severe albuminuria",
+    "Type 2 diabetes mellitus",
+    "Essential hypertension",
+    "CKD-associated anemia",
+    "Secondary hyperparathyroidism",
+    "Metabolic acidosis"
+  ],
+  "medications": [
+    "Lisinopril 20mg daily (to be increased to 40mg)",
+    "Insulin glargine 24 units QHS",
+    "Finerenone 10mg daily (newly initiated)",
+    "Sodium bicarbonate 650mg TID (newly initiated)",
+    "Calcitriol 0.25mcg daily (newly initiated)"
+  ],
+  "lab_values": {
+    "creatinine": "1.6 mg/dL",
+    "BUN": "34 mg/dL",
+    "eGFR": "38 mL/min/1.73m2",
+    "potassium": "4.8 mEq/L",
+    "bicarbonate": "20 mEq/L",
+    "phosphorus": "4.9 mg/dL",
+    "calcium": "8.8 mg/dL",
+    "albumin": "3.4 g/dL",
+    "hemoglobin": "10.8 g/dL",
+    "HbA1c": "7.8%",
+    "UACR": "580 mg/g",
+    "intact_PTH": "88 pg/mL"
+  },
+  "medical_history": [
+    "Type 2 diabetes mellitus diagnosed 2014",
+    "Hypertension diagnosed 2011",
+    "Non-proliferative diabetic retinopathy",
+    "Diabetic peripheral neuropathy",
+    "CKD stage 3b diagnosed 2024"
+  ],
+  "metadata": {
+    "ethnicity": "Hispanic",
+    "bmi": "32.2",
+    "smoking_status": "Never smoker",
+    "ecog_status": null,
+    "ckd_stage": "3b",
+    "albuminuria_category": "A3 - severely increased",
+    "country": "United States"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "patient_id": "SAMPLE-003",
+  "raw_text": "ONCOLOGY FOLLOW-UP NOTE - Date: 2026-03-02\n\nPatient: 38-year-old Asian female presenting for evaluation of recurrent HER2-positive breast cancer with hepatic metastases.\n\nHPI: Patient was initially diagnosed with Stage IIA (T2N0M0) HER2-positive, ER-negative, PR-negative invasive ductal carcinoma of the left breast 2 years ago. She underwent lumpectomy with sentinel lymph node biopsy (0/3 nodes positive), followed by adjuvant dose-dense AC-THP (doxorubicin/cyclophosphamide followed by paclitaxel, trastuzumab, and pertuzumab). She completed 1 year of adjuvant trastuzumab. Surveillance imaging 3 weeks ago revealed 3 hepatic lesions (largest 2.8 cm in segment VI). Liver biopsy confirmed metastatic HER2-positive breast carcinoma. She reports mild right upper quadrant discomfort, fatigue, and unintentional weight loss of 5 lbs over 6 weeks. No bone pain, headaches, or neurological symptoms.\n\nVitals: BP 118/72 mmHg, HR 74 bpm, Temp 98.2F, RR 14, SpO2 99% RA. Weight 128 lbs, Height 5'3\", BMI 22.7.\n\nECOG Performance Status: 0\n\nPhysical Exam: Well-appearing. Left breast with well-healed surgical scar. No chest wall recurrence palpable. Mild hepatomegaly, liver edge palpable 2 cm below costal margin. No ascites. No peripheral lymphadenopathy.\n\nLabs: CBC normal. AST 48 U/L (mildly elevated), ALT 52 U/L, Alk Phos 145 U/L, total bilirubin 0.8 mg/dL. CA 15-3: 68 U/mL (elevated). LVEF on echocardiogram: 58% (normal).\n\nAssessment and Plan:\n1. Recurrent HER2-positive breast cancer with hepatic metastases. Initiate trastuzumab deruxtecan (T-DXd) 5.4 mg/kg IV q3 weeks.\n2. Obtain CT chest/abdomen/pelvis and bone scan for complete restaging.\n3. Brain MRI to rule out CNS involvement.\n4. Genetic counseling referral for BRCA testing given age at diagnosis.\n5. Echocardiogram q3 months for cardiac monitoring.\n6. Follow-up in 3 weeks with restaging in 9 weeks.",
+  "language": "en",
+  "source_format": "text",
+  "age": 38,
+  "sex": "Female",
+  "diagnoses": [
+    "HER2-positive invasive ductal carcinoma of the left breast",
+    "Recurrent breast cancer with hepatic metastases",
+    "Stage IV breast cancer"
+  ],
+  "medications": [
+    "Trastuzumab deruxtecan 5.4 mg/kg IV q3 weeks (planned)",
+    "Prior: Adjuvant AC-THP regimen",
+    "Prior: Trastuzumab (completed 1 year)"
+  ],
+  "lab_values": {
+    "AST": "48 U/L",
+    "ALT": "52 U/L",
+    "alkaline_phosphatase": "145 U/L",
+    "total_bilirubin": "0.8 mg/dL",
+    "CA_15_3": "68 U/mL",
+    "LVEF": "58%"
+  },
+  "medical_history": [
+    "Stage IIA HER2+ breast cancer diagnosed 2024",
+    "Left breast lumpectomy with SLNB 2024",
+    "Completed adjuvant AC-THP and 1 year trastuzumab",
+    "No significant prior medical history"
+  ],
+  "metadata": {
+    "ethnicity": "Asian",
+    "bmi": "22.7",
+    "smoking_status": "Never smoker",
+    "ecog_status": 0,
+    "tumor_stage": "IV (recurrent)",
+    "receptor_status": {
+      "ER": "Negative",
+      "PR": "Negative",
+      "HER2": "Positive (IHC 3+)"
+    },
+    "country": "United States"
+  }
+}

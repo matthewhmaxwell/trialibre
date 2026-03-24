@@ -1,0 +1,49 @@
+{
+  "nct_id": "SAMPLE-NCT-006",
+  "brief_title": "Palbociclib Plus Letrozole in HR+/HER2- Advanced Breast Cancer",
+  "official_title": "A Phase 2, Randomized, Double-Blind Study of Palbociclib Combined with Letrozole Versus Letrozole Alone as First-Line Treatment in Postmenopausal Women with HR-Positive, HER2-Negative Advanced Breast Cancer",
+  "diseases": ["Breast Cancer", "HR-Positive Breast Cancer", "HER2-Negative Breast Cancer"],
+  "interventions": ["Palbociclib 125mg oral capsule daily (21 days on, 7 days off) plus Letrozole 2.5mg daily", "Placebo plus Letrozole 2.5mg daily"],
+  "brief_summary": "This Phase 2 study evaluates palbociclib in combination with letrozole versus letrozole alone as first-line therapy for postmenopausal women with hormone receptor-positive, HER2-negative advanced breast cancer. The primary endpoint is progression-free survival.",
+  "phase": "Phase 2",
+  "status": "Recruiting",
+  "enrollment": 450,
+  "sponsor": "Cascade Breast Cancer Institute",
+  "start_date": "2025-05-01",
+  "completion_date": "2028-04-30",
+  "raw_inclusion_text": "1. Postmenopausal women aged 18 years or older\n\n2. Histologically confirmed HR-positive (ER+ and/or PR+) breast cancer\n\n3. Confirmed HER2-negative status (IHC 0/1+ or ISH non-amplified)\n\n4. Locally advanced (not amenable to curative therapy) or metastatic disease\n\n5. No prior systemic therapy for advanced/metastatic breast cancer\n\n6. ECOG Performance Status 0-2\n\n7. At least one measurable or evaluable lesion\n\n8. Adequate bone marrow function (ANC >= 1000/μL, platelets >= 75,000/μL)\n\n9. Adequate hepatic function\n\n10. Adequate renal function (creatinine clearance >= 30 mL/min)\n\n11. QTcF < 480 ms on screening ECG\n\n12. Written informed consent",
+  "raw_exclusion_text": "1. HER2-positive breast cancer (IHC 3+ or ISH-amplified)\n\n2. Prior CDK4/6 inhibitor therapy\n\n3. Known CNS metastases unless previously treated and clinically stable\n\n4. Concurrent use of strong CYP3A4 inhibitors\n\n5. History of second malignancy within past 5 years (except adequately treated basal cell carcinoma)\n\n6. Major surgery within 2 weeks of randomization\n\n7. Inability to swallow oral medications\n\n8. Known HIV infection or active viral hepatitis",
+  "inclusion_criteria": [
+    {"index": 0, "text": "Postmenopausal women aged 18 years or older", "category": "inclusion"},
+    {"index": 1, "text": "Histologically confirmed HR-positive (ER+ and/or PR+) breast cancer", "category": "inclusion"},
+    {"index": 2, "text": "Confirmed HER2-negative status (IHC 0/1+ or ISH non-amplified)", "category": "inclusion"},
+    {"index": 3, "text": "Locally advanced (not amenable to curative therapy) or metastatic disease", "category": "inclusion"},
+    {"index": 4, "text": "No prior systemic therapy for advanced/metastatic breast cancer", "category": "inclusion"},
+    {"index": 5, "text": "ECOG Performance Status 0-2", "category": "inclusion"},
+    {"index": 6, "text": "At least one measurable or evaluable lesion", "category": "inclusion"},
+    {"index": 7, "text": "Adequate bone marrow function (ANC >= 1000/μL, platelets >= 75,000/μL)", "category": "inclusion"},
+    {"index": 8, "text": "Adequate hepatic function", "category": "inclusion"},
+    {"index": 9, "text": "Adequate renal function (creatinine clearance >= 30 mL/min)", "category": "inclusion"},
+    {"index": 10, "text": "QTcF < 480 ms on screening ECG", "category": "inclusion"},
+    {"index": 11, "text": "Written informed consent", "category": "inclusion"}
+  ],
+  "exclusion_criteria": [
+    {"index": 0, "text": "HER2-positive breast cancer (IHC 3+ or ISH-amplified)", "category": "exclusion"},
+    {"index": 1, "text": "Prior CDK4/6 inhibitor therapy", "category": "exclusion"},
+    {"index": 2, "text": "Known CNS metastases unless previously treated and clinically stable", "category": "exclusion"},
+    {"index": 3, "text": "Concurrent use of strong CYP3A4 inhibitors", "category": "exclusion"},
+    {"index": 4, "text": "History of second malignancy within past 5 years (except adequately treated basal cell carcinoma)", "category": "exclusion"},
+    {"index": 5, "text": "Major surgery within 2 weeks of randomization", "category": "exclusion"},
+    {"index": 6, "text": "Inability to swallow oral medications", "category": "exclusion"},
+    {"index": 7, "text": "Known HIV infection or active viral hepatitis", "category": "exclusion"}
+  ],
+  "min_age": "18 Years",
+  "max_age": "99 Years",
+  "sex": "FEMALE",
+  "sites": [
+    {"facility": "Dana-Farber Cancer Institute", "city": "Boston", "country": "United States", "contact_name": "Dr. Elizabeth Warren", "contact_email": "e.warren@dfci.example.org"},
+    {"facility": "Royal Marsden Hospital", "city": "London", "country": "United Kingdom", "contact_name": "Dr. Helen Brooks", "contact_email": "h.brooks@royalmarsden.example.uk"}
+  ],
+  "source_registry": "sandbox",
+  "metadata": {}
+}

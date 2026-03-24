@@ -1,0 +1,50 @@
+{
+  "nct_id": "SAMPLE-NCT-024",
+  "brief_title": "Short-Course Rifapentine-Isoniazid for Prevention of TB in Household Contacts",
+  "official_title": "A Phase 3, Randomized, Open-Label Study Comparing 3-Month Weekly Rifapentine Plus Isoniazid (3HP) to 6-Month Daily Isoniazid (6H) for Tuberculosis Prevention in Household Contacts of Confirmed Pulmonary TB Cases",
+  "diseases": ["Latent Tuberculosis Infection", "Tuberculosis Prevention"],
+  "interventions": ["Rifapentine 900mg + Isoniazid 900mg weekly for 12 weeks (3HP regimen)", "Isoniazid 300mg daily for 26 weeks (6H regimen)"],
+  "brief_summary": "This Phase 3 study compares the efficacy and completion rates of a 3-month weekly rifapentine-isoniazid regimen to 6-month daily isoniazid for prevention of tuberculosis in household contacts of confirmed pulmonary TB cases. The primary endpoint is incidence of active TB over 24 months of follow-up.",
+  "phase": "Phase 3",
+  "status": "Recruiting",
+  "enrollment": 3000,
+  "sponsor": "Global TB Prevention Network",
+  "start_date": "2025-01-15",
+  "completion_date": "2028-12-31",
+  "raw_inclusion_text": "1. Age >= 2 years (no upper age limit)\n\n2. Household contact of a microbiologically confirmed pulmonary TB case within the past 90 days\n\n3. Positive tuberculin skin test (>= 5 mm induration) or positive interferon-gamma release assay (IGRA)\n\n4. No evidence of active tuberculosis disease (based on symptom screen, chest radiograph, and sputum if indicated)\n\n5. No prior history of active tuberculosis disease\n\n6. No current treatment for latent TB infection\n\n7. Body weight >= 10 kg\n\n8. ALT <= 2x upper limit of normal at screening\n\n9. Not currently pregnant or planning pregnancy within 6 months\n\n10. Written informed consent (or parental consent for minors)\n\n11. Willing to attend all scheduled visits\n\n12. HIV-positive individuals eligible if on stable ART",
+  "raw_exclusion_text": "1. Active tuberculosis disease (pulmonary or extrapulmonary)\n\n2. Previous treatment for active or latent TB within the past 2 years\n\n3. Known resistance to isoniazid or rifampicin in the index case\n\n4. Severe hepatic disease or hepatitis (ALT > 5x ULN)\n\n5. Current use of antiretroviral agents with significant interaction with rifapentine (e.g., protease inhibitors)\n\n6. Known hypersensitivity to isoniazid, rifamycins, or rifapentine\n\n7. Currently on treatment with drugs that have significant interactions with rifapentine\n\n8. Porphyria\n\n9. Pregnant or breastfeeding",
+  "inclusion_criteria": [
+    {"index": 0, "text": "Age >= 2 years (no upper age limit)", "category": "inclusion"},
+    {"index": 1, "text": "Household contact of a microbiologically confirmed pulmonary TB case within the past 90 days", "category": "inclusion"},
+    {"index": 2, "text": "Positive tuberculin skin test (>= 5 mm induration) or positive interferon-gamma release assay (IGRA)", "category": "inclusion"},
+    {"index": 3, "text": "No evidence of active tuberculosis disease (based on symptom screen, chest radiograph, and sputum if indicated)", "category": "inclusion"},
+    {"index": 4, "text": "No prior history of active tuberculosis disease", "category": "inclusion"},
+    {"index": 5, "text": "No current treatment for latent TB infection", "category": "inclusion"},
+    {"index": 6, "text": "Body weight >= 10 kg", "category": "inclusion"},
+    {"index": 7, "text": "ALT <= 2x upper limit of normal at screening", "category": "inclusion"},
+    {"index": 8, "text": "Not currently pregnant or planning pregnancy within 6 months", "category": "inclusion"},
+    {"index": 9, "text": "Written informed consent (or parental consent for minors)", "category": "inclusion"},
+    {"index": 10, "text": "Willing to attend all scheduled visits", "category": "inclusion"},
+    {"index": 11, "text": "HIV-positive individuals eligible if on stable ART", "category": "inclusion"}
+  ],
+  "exclusion_criteria": [
+    {"index": 0, "text": "Active tuberculosis disease (pulmonary or extrapulmonary)", "category": "exclusion"},
+    {"index": 1, "text": "Previous treatment for active or latent TB within the past 2 years", "category": "exclusion"},
+    {"index": 2, "text": "Known resistance to isoniazid or rifampicin in the index case", "category": "exclusion"},
+    {"index": 3, "text": "Severe hepatic disease or hepatitis (ALT > 5x ULN)", "category": "exclusion"},
+    {"index": 4, "text": "Current use of antiretroviral agents with significant interaction with rifapentine (e.g., protease inhibitors)", "category": "exclusion"},
+    {"index": 5, "text": "Known hypersensitivity to isoniazid, rifamycins, or rifapentine", "category": "exclusion"},
+    {"index": 6, "text": "Currently on treatment with drugs that have significant interactions with rifapentine", "category": "exclusion"},
+    {"index": 7, "text": "Porphyria", "category": "exclusion"},
+    {"index": 8, "text": "Pregnant or breastfeeding", "category": "exclusion"}
+  ],
+  "min_age": "2 Years",
+  "max_age": "99 Years",
+  "sex": "ALL",
+  "sites": [
+    {"facility": "University of Cape Town Lung Institute", "city": "Cape Town", "country": "South Africa", "contact_name": "Dr. Thandi Nkosi", "contact_email": "t.nkosi@uct.example.za"},
+    {"facility": "BRAC James P Grant School of Public Health TB Clinic", "city": "Dhaka", "country": "Bangladesh", "contact_name": "Dr. Farzana Rahman", "contact_email": "f.rahman@brac.example.bd"}
+  ],
+  "source_registry": "sandbox",
+  "metadata": {}
+}

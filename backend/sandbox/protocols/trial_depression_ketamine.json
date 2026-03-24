@@ -1,0 +1,50 @@
+{
+  "nct_id": "SAMPLE-NCT-015",
+  "brief_title": "Esketamine Nasal Spray in Treatment-Resistant Major Depressive Disorder",
+  "official_title": "A Phase 3, Randomized, Double-Blind, Active-Controlled Study of Esketamine Nasal Spray Plus Newly Initiated Oral Antidepressant in Adults with Treatment-Resistant Major Depressive Disorder",
+  "diseases": ["Major Depressive Disorder", "Treatment-Resistant Depression"],
+  "interventions": ["Esketamine 56mg or 84mg nasal spray twice weekly for 4 weeks then weekly plus newly initiated oral antidepressant", "Placebo nasal spray plus newly initiated oral antidepressant"],
+  "brief_summary": "This Phase 3 study evaluates the efficacy, safety, and tolerability of esketamine nasal spray combined with a newly initiated oral antidepressant versus placebo nasal spray plus oral antidepressant in adults with treatment-resistant major depressive disorder. The primary endpoint is change in MADRS total score from baseline to day 28.",
+  "phase": "Phase 3",
+  "status": "Recruiting",
+  "enrollment": 480,
+  "sponsor": "Neuropsychiatric Therapeutics Consortium",
+  "start_date": "2025-03-01",
+  "completion_date": "2027-09-30",
+  "raw_inclusion_text": "1. Adults aged 18-65 years\n\n2. DSM-5 diagnosis of major depressive disorder (MDD) confirmed by structured interview\n\n3. Current major depressive episode duration >= 4 weeks\n\n4. Treatment-resistant depression: failure to achieve adequate response to at least 2 different antidepressants of adequate dose and duration in current episode\n\n5. MADRS total score >= 28 at screening and baseline\n\n6. Not currently receiving monoamine oxidase inhibitor (MAOI) therapy\n\n7. Medically stable based on physical examination and laboratory values\n\n8. Body weight >= 40 kg and BMI 18-40 kg/m²\n\n9. Reliable means of transportation to study site for supervised dosing sessions\n\n10. Written informed consent\n\n11. Willingness to remain at the study site for a minimum of 2 hours after each dosing session",
+  "raw_exclusion_text": "1. Current or lifetime history of psychotic disorder (schizophrenia, schizoaffective disorder)\n\n2. Bipolar disorder (type I or II)\n\n3. Current obsessive-compulsive disorder, PTSD, or eating disorder as primary diagnosis\n\n4. Moderate or severe substance use disorder within past 6 months (excluding tobacco)\n\n5. History of aneurysmal vascular disease or arteriovenous malformation\n\n6. Uncontrolled hypertension (systolic > 140 mmHg or diastolic > 90 mmHg at screening)\n\n7. Active suicidal ideation with intent or plan (Columbia C-SSRS score >= 4)\n\n8. Electroconvulsive therapy in current episode\n\n9. Pregnant or breastfeeding\n\n10. Known nasal pathology that would impair intranasal drug delivery",
+  "inclusion_criteria": [
+    {"index": 0, "text": "Adults aged 18-65 years", "category": "inclusion"},
+    {"index": 1, "text": "DSM-5 diagnosis of major depressive disorder (MDD) confirmed by structured interview", "category": "inclusion"},
+    {"index": 2, "text": "Current major depressive episode duration >= 4 weeks", "category": "inclusion"},
+    {"index": 3, "text": "Treatment-resistant depression: failure to achieve adequate response to at least 2 different antidepressants of adequate dose and duration in current episode", "category": "inclusion"},
+    {"index": 4, "text": "MADRS total score >= 28 at screening and baseline", "category": "inclusion"},
+    {"index": 5, "text": "Not currently receiving monoamine oxidase inhibitor (MAOI) therapy", "category": "inclusion"},
+    {"index": 6, "text": "Medically stable based on physical examination and laboratory values", "category": "inclusion"},
+    {"index": 7, "text": "Body weight >= 40 kg and BMI 18-40 kg/m²", "category": "inclusion"},
+    {"index": 8, "text": "Reliable means of transportation to study site for supervised dosing sessions", "category": "inclusion"},
+    {"index": 9, "text": "Written informed consent", "category": "inclusion"},
+    {"index": 10, "text": "Willingness to remain at the study site for a minimum of 2 hours after each dosing session", "category": "inclusion"}
+  ],
+  "exclusion_criteria": [
+    {"index": 0, "text": "Current or lifetime history of psychotic disorder (schizophrenia, schizoaffective disorder)", "category": "exclusion"},
+    {"index": 1, "text": "Bipolar disorder (type I or II)", "category": "exclusion"},
+    {"index": 2, "text": "Current obsessive-compulsive disorder, PTSD, or eating disorder as primary diagnosis", "category": "exclusion"},
+    {"index": 3, "text": "Moderate or severe substance use disorder within past 6 months (excluding tobacco)", "category": "exclusion"},
+    {"index": 4, "text": "History of aneurysmal vascular disease or arteriovenous malformation", "category": "exclusion"},
+    {"index": 5, "text": "Uncontrolled hypertension (systolic > 140 mmHg or diastolic > 90 mmHg at screening)", "category": "exclusion"},
+    {"index": 6, "text": "Active suicidal ideation with intent or plan (Columbia C-SSRS score >= 4)", "category": "exclusion"},
+    {"index": 7, "text": "Electroconvulsive therapy in current episode", "category": "exclusion"},
+    {"index": 8, "text": "Pregnant or breastfeeding", "category": "exclusion"},
+    {"index": 9, "text": "Known nasal pathology that would impair intranasal drug delivery", "category": "exclusion"}
+  ],
+  "min_age": "18 Years",
+  "max_age": "65 Years",
+  "sex": "ALL",
+  "sites": [
+    {"facility": "Massachusetts General Hospital Depression Clinical and Research Program", "city": "Boston", "country": "United States", "contact_name": "Dr. Patricia Sullivan", "contact_email": "p.sullivan@mgh.example.org"},
+    {"facility": "King's College London Institute of Psychiatry", "city": "London", "country": "United Kingdom", "contact_name": "Dr. Thomas Hayes", "contact_email": "t.hayes@kcl.example.uk"}
+  ],
+  "source_registry": "sandbox",
+  "metadata": {}
+}

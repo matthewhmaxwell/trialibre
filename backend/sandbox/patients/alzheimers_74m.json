@@ -1,0 +1,37 @@
+{
+  "patient_id": "SAMPLE-004",
+  "raw_text": "NEUROLOGY CLINIC NOTE - Date: 2026-01-28\n\nPatient: 74-year-old Caucasian male presenting for follow-up of progressive cognitive decline.\n\nHPI: Patient was first evaluated 18 months ago for complaints of short-term memory loss and difficulty managing household finances, reported by his wife. Initial neuropsychological testing at that time was consistent with mild cognitive impairment (MCI) - amnestic type. Over the past 6 months, his wife reports progressive decline: he has gotten lost driving to familiar locations twice, has difficulty following multi-step instructions, and occasionally does not recognize neighbors. He remains independent in basic ADLs (bathing, dressing, eating) but requires assistance with IADLs (finances, medication management, meal preparation). He was started on donepezil 5mg daily 12 months ago, titrated to 10mg daily 6 months ago. He lives at home with his wife who is his primary caregiver. No history of falls, hallucinations, or behavioral disturbances.\n\nVitals: BP 134/78 mmHg, HR 68 bpm, Temp 98.1F, RR 14, SpO2 97% RA. Weight 172 lbs, Height 5'10\", BMI 24.7.\n\nNeurological Exam: Alert, oriented to person and place but not date (states month and year incorrectly). MMSE score 22/30 (lost points on orientation, recall, and serial 7s). Clock drawing test: mildly impaired. Cranial nerves II-XII intact. Motor strength 5/5 throughout. Gait steady, no parkinsonism. No focal deficits.\n\nLabs: TSH 2.4 mIU/L (normal), B12 480 pg/mL (normal), RPR non-reactive. CBC and CMP within normal limits.\n\nImaging: MRI brain (2025-12-15): generalized cortical atrophy with prominent hippocampal atrophy (Scheltens grade 3 bilaterally). No acute infarcts, masses, or hydrocephalus. Moderate periventricular white matter hyperintensities.\n\nAssessment and Plan:\n1. Probable Alzheimer disease - early stage, progressed from MCI. Continue donepezil 10mg daily. Consider adding memantine 5mg daily with titration to 10mg BID.\n2. Discuss advance care planning and durable power of attorney with patient and spouse.\n3. Caregiver support resources and referral to Alzheimer's Association.\n4. Driving safety evaluation referral.\n5. Follow-up in 6 months with repeat cognitive testing.",
+  "language": "en",
+  "source_format": "text",
+  "age": 74,
+  "sex": "Male",
+  "diagnoses": [
+    "Probable Alzheimer disease - early stage",
+    "Mild cognitive impairment (amnestic type), progressing"
+  ],
+  "medications": [
+    "Donepezil 10mg daily",
+    "Memantine 5mg daily (planned initiation)"
+  ],
+  "lab_values": {
+    "MMSE": "22/30",
+    "TSH": "2.4 mIU/L",
+    "vitamin_B12": "480 pg/mL",
+    "RPR": "Non-reactive"
+  },
+  "medical_history": [
+    "Mild cognitive impairment diagnosed 2024",
+    "Hypertension - controlled",
+    "Benign prostatic hyperplasia",
+    "No prior strokes or TIAs"
+  ],
+  "metadata": {
+    "ethnicity": "Caucasian",
+    "bmi": "24.7",
+    "smoking_status": "Former smoker (quit 30 years ago)",
+    "ecog_status": null,
+    "living_situation": "Lives with spouse (primary caregiver)",
+    "adl_status": "Independent in basic ADLs, requires assistance with IADLs",
+    "country": "United States"
+  }
+}

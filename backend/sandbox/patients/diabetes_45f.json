@@ -1,0 +1,41 @@
+{
+  "patient_id": "SAMPLE-001",
+  "raw_text": "CLINICAL NOTE - Date: 2026-01-15\n\nPatient: 45-year-old African American female presenting for routine diabetes follow-up.\n\nHPI: Patient was diagnosed with Type 2 diabetes mellitus 4 years ago. She reports intermittent adherence to metformin due to GI side effects. She monitors her blood glucose 2-3 times per week with fasting readings typically 160-200 mg/dL. She reports increased thirst and nocturia x2 over the past month. She denies visual changes, numbness, or tingling in extremities. She also has a history of hypertension diagnosed in 2019, currently managed with amlodipine 5mg daily.\n\nVitals: BP 142/88 mmHg, HR 78 bpm, Temp 98.4F, RR 16, SpO2 98% RA. Weight 187 lbs, Height 5'5\", BMI 31.1.\n\nPhysical Exam: Alert and oriented. Heart RRR, no murmurs. Lungs CTA bilaterally. Abdomen soft, non-tender. Lower extremities without edema. Monofilament sensation intact bilaterally. Fundoscopic exam unremarkable.\n\nLabs: HbA1c 8.2% (up from 7.6% six months ago), fasting glucose 180 mg/dL, creatinine 0.9 mg/dL, eGFR >90, total cholesterol 218 mg/dL, LDL 138 mg/dL, triglycerides 195 mg/dL, microalbumin/creatinine ratio 22 mg/g.\n\nAssessment and Plan:\n1. Type 2 diabetes mellitus - suboptimal control. Continue metformin 1000mg BID, add empagliflozin 10mg daily. Reinforce dietary counseling and refer to diabetes educator. Recheck HbA1c in 3 months.\n2. Hypertension - borderline controlled. Increase amlodipine to 10mg daily. Home BP monitoring recommended.\n3. Dyslipidemia - initiate atorvastatin 20mg daily.\n4. Follow-up in 3 months with repeat labs.",
+  "language": "en",
+  "source_format": "text",
+  "age": 45,
+  "sex": "Female",
+  "diagnoses": [
+    "Type 2 diabetes mellitus",
+    "Essential hypertension",
+    "Dyslipidemia"
+  ],
+  "medications": [
+    "Metformin 1000mg BID",
+    "Amlodipine 5mg daily",
+    "Empagliflozin 10mg daily (newly initiated)",
+    "Atorvastatin 20mg daily (newly initiated)"
+  ],
+  "lab_values": {
+    "HbA1c": "8.2%",
+    "fasting_glucose": "180 mg/dL",
+    "creatinine": "0.9 mg/dL",
+    "eGFR": ">90 mL/min/1.73m2",
+    "total_cholesterol": "218 mg/dL",
+    "LDL": "138 mg/dL",
+    "triglycerides": "195 mg/dL",
+    "microalbumin_creatinine_ratio": "22 mg/g"
+  },
+  "medical_history": [
+    "Hypertension diagnosed 2019",
+    "Type 2 diabetes mellitus diagnosed 2022"
+  ],
+  "metadata": {
+    "ethnicity": "African American",
+    "bmi": "31.1",
+    "smoking_status": "Never smoker",
+    "ecog_status": null,
+    "insurance": "Private",
+    "country": "United States"
+  }
+}
