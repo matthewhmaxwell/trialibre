@@ -17,11 +17,15 @@ CTGOV_BASE = "https://clinicaltrials.gov/api/v2"
 class CTGovClient:
     """Async client for ClinicalTrials.gov v2 API."""
 
-    def __init__(self) -> None:
+    def __init__(self, verify_ssl: bool = True) -> None:
         self._client = httpx.AsyncClient(
             base_url=CTGOV_BASE,
             timeout=30.0,
-            headers={"Accept": "application/json"},
+            verify=verify_ssl,
+            headers={
+                "Accept": "application/json",
+                "User-Agent": "Trialibre/0.1 (clinical-trial-matching; +https://github.com/matthewhmaxwell/trialibre)",
+            },
         )
 
     async def search(

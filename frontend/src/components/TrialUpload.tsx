@@ -17,7 +17,8 @@ interface Props {
 
 export function TrialUpload({ onUpload }: Props) {
   const [expanded, setExpanded] = useState(false);
-  const [tab, setTab] = useState<'file' | 'paste'>('file');
+  const [tab, setTab] = useState<'file' | 'paste' | 'nct'>('file');
+  const [nctId, setNctId] = useState('');
   const [text, setText] = useState('');
   const [title, setTitle] = useState('');
   const [uploading, setUploading] = useState(false);
@@ -78,6 +79,39 @@ export function TrialUpload({ onUpload }: Props) {
     }
   };
 
+  const handleNct = async () => {
+    const id = nctId.trim();
+    if (!id) return;
+    setUploading(true);
+    setError('');
+    setResult(null);
+
+    try {
+      const resp = await fetch(`/api/v1/ingest/ctgov/${encodeURIComponent(id)}`, { method: 'POST' });
+      if (!resp.ok) {
+        const err = await resp.json().catch(() => ({ detail: 'Import failed' }));
+        throw new Error(err.detail || `HTTP ${resp.status}`);
+      }
+      const data = await resp.json();
+      const uploadResult: UploadResult = {
+        nct_id: data.nct_id,
+        brief_title: data.brief_title,
+        inclusion_count: data.inclusion_count,
+        exclusion_count: data.exclusion_count,
+        extraction_method: 'ctgov',
+        confidence: 'high',
+        source_format: 'ctgov',
+        warnings: data.already_loaded ? ['Trial was already loaded'] : [],
+      };
+      setResult(uploadResult);
+      onUpload(uploadResult);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Import failed');
+    } finally {
+      setUploading(false);
+    }
+  };
+
   if (!expanded) {
     return (
       <button onClick={() => setExpanded(true)}
@@ -111,6 +145,11 @@ export function TrialUpload({ onUpload }: Props) {
             ${tab === 'paste' ? 'border-blue-500 text-blue-600' : 'border-transparent text-gray-500'}`}>
           Paste Text
         </button>
+        <button onClick={() => setTab('nct')}
+          className={`px-3 py-1.5 text-sm font-medium border-b-2 transition-colors
+            ${tab === 'nct' ? 'border-blue-500 text-blue-600' : 'border-transparent text-gray-500'}`}>
+          NCT ID
+        </button>
       </div>
 
       {tab === 'file' && (
@@ -135,6 +174,22 @@ export function TrialUpload({ onUpload }: Props) {
             className="mt-2 px-4 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700 disabled:opacity-50">
             {uploading ? 'Extracting...' : 'Extract Criteria'}
           </button>
+        </div>
+      )}
+
+      {tab === 'nct' && (
+        <div>
+          <div className="flex gap-2">
+            <input type="text" value={nctId} onChange={e => setNctId(e.target.value)}
+              placeholder="NCT number (e.g. NCT04567890)"
+              className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm"
+              onKeyDown={e => e.key === 'Enter' && handleNct()} />
+            <button onClick={handleNct} disabled={uploading || !nctId.trim()}
+              className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700 disabled:opacity-50">
+              {uploading ? 'Importing...' : 'Import'}
+            </button>
+          </div>
+          <p className="text-xs text-gray-500 mt-2">Import a trial directly from ClinicalTrials.gov with full eligibility criteria and site locations</p>
         </div>
       )}
 

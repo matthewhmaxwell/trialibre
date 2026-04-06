@@ -168,3 +168,83 @@ async def ingest_trials(request: Request, file: UploadFile = File(...)):
         "count": len(trials),
         "trial_ids": [t.nct_id for t in trials],
     }
+
+
+async def _ctgov_curl_fallback(nct_id: str, client: "CTGovClient") -> "ClinicalTrial | None":
+    """Fallback: fetch from CT.gov via curl subprocess when httpx has SSL issues."""
+    import asyncio
+    import json as _json
+
+    proc = await asyncio.create_subprocess_exec(
+        "curl", "-s", f"https://clinicaltrials.gov/api/v2/studies/{nct_id}",
+        stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE,
+    )
+    stdout, _ = await proc.communicate()
+    if proc.returncode != 0 or not stdout:
+        return None
+    data = _json.loads(stdout.decode())
+    if "protocolSection" not in data:
+        return None
+    return client._parse_study(data)
+
+
+@router.post("/ingest/ctgov/{nct_id}")
+async def import_from_ctgov(request: Request, nct_id: str):
+    """Import a trial from ClinicalTrials.gov by NCT ID.
+
+    Fetches the trial from the CT.gov API, parses eligibility criteria,
+    and stores it for matching.
+    """
+    from ctm.data.registries.ctgov_client import CTGovClient
+
+    # Normalize NCT ID
+    nct_id = nct_id.strip().upper()
+    if not nct_id.startswith("NCT"):
+        nct_id = f"NCT{nct_id}"
+
+    # Check if already loaded
+    custom = getattr(request.app.state, "custom_trials", {})
+    if nct_id in custom:
+        t = custom[nct_id]
+        return {
+            "nct_id": t.nct_id,
+            "brief_title": t.brief_title,
+            "inclusion_count": len(t.inclusion_criteria),
+            "exclusion_count": len(t.exclusion_criteria),
+            "source": t.source_registry,
+            "already_loaded": True,
+        }
+
+    client = CTGovClient()
+    trial = None
+    try:
+        trial = await client.get_trial(nct_id)
+    except Exception:
+        # httpx may fail on some systems due to SSL/TLS issues — fall back to curl
+        logger.warning(f"httpx failed for {nct_id}, trying curl fallback")
+        try:
+            trial = await _ctgov_curl_fallback(nct_id, client)
+        except Exception as e:
+            raise HTTPException(502, f"Failed to reach ClinicalTrials.gov: {e}")
+    finally:
+        await client.close()
+
+    if trial is None:
+        raise HTTPException(404, f"Trial {nct_id} not found on ClinicalTrials.gov")
+
+    # Store
+    custom[trial.nct_id] = trial
+    request.app.state.custom_trials = custom
+
+    return {
+        "nct_id": trial.nct_id,
+        "brief_title": trial.brief_title,
+        "inclusion_count": len(trial.inclusion_criteria),
+        "exclusion_count": len(trial.exclusion_criteria),
+        "diseases": trial.diseases,
+        "phase": trial.phase,
+        "sponsor": trial.sponsor,
+        "sites_count": len(trial.sites),
+        "source": "ctgov",
+        "already_loaded": False,
+    }
