@@ -5,9 +5,12 @@ build-backend = "hatchling.build"
 [project]
 name = "trialibre"
 version = "0.1.0"
-description = "Clinical trial patient matching and enrollment management platform"
+description = "Open-source clinical trial matching platform — by the American Institute for Medical Research"
 readme = "README.md"
 license = "MIT"
+authors = [
+    { name = "American Institute for Medical Research", email = "engineering@aimr.org" },
+]
 requires-python = ">=3.11"
 dependencies = [
     # Core
@@ -85,6 +88,7 @@ dev = [
 
 [project.scripts]
 trialibre = "ctm.cli.main:cli"
+trialibre-tray = "ctm.cli.tray:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/ctm"]

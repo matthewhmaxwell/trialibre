@@ -1,0 +1,61 @@
+{
+  "app": {
+    "name": "Trialibre",
+    "tagline": "Encuentre ensayos clínicos para sus pacientes",
+    "org": "American Institute for Medical Research"
+  },
+  "wizard": {
+    "welcome_title": "Encuentre ensayos clínicos para sus pacientes.",
+    "welcome_subtitle": "Trialibre verifica la información de su paciente contra los criterios de elegibilidad de los ensayos y le muestra a cuáles puede calificar.",
+    "get_started": "Comenzar",
+    "skip": "Lo configuraré después",
+    "delete_after": "Eliminar datos del paciente después de cada búsqueda",
+    "keep_logs": "Mantener un registro de qué ensayos fueron encontrados",
+    "allow_storage": "Permitir que Trialibre guarde registros de pacientes localmente"
+  },
+  "match": {
+    "type_tab": "Escribir",
+    "upload_tab": "Subir",
+    "photo_tab": "Foto",
+    "placeholder": "Describa a su paciente. Por ejemplo: mujer de 45 años con diabetes tipo 2, HbA1c 8,2%, diagnosticada hace 3 años, actualmente con metformina 1000mg dos veces al día.",
+    "find_trials": "Buscar Ensayos",
+    "searching": "Buscando ensayos relevantes...",
+    "checking": "Verificando criterios de elegibilidad...",
+    "ranking": "Clasificando resultados...",
+    "found_summary": "Se encontraron {{count}} ensayos para los que su paciente puede calificar de {{total}} revisados.",
+    "no_results": "No se encontraron ensayos coincidentes",
+    "no_results_tips": "Intente agregar más detalles del paciente o ampliar su búsqueda.",
+    "strong": "Coincidencia Fuerte",
+    "possible": "Coincidencia Posible",
+    "unlikely": "Improbable",
+    "refer": "Referir Paciente",
+    "print": "Imprimir Resumen",
+    "view_details": "Ver Detalles",
+    "criteria_met": "Cumplido",
+    "criteria_not_met": "No Cumplido",
+    "criteria_unknown": "Por Verificar"
+  },
+  "nav": {
+    "match": "Buscar",
+    "batch": "Lote",
+    "dashboard": "Panel",
+    "trials": "Ensayos",
+    "settings": "Configuración"
+  },
+  "privacy": {
+    "private": "Privado",
+    "secure": "Seguro",
+    "stored": "Almacenado"
+  },
+  "sandbox": {
+    "banner": "Está usando datos de ejemplo. Configure su servicio de IA para pacientes reales."
+  },
+  "explainer": {
+    "title": "Cómo funciona la búsqueda",
+    "body": "Trialibre lee los requisitos de elegibilidad de cada ensayo y los verifica contra la información de su paciente, uno por uno. Coincidencia Fuerte = la mayoría de los criterios cumplidos. Coincidencia Posible = algunos no pudieron verificarse. Improbable = criterios clave no cumplidos. Una coincidencia no es una garantía — el centro del ensayo realiza su propia evaluación.",
+    "got_it": "Entendido"
+  },
+  "errors": {
+    "no_provider": "Ningún servicio de IA configurado. Usando datos de ejemplo."
+  }
+}

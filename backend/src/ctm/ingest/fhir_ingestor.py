@@ -59,8 +59,14 @@ class FhirIngestor:
     def _parse(self, source: str | bytes) -> dict:
         if isinstance(source, bytes):
             return json.loads(source.decode("utf-8"))
+        # Try as JSON string first, then as file path
+        if isinstance(source, str) and source.lstrip().startswith("{"):
+            try:
+                return json.loads(source)
+            except json.JSONDecodeError:
+                pass
         path = Path(source)
-        if path.exists():
+        if len(str(path)) < 1024 and path.exists():
             return json.loads(path.read_text())
         return json.loads(source)
 

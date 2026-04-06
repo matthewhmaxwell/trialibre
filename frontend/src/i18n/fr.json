@@ -1,0 +1,39 @@
+{
+  "app": {
+    "name": "Trialibre",
+    "tagline": "Trouvez des essais cliniques pour vos patients",
+    "org": "American Institute for Medical Research"
+  },
+  "wizard": {
+    "welcome_title": "Trouvez des essais cliniques pour vos patients.",
+    "welcome_subtitle": "Trialibre vérifie les informations de votre patient par rapport aux critères d'éligibilité des essais et vous montre les essais auxquels ils peuvent être éligibles.",
+    "get_started": "Commencer",
+    "skip": "Je configurerai plus tard"
+  },
+  "match": {
+    "type_tab": "Saisir",
+    "upload_tab": "Télécharger",
+    "photo_tab": "Photo",
+    "find_trials": "Rechercher des essais",
+    "strong": "Forte correspondance",
+    "possible": "Correspondance possible",
+    "unlikely": "Peu probable",
+    "refer": "Référer ce patient",
+    "print": "Imprimer le résumé"
+  },
+  "nav": {
+    "match": "Recherche",
+    "batch": "Lot",
+    "dashboard": "Tableau de bord",
+    "trials": "Essais",
+    "settings": "Paramètres"
+  },
+  "privacy": {
+    "private": "Privé",
+    "secure": "Sécurisé",
+    "stored": "Stocké"
+  },
+  "sandbox": {
+    "banner": "Vous utilisez des données d'exemple. Configurez votre service IA pour des patients réels."
+  }
+}

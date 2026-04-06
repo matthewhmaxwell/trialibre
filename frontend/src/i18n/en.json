@@ -1,0 +1,85 @@
+{
+  "app": {
+    "name": "Trialibre",
+    "tagline": "Find clinical trials for your patients",
+    "org": "American Institute for Medical Research"
+  },
+  "wizard": {
+    "welcome_title": "Find clinical trials for your patients.",
+    "welcome_subtitle": "Trialibre checks your patient's information against trial eligibility criteria and shows you which trials they may qualify for.",
+    "get_started": "Get Started",
+    "skip": "I'll set this up later",
+    "processing_title": "Choose how Trialibre processes patient information",
+    "local_title": "On Your Device",
+    "local_desc": "Patient data stays on your computer. Slower but nothing leaves your device.",
+    "local_badge": "Most Private",
+    "cloud_title": "Cloud Processing",
+    "cloud_desc": "Faster results. Data sent securely, then deleted.",
+    "paste_code": "Paste your access code",
+    "code_success": "Connected",
+    "code_fail": "That code didn't work. Double-check it or try a different one.",
+    "privacy_title": "Your patient data, your rules",
+    "delete_after": "Delete patient data after each match",
+    "keep_logs": "Keep a log of which trials were matched",
+    "allow_storage": "Allow Trialibre to save patient records locally"
+  },
+  "match": {
+    "type_tab": "Type It",
+    "upload_tab": "Upload",
+    "photo_tab": "Photo",
+    "placeholder": "Describe your patient. For example: 45-year-old female with Type 2 diabetes, HbA1c 8.2%, diagnosed 3 years ago, currently on metformin 1000mg twice daily.",
+    "find_trials": "Find Matching Trials",
+    "searching": "Searching for relevant trials...",
+    "checking": "Checking eligibility criteria...",
+    "ranking": "Ranking results...",
+    "found_summary": "Found {{count}} trials your patient may qualify for out of {{total}} reviewed.",
+    "no_results": "No matching trials found",
+    "no_results_tips": "Try adding more patient details or broadening your search.",
+    "strong": "Strong Match",
+    "possible": "Possible Match",
+    "unlikely": "Unlikely",
+    "strong_desc": "Patient appears to meet most eligibility criteria",
+    "possible_desc": "Some criteria could not be verified with available information",
+    "unlikely_desc": "Patient may not meet key eligibility criteria",
+    "refer": "Refer This Patient",
+    "print": "Print Summary",
+    "share": "Share via WhatsApp",
+    "save": "Save for Later",
+    "view_details": "View Details",
+    "criteria_met": "Met",
+    "criteria_not_met": "Not Met",
+    "criteria_unknown": "To Verify",
+    "see_original": "See original criterion"
+  },
+  "nav": {
+    "match": "Match",
+    "batch": "Batch",
+    "dashboard": "Dashboard",
+    "trials": "Trials",
+    "more": "More",
+    "settings": "Settings",
+    "reports": "Reports",
+    "referrals": "Referrals"
+  },
+  "privacy": {
+    "private": "Private",
+    "secure": "Secure",
+    "stored": "Stored"
+  },
+  "sandbox": {
+    "banner": "You're using sample data. Set up your AI service to match real patients.",
+    "try_sample": "Try with sample data"
+  },
+  "explainer": {
+    "title": "How matching works",
+    "body": "Trialibre reads each trial's eligibility requirements and checks them against your patient's information, one by one. Strong Match = most criteria met. Possible Match = some couldn't be verified. Unlikely = key criteria not met. A match is not a guarantee — the trial site does their own screening.",
+    "got_it": "Got it"
+  },
+  "errors": {
+    "ocr_partial": "We read most of your document, but some parts were unclear. Please check the highlighted text.",
+    "ocr_fail": "We couldn't read this document. Try better lighting or type the details instead.",
+    "offline": "You're offline. Saved matches are still available.",
+    "credits": "Your AI service balance is low. Matching may stop working soon.",
+    "no_provider": "No AI service configured. Using sample data."
+  }
+}

@@ -18,6 +18,10 @@ async def match_patient(request: Request, body: MatchRequest) -> MatchResponse:
     settings = request.app.state.settings
     llm = getattr(request.app.state, "llm", None)
 
+    # Auto-enable sandbox if no LLM is configured
+    if llm is None and not settings.sandbox.enabled:
+        settings.sandbox.enabled = True
+
     # Build patient note
     if not body.patient_text:
         raise HTTPException(400, "Patient text is required")

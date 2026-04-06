@@ -83,8 +83,11 @@ class Hl7v2Ingestor:
     def _read_message(self, source: str | bytes) -> str:
         if isinstance(source, bytes):
             return source.decode("utf-8", errors="replace")
+        # If it looks like an HL7 message (starts with MSH), treat as content
+        if isinstance(source, str) and source.lstrip().startswith("MSH"):
+            return source
         path = Path(source)
-        if path.exists():
+        if len(str(path)) < 1024 and path.exists():
             return path.read_text(encoding="utf-8", errors="replace")
         return source
 

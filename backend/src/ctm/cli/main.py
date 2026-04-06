@@ -46,8 +46,13 @@ def match(patient_text: str, max_trials: int):
         if not settings.sandbox.enabled:
             try:
                 llm = create_provider(settings.llm)
+                # Verify the provider has credentials
+                if not settings.llm.api_key and settings.llm.provider.value not in ("ollama", "openai_compat"):
+                    raise ValueError("No API key configured")
             except Exception:
+                click.echo("No LLM configured — using sandbox mode with sample data.")
                 settings.sandbox.enabled = True
+                llm = None
 
         patient = PatientNote(patient_id="cli-patient", raw_text=patient_text)
         trials = load_sample_protocols()

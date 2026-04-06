@@ -1,0 +1,61 @@
+{
+  "app": {
+    "name": "Trialibre",
+    "tagline": "Encontre ensaios clínicos para seus pacientes",
+    "org": "American Institute for Medical Research"
+  },
+  "wizard": {
+    "welcome_title": "Encontre ensaios clínicos para seus pacientes.",
+    "welcome_subtitle": "Trialibre verifica as informações do seu paciente contra os critérios de elegibilidade dos ensaios e mostra quais ensaios eles podem se qualificar.",
+    "get_started": "Começar",
+    "skip": "Configurarei depois",
+    "delete_after": "Excluir dados do paciente após cada correspondência",
+    "keep_logs": "Manter um registro de quais ensaios foram correspondidos",
+    "allow_storage": "Permitir que Trialibre salve registros de pacientes localmente"
+  },
+  "match": {
+    "type_tab": "Digitar",
+    "upload_tab": "Carregar",
+    "photo_tab": "Foto",
+    "placeholder": "Descreva seu paciente. Por exemplo: mulher de 45 anos com diabetes tipo 2, HbA1c 8,2%, diagnosticada há 3 anos, atualmente em metformina 1000mg duas vezes ao dia.",
+    "find_trials": "Buscar Ensaios",
+    "searching": "Buscando ensaios relevantes...",
+    "checking": "Verificando critérios de elegibilidade...",
+    "ranking": "Classificando resultados...",
+    "found_summary": "Encontrados {{count}} ensaios que seu paciente pode se qualificar de {{total}} revisados.",
+    "no_results": "Nenhum ensaio correspondente encontrado",
+    "no_results_tips": "Tente adicionar mais detalhes do paciente ou ampliar sua busca.",
+    "strong": "Correspondência Forte",
+    "possible": "Correspondência Possível",
+    "unlikely": "Improvável",
+    "refer": "Encaminhar Paciente",
+    "print": "Imprimir Resumo",
+    "view_details": "Ver Detalhes",
+    "criteria_met": "Atendido",
+    "criteria_not_met": "Não Atendido",
+    "criteria_unknown": "A Verificar"
+  },
+  "nav": {
+    "match": "Busca",
+    "batch": "Lote",
+    "dashboard": "Painel",
+    "trials": "Ensaios",
+    "settings": "Configurações"
+  },
+  "privacy": {
+    "private": "Privado",
+    "secure": "Seguro",
+    "stored": "Armazenado"
+  },
+  "sandbox": {
+    "banner": "Você está usando dados de exemplo. Configure seu serviço de IA para pacientes reais."
+  },
+  "explainer": {
+    "title": "Como funciona a correspondência",
+    "body": "Trialibre lê os requisitos de elegibilidade de cada ensaio e os verifica contra as informações do seu paciente, um por um. Correspondência Forte = maioria dos critérios atendidos. Correspondência Possível = alguns não puderam ser verificados. Improvável = critérios principais não atendidos. Uma correspondência não é uma garantia — o centro do ensaio faz sua própria triagem.",
+    "got_it": "Entendi"
+  },
+  "errors": {
+    "no_provider": "Nenhum serviço de IA configurado. Usando dados de exemplo."
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "app": {
+    "name": "Trialibre",
+    "tagline": "اعثر على التجارب السريرية لمرضاك",
+    "org": "American Institute for Medical Research"
+  },
+  "wizard": {
+    "welcome_title": "اعثر على التجارب السريرية لمرضاك.",
+    "welcome_subtitle": "يتحقق Trialibre من معلومات المريض مقابل معايير الأهلية للتجارب ويعرض لك التجارب التي قد يكون مؤهلاً لها.",
+    "get_started": "ابدأ",
+    "skip": "سأقوم بالإعداد لاحقاً"
+  },
+  "match": {
+    "type_tab": "اكتب",
+    "upload_tab": "رفع",
+    "photo_tab": "صورة",
+    "find_trials": "البحث عن التجارب",
+    "strong": "تطابق قوي",
+    "possible": "تطابق محتمل",
+    "unlikely": "غير محتمل",
+    "refer": "إحالة المريض",
+    "print": "طباعة الملخص"
+  },
+  "nav": {
+    "match": "بحث",
+    "batch": "دفعة",
+    "dashboard": "لوحة التحكم",
+    "trials": "التجارب",
+    "settings": "الإعدادات"
+  },
+  "privacy": {
+    "private": "خاص",
+    "secure": "آمن",
+    "stored": "مخزن"
+  },
+  "sandbox": {
+    "banner": "أنت تستخدم بيانات نموذجية. قم بإعداد خدمة الذكاء الاصطناعي لمطابقة المرضى الحقيقيين."
+  }
+}

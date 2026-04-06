@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  trialibre:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - trialibre-data:/data
+    environment:
+      - TRIALIBRE_LLM_PROVIDER=${TRIALIBRE_LLM_PROVIDER:-ollama}
+      - TRIALIBRE_LLM_BASE_URL=${TRIALIBRE_LLM_BASE_URL:-http://ollama:11434}
+      - TRIALIBRE_LLM_MODEL=${TRIALIBRE_LLM_MODEL:-llama3.1}
+      - TRIALIBRE_LLM_API_KEY=${TRIALIBRE_LLM_API_KEY:-}
+    restart: unless-stopped
+
+  # Optional: local Ollama for fully offline operation
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-models:/root/.ollama
+    profiles: ["local"]
+
+volumes:
+  trialibre-data:
+  ollama-models:

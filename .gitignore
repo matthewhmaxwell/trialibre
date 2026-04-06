@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+frontend/dist/
+
+# Data / Secrets
+*.env
+.env.*
+!.env.example
+*.sqlite
+*.db
+data/
+
+# NLTK data (downloaded at runtime)
+nltk_data/
+
+# Test / Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.ruff_cache/
+
+# Logs
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Docker
+.docker/
+
+# Build artifacts
+*.whl
+*.tar.gz

@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "description": "Ground truth for sandbox patient-trial matching evaluation",
+  "pairs": [
+    {"patient_id": "SAMPLE-001", "trial_id": "SAMPLE-NCT-001", "expected_label": "eligible", "expected_strength": "strong", "notes": "T2DM, HbA1c 8.2%, on metformin, BMI 31.1 — meets all SGLT2 trial criteria"},
+    {"patient_id": "SAMPLE-001", "trial_id": "SAMPLE-NCT-002", "expected_label": "eligible", "expected_strength": "strong", "notes": "HbA1c 8.2%, BMI >30, age 45 within range — meets GLP-1 trial criteria"},
+    {"patient_id": "SAMPLE-002", "trial_id": "SAMPLE-NCT-003", "expected_label": "eligible", "expected_strength": "strong", "notes": "PD-L1 60% ≥50%, ECOG 1, stage IIIB — meets anti-PD-1 criteria"},
+    {"patient_id": "SAMPLE-002", "trial_id": "SAMPLE-NCT-004", "expected_label": "excluded", "expected_strength": "unlikely", "notes": "No EGFR mutation documented — fails key inclusion"},
+    {"patient_id": "SAMPLE-003", "trial_id": "SAMPLE-NCT-005", "expected_label": "eligible", "expected_strength": "strong", "notes": "HER2+, prior trastuzumab, liver mets — meets ADC trial criteria"},
+    {"patient_id": "SAMPLE-003", "trial_id": "SAMPLE-NCT-006", "expected_label": "excluded", "expected_strength": "unlikely", "notes": "Patient is HER2+ but trial requires HR+/HER2-"},
+    {"patient_id": "SAMPLE-004", "trial_id": "SAMPLE-NCT-007", "expected_label": "eligible", "expected_strength": "strong", "notes": "MMSE 22 within 20-26, age 74 within range — meets amyloid trial"},
+    {"patient_id": "SAMPLE-004", "trial_id": "SAMPLE-NCT-008", "expected_label": "eligible", "expected_strength": "possible", "notes": "Age 74 in range, early AD — tau trial possible but less data"},
+    {"patient_id": "SAMPLE-005", "trial_id": "SAMPLE-NCT-009", "expected_label": "eligible", "expected_strength": "strong", "notes": "Treatment-naive, CD4 350 >200 — meets long-acting ART criteria"},
+    {"patient_id": "SAMPLE-005", "trial_id": "SAMPLE-NCT-010", "expected_label": "excluded", "expected_strength": "unlikely", "notes": "Treatment-naive, trial requires stable ART ≥2 years"},
+    {"patient_id": "SAMPLE-006", "trial_id": "SAMPLE-NCT-011", "expected_label": "eligible", "expected_strength": "strong", "notes": "eGFR 38 within 25-60, diabetic nephropathy — meets CKD SGLT2 criteria"},
+    {"patient_id": "SAMPLE-006", "trial_id": "SAMPLE-NCT-012", "expected_label": "unknown", "expected_strength": "possible", "notes": "Hgb not specified — HIF trial requires Hgb <10"},
+    {"patient_id": "SAMPLE-007", "trial_id": "SAMPLE-NCT-013", "expected_label": "eligible", "expected_strength": "strong", "notes": "Age 8, 3 ED visits/year ≥2, moderate persistent — meets biologic criteria"},
+    {"patient_id": "SAMPLE-007", "trial_id": "SAMPLE-NCT-014", "expected_label": "excluded", "expected_strength": "unlikely", "notes": "Age 8 below trial minimum of 12"},
+    {"patient_id": "SAMPLE-008", "trial_id": "SAMPLE-NCT-015", "expected_label": "eligible", "expected_strength": "strong", "notes": "TRD, failed 3 SSRIs + 1 SNRI (≥2 failed), PHQ-9 22 — meets esketamine criteria"},
+    {"patient_id": "SAMPLE-008", "trial_id": "SAMPLE-NCT-016", "expected_label": "eligible", "expected_strength": "possible", "notes": "MDD, age 41 in range — psilocybin trial possible"},
+    {"patient_id": "SAMPLE-009", "trial_id": "SAMPLE-NCT-017", "expected_label": "eligible", "expected_strength": "strong", "notes": "HbSS, 6 VOCs/year ≥4, on hydroxyurea — meets gene therapy criteria"},
+    {"patient_id": "SAMPLE-009", "trial_id": "SAMPLE-NCT-018", "expected_label": "unknown", "expected_strength": "possible", "notes": "Not documented as transfusion-dependent"},
+    {"patient_id": "SAMPLE-010", "trial_id": "SAMPLE-NCT-019", "expected_label": "eligible", "expected_strength": "strong", "notes": "DAS28 5.8 >5.1, RF+ — meets JAK inhibitor criteria"},
+    {"patient_id": "SAMPLE-010", "trial_id": "SAMPLE-NCT-020", "expected_label": "eligible", "expected_strength": "strong", "notes": "RF+, seropositive RA — meets anti-TNF biosimilar criteria"},
+    {"patient_id": "SAMPLE-011", "trial_id": "SAMPLE-NCT-021", "expected_label": "eligible", "expected_strength": "strong", "notes": "Age 5, severe P. falciparum, Hgb 5.2 — meets IV artesunate trial"},
+    {"patient_id": "SAMPLE-011", "trial_id": "SAMPLE-NCT-022", "expected_label": "excluded", "expected_strength": "unlikely", "notes": "Age 5y too old for 5-17mo vaccine trial; has active malaria"},
+    {"patient_id": "SAMPLE-012", "trial_id": "SAMPLE-NCT-023", "expected_label": "eligible", "expected_strength": "strong", "notes": "MDR-TB (INH+RIF resistant), age 35, HIV- — meets BPaL criteria"},
+    {"patient_id": "SAMPLE-012", "trial_id": "SAMPLE-NCT-024", "expected_label": "excluded", "expected_strength": "unlikely", "notes": "Active TB, trial is for latent TB prevention only"}
+  ]
+}
