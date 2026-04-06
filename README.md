@@ -53,8 +53,8 @@ Type a clinical note, upload a document, or take a photo of a patient record.
   <img src="docs/screenshots/01-match-page.png" alt="Match Page" width="700" />
 </p>
 
-### Custom Protocol Upload
-Upload your own protocol document (PDF, DOCX, or paste text) and match patients against it. Trialibre automatically extracts inclusion and exclusion criteria from the document.
+### Custom Protocol Upload + ClinicalTrials.gov Import
+Upload your own protocol (PDF, DOCX, paste text) or import directly from ClinicalTrials.gov by NCT ID. Trialibre extracts inclusion/exclusion criteria automatically.
 
 <p align="center">
   <img src="docs/screenshots/11-protocol-upload.png" alt="Protocol Upload" width="700" />
@@ -177,6 +177,7 @@ npm run dev
 
 ### Custom Protocol Upload
 - **Upload a protocol** — PDF, DOCX, or paste eligibility criteria text
+- **Import by NCT ID** — Enter an NCT number to fetch a trial directly from ClinicalTrials.gov with full criteria and site locations
 - **Auto-extraction** — Heuristic parser finds inclusion/exclusion criteria sections (no LLM needed)
 - **Match against it** — Same pipeline as registry trials, scoped to your uploaded protocol
 - **Manage uploads** — View, search, and delete uploaded trials from the Trials page
