@@ -31,12 +31,23 @@ async def match_patient(request: Request, body: MatchRequest) -> MatchResponse:
         raw_text=body.patient_text,
     )
 
-    # Get trials
+    # Get trials: sandbox + any uploaded custom trials
     if settings.sandbox.enabled:
         trials = load_sample_protocols()
     else:
-        # TODO: Load from trial index or registry search
         trials = load_sample_protocols()  # Fallback to sandbox data
+
+    # Merge in custom uploaded trials
+    custom_trials = getattr(request.app.state, "custom_trials", {})
+    if custom_trials:
+        trials = trials + list(custom_trials.values())
+
+    # Filter to specific trial IDs if requested
+    if body.trial_ids:
+        id_set = set(body.trial_ids)
+        trials = [t for t in trials if t.nct_id in id_set]
+        if not trials:
+            raise HTTPException(404, "None of the specified trial IDs were found")
 
     # Run pipeline
     orchestrator = PipelineOrchestrator(settings, llm)

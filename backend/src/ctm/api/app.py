@@ -53,6 +53,9 @@ async def lifespan(app: FastAPI):
         settings.sandbox.enabled = True
         logger.info("No AI service configured. Sandbox mode activated.")
 
+    # In-memory storage for uploaded custom trials
+    app.state.custom_trials: dict = {}
+
     yield
 
     # Shutdown

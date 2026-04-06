@@ -53,6 +53,13 @@ Type a clinical note, upload a document, or take a photo of a patient record.
   <img src="docs/screenshots/01-match-page.png" alt="Match Page" width="700" />
 </p>
 
+### Custom Protocol Upload
+Upload your own protocol document (PDF, DOCX, or paste text) and match patients against it. Trialibre automatically extracts inclusion and exclusion criteria from the document.
+
+<p align="center">
+  <img src="docs/screenshots/11-protocol-upload.png" alt="Protocol Upload" width="700" />
+</p>
+
 ### Multiple Input Methods
 Upload PDFs, DOCX, CSV, FHIR JSON, or HL7v2 messages directly.
 
@@ -167,6 +174,12 @@ npm run dev
 - **Type it** — Paste or type a clinical note, referral letter, or patient summary
 - **Upload** — PDF, DOCX, CSV, FHIR R4 JSON, HL7v2 messages
 - **Photo** — Take a photo of a paper record (OCR via Tesseract)
+
+### Custom Protocol Upload
+- **Upload a protocol** — PDF, DOCX, or paste eligibility criteria text
+- **Auto-extraction** — Heuristic parser finds inclusion/exclusion criteria sections (no LLM needed)
+- **Match against it** — Same pipeline as registry trials, scoped to your uploaded protocol
+- **Manage uploads** — View, search, and delete uploaded trials from the Trials page
 
 ### Matching Pipeline
 1. **Retrieval** — BM25 sparse search + optional dense (FAISS) embeddings with reciprocal rank fusion

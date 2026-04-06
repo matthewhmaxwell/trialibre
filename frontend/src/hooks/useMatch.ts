@@ -10,7 +10,7 @@ interface UseMatchReturn {
   error: string | null;
   filter: MatchFilter;
   setFilter: (f: MatchFilter) => void;
-  runMatch: (patientText: string, maxTrials?: number) => Promise<void>;
+  runMatch: (patientText: string, maxTrials?: number, trialIds?: string[]) => Promise<void>;
   reset: () => void;
 }
 
@@ -21,7 +21,7 @@ export function useMatch(): UseMatchReturn {
   const [error, setError] = useState<string | null>(null);
   const [filter, setFilter] = useState<MatchFilter>('all');
 
-  const runMatch = useCallback(async (patientText: string, maxTrials = 50) => {
+  const runMatch = useCallback(async (patientText: string, maxTrials = 50, trialIds?: string[]) => {
     setPhase('searching');
     setError(null);
     setResult(null);
@@ -29,10 +29,12 @@ export function useMatch(): UseMatchReturn {
 
     try {
       setPhase('checking');
+      const body: Record<string, unknown> = { patient_text: patientText, max_trials: maxTrials };
+      if (trialIds && trialIds.length > 0) body.trial_ids = trialIds;
       const resp = await fetch('/api/v1/match', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ patient_text: patientText, max_trials: maxTrials }),
+        body: JSON.stringify(body),
       });
 
       if (!resp.ok) {
