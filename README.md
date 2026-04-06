@@ -346,6 +346,13 @@ Implement a client in `ctm/data/registries/` following the `CTGovClient` pattern
 - OCR quality varies with document quality. Typed text input produces the best results.
 - The drug interaction database is basic and should not be relied upon for clinical decisions.
 
+## Getting Help
+
+- **Questions?** Open a [Discussion](https://github.com/matthewhmaxwell/trialibre/discussions) on GitHub
+- **Found a bug?** Open an [Issue](https://github.com/matthewhmaxwell/trialibre/issues) using the bug report template
+- **Feature request?** Open an [Issue](https://github.com/matthewhmaxwell/trialibre/issues) using the feature request template
+- **Security concern?** See [SECURITY.md](.github/SECURITY.md) for responsible disclosure
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines. We welcome contributions in all forms — code, translations, documentation, and clinical validation data.
