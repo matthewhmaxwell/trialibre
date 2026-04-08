@@ -26,13 +26,28 @@ function Layout({ children }: { children: React.ReactNode }) {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 flex flex-col">
       <DemoBanner />
-      {/* Top bar */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-40">
-        <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
-          <div className="flex items-center gap-6">
-            <h1 className="text-lg font-bold text-gray-900">Trialibre</h1>
+
+      {/* AIMR Standard Header */}
+      <header style={{position:'sticky',top:0,zIndex:100,background:'rgba(255,255,255,0.97)',backdropFilter:'blur(8px)',borderBottom:'1px solid #e5e7eb'}}>
+        <div style={{maxWidth:1100,margin:'0 auto',padding:'0 1.5rem',display:'flex',alignItems:'center',justifyContent:'space-between',height:72}}>
+          <a href="https://aimronline.org" style={{textDecoration:'none'}}>
+            <img src="https://aimronline.org/aimr-logo.png" alt="AIM Research" style={{height:36}} />
+          </a>
+          <nav style={{display:'flex',gap:'2rem',alignItems:'center'}}>
+            <a href="https://aimronline.org/about.html" style={{fontFamily:'Inter,sans-serif',fontSize:'0.9rem',fontWeight:500,color:'#4b5563',textDecoration:'none'}}>About</a>
+            <a href="https://aimronline.org/tools.html" style={{fontFamily:'Inter,sans-serif',fontSize:'0.9rem',fontWeight:500,color:'#4b5563',textDecoration:'none'}}>Tools</a>
+            <a href="https://aimronline.org/notes.html" style={{fontFamily:'Inter,sans-serif',fontSize:'0.9rem',fontWeight:500,color:'#4b5563',textDecoration:'none'}}>Notes</a>
+          </nav>
+        </div>
+      </header>
+
+      {/* App navigation bar (below AIMR header) */}
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-5xl mx-auto px-4 h-12 flex items-center justify-between">
+          <div className="flex items-center gap-5">
+            <span className="text-base font-bold text-gray-900">Trialibre</span>
             <nav className="hidden md:flex items-center gap-1">
               {navItems.map(item => (
                 <NavLink key={item.to} to={item.to} end
@@ -52,18 +67,24 @@ function Layout({ children }: { children: React.ReactNode }) {
             )}
           </div>
         </div>
-      </header>
+      </div>
 
       <SandboxBanner visible={health?.sandbox_mode ?? false} />
 
       {/* Main content */}
-      <main className="pb-24 md:pb-16">
+      <main className="flex-1 pb-24 md:pb-16">
         {children}
       </main>
 
-      {/* Footer */}
-      <footer className="hidden md:block border-t border-gray-200 py-4 text-center text-xs text-gray-400">
-        {t('app.name')} &middot; {t('app.org')} &middot; Non-Profit &middot; Open Source
+      {/* AIMR Standard Footer */}
+      <footer style={{background:'#0f0a1e',color:'rgba(255,255,255,0.6)',padding:'2.5rem 0',fontSize:'0.85rem',fontFamily:'Inter,sans-serif'}}>
+        <div style={{maxWidth:1100,margin:'0 auto',padding:'0 1.5rem',display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:'1rem'}}>
+          <span>&copy; 2026 American Institute for Medical Research, LLC</span>
+          <div style={{display:'flex',gap:'1.5rem'}}>
+            <a href="https://www.linkedin.com/company/aimronline" target="_blank" rel="noopener" style={{color:'rgba(255,255,255,0.6)',textDecoration:'none'}}>LinkedIn</a>
+            <a href="https://aimronline.org/about.html#privacy" style={{color:'rgba(255,255,255,0.6)',textDecoration:'none'}}>Privacy</a>
+          </div>
+        </div>
       </footer>
 
       {/* Mobile bottom nav */}
@@ -87,7 +108,6 @@ function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  // Use HashRouter for static hosting (demo mode), BrowserRouter for backend mode
   const Router = isDemoMode() ? HashRouter : BrowserRouter;
 
   return (

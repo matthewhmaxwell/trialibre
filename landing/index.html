@@ -423,23 +423,19 @@
 </head>
 <body>
 
-<!-- Nav -->
-<nav>
-    <div class="nav-inner">
-        <div style="display: flex; align-items: center; gap: 1.5rem;">
-            <a href="https://aimronline.org" class="nav-logo">
-                <img src="aimr-logo.jpg" alt="American Institute for Medical Research">
-            </a>
-            <span style="width: 1px; height: 1.5rem; background: var(--border);"></span>
-            <span style="font-size: 1.125rem; font-weight: 700; color: var(--fg); letter-spacing: -0.02em;">Trialibre</span>
-        </div>
-        <div class="nav-links">
-            <a href="https://aimronline.org/resources">Resources</a>
-            <a href="https://aimronline.org/learning">Learning</a>
-            <a href="https://github.com/matthewhmaxwell/trialibre" class="nav-cta">View on GitHub</a>
-        </div>
-    </div>
-</nav>
+<!-- AIMR Standard Header -->
+<header style="position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(8px);border-bottom:1px solid #e5e7eb">
+  <div style="max-width:1100px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:72px">
+    <a href="https://aimronline.org" style="text-decoration:none">
+      <img src="https://aimronline.org/aimr-logo.png" alt="AIM Research" style="height:36px">
+    </a>
+    <nav style="display:flex;gap:2rem;align-items:center">
+      <a href="https://aimronline.org/about.html" style="font-family:Inter,sans-serif;font-size:0.9rem;font-weight:500;color:#4b5563;text-decoration:none">About</a>
+      <a href="https://aimronline.org/tools.html" style="font-family:Inter,sans-serif;font-size:0.9rem;font-weight:500;color:#4b5563;text-decoration:none">Tools</a>
+      <a href="https://aimronline.org/notes.html" style="font-family:Inter,sans-serif;font-size:0.9rem;font-weight:500;color:#4b5563;text-decoration:none">Notes</a>
+    </nav>
+  </div>
+</header>
 
 <!-- Hero -->
 <div class="hero">
@@ -449,7 +445,8 @@
         <h1>Clinical trial matching for everyone.</h1>
         <p>Trialibre helps clinicians and researchers find clinical trials for their patients. Upload a patient description, and Trialibre checks it against trial eligibility criteria — one by one.</p>
         <div class="hero-actions">
-            <a href="https://github.com/matthewhmaxwell/trialibre" class="btn btn-white">Get Started on GitHub</a>
+            <a href="./demo/" class="btn btn-white">Try the Demo</a>
+            <a href="https://github.com/matthewhmaxwell/trialibre" class="btn btn-outline">View on GitHub</a>
             <a href="#how-it-works" class="btn btn-outline">See How It Works</a>
         </div>
     </div>
@@ -612,25 +609,22 @@
         <h2>Open source. Free forever.</h2>
         <p>Trialibre is developed by the American Institute for Medical Research because clinical trial matching should be accessible to every clinician and researcher — not locked behind expensive proprietary platforms.</p>
         <div class="cta-actions">
-            <a href="https://github.com/matthewhmaxwell/trialibre" class="btn btn-primary">View on GitHub</a>
+            <a href="./demo/" class="btn btn-primary">Try the Demo</a>
+            <a href="https://github.com/matthewhmaxwell/trialibre" class="btn btn-secondary">View on GitHub</a>
             <a href="https://github.com/matthewhmaxwell/trialibre/releases" class="btn btn-secondary">Download v0.1.0</a>
         </div>
     </div>
 </section>
 
-<!-- Footer -->
-<footer>
-    <div class="footer-inner">
-        <div class="footer-brand">American Institute for Medical Research</div>
-        <div class="footer-links">
-            <a href="https://aimronline.org">AIMR Home</a>
-            <a href="https://github.com/matthewhmaxwell/trialibre">GitHub</a>
-            <a href="https://github.com/matthewhmaxwell/trialibre/discussions">Discussions</a>
-            <a href="https://github.com/matthewhmaxwell/trialibre/blob/main/CONTRIBUTING.md">Contributing</a>
-            <a href="https://github.com/matthewhmaxwell/trialibre/blob/main/LICENSE">MIT License</a>
-        </div>
-        <div class="footer-copy">&copy; 2026 American Institute for Medical Research. Trialibre is open-source software released under the MIT License.</div>
+<!-- AIMR Standard Footer -->
+<footer style="background:#0f0a1e;color:rgba(255,255,255,0.6);padding:2.5rem 0;font-size:0.85rem;font-family:Inter,sans-serif">
+  <div style="max-width:1100px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem">
+    <span>&copy; 2026 American Institute for Medical Research, LLC</span>
+    <div style="display:flex;gap:1.5rem">
+      <a href="https://www.linkedin.com/company/aimronline" target="_blank" style="color:rgba(255,255,255,0.6);text-decoration:none">LinkedIn</a>
+      <a href="https://aimronline.org/about.html#privacy" style="color:rgba(255,255,255,0.6);text-decoration:none">Privacy</a>
     </div>
+  </div>
 </footer>
 
 </body>
