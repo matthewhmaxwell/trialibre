@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
+import { HashRouter, BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
+import { isDemoMode } from './demo/demoApi';
 import { useTranslation } from 'react-i18next';
 import { MatchPage } from './pages/MatchPage';
 import { BatchPage } from './pages/BatchPage';
@@ -6,6 +7,7 @@ import { DashboardPage } from './pages/DashboardPage';
 import { TrialsPage } from './pages/TrialsPage';
 import { SettingsPage } from './pages/SettingsPage';
 import { SandboxBanner } from './components/SandboxBanner';
+import { DemoBanner } from './components/DemoBanner';
 import { PrivacyIndicator } from './components/PrivacyIndicator';
 import { LanguageSwitcher } from './components/LanguageSwitcher';
 import { useSettings } from './hooks/useSettings';
@@ -25,6 +27,7 @@ function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <DemoBanner />
       {/* Top bar */}
       <header className="bg-white border-b border-gray-200 sticky top-0 z-40">
         <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
@@ -84,8 +87,11 @@ function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  // Use HashRouter for static hosting (demo mode), BrowserRouter for backend mode
+  const Router = isDemoMode() ? HashRouter : BrowserRouter;
+
   return (
-    <BrowserRouter>
+    <Router>
       <Layout>
         <Routes>
           <Route path="/" element={<MatchPage />} />
@@ -95,6 +101,6 @@ export default function App() {
           <Route path="/settings" element={<SettingsPage />} />
         </Routes>
       </Layout>
-    </BrowserRouter>
+    </Router>
   );
 }
