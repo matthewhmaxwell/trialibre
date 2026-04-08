@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trialibre — Open-Source Clinical Trial Matching | AIMR</title>
+    <meta name="description" content="Trialibre is an open-source clinical trial matching platform by the American Institute for Medical Research. LLM-agnostic, multilingual, privacy-first.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #381d92;
+            --secondary: #1C0A63;
+            --tertiary: #F2F2FA;
+            --bg: #ffffff;
+            --fg: #0B0620;
+            --text: #4a4560;
+            --text-light: #7a7590;
+            --border: #e5e4ea;
+            --green: #16a34a;
+            --green-bg: #f0fdf4;
+            --amber: #d97706;
+            --amber-bg: #fffbeb;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--fg);
+            background: var(--bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Nav */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            padding: 0 1rem;
+        }
+        .nav-inner {
+            max-width: 80rem;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 4rem;
+            padding: 0 0.5rem;
+        }
+        .nav-logo img {
+            height: 2.5rem;
+            width: auto;
+            display: block;
+        }
+        @media (min-width: 640px) {
+            .nav-logo img { height: 3rem; }
+        }
+        .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+        .nav-links a {
+            font-size: 0.8125rem;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-cta {
+            background: var(--primary) !important;
+            color: white !important;
+            padding: 0.4rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.8125rem !important;
+            transition: background 0.2s;
+        }
+        .nav-cta:hover { background: var(--secondary) !important; }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 50%, #5b3cc4 100%);
+            color: white;
+            padding: 6rem 1.5rem 5rem;
+            text-align: center;
+        }
+        .hero-inner {
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(8px);
+            padding: 0.35rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.02em;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.25rem);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.25rem;
+        }
+        .hero p {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            opacity: 0.9;
+            max-width: 38rem;
+            margin: 0 auto 2rem;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.75rem;
+            border-radius: 2rem;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-white {
+            background: white;
+            color: var(--primary);
+        }
+        .btn-white:hover { background: var(--tertiary); }
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 1.5px solid rgba(255,255,255,0.4);
+        }
+        .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.1); }
+
+        /* Screenshot */
+        .screenshot-section {
+            padding: 0 1.5rem;
+            margin-top: -3rem;
+            position: relative;
+            z-index: 10;
+        }
+        .screenshot-wrapper {
+            max-width: 56rem;
+            margin: 0 auto;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25), 0 0 0 1px rgba(0,0,0,0.05);
+        }
+        .screenshot-wrapper img {
+            width: 100%;
+            display: block;
+        }
+
+        /* Sections */
+        section { padding: 5rem 1.5rem; }
+        .section-inner {
+            max-width: 64rem;
+            margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-header h2 {
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+            color: var(--fg);
+        }
+        .section-header p {
+            font-size: 1.0625rem;
+            color: var(--text);
+            max-width: 36rem;
+            margin: 0 auto;
+        }
+        .section-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+
+        /* Feature grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+            gap: 1.5rem;
+        }
+        .feature-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1.75rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .feature-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(56, 29, 146, 0.08);
+        }
+        .feature-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 0.5rem;
+            background: var(--tertiary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        .feature-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+        .feature-card p {
+            font-size: 0.875rem;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* How it works */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+            gap: 2rem;
+            counter-reset: step;
+        }
+        .step {
+            text-align: center;
+            position: relative;
+        }
+        .step-number {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+        .step h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .step p {
+            font-size: 0.875rem;
+            color: var(--text);
+        }
+
+        /* Providers */
+        .providers {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        .provider {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.25rem;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--fg);
+        }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .stat {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.03em;
+        }
+        .stat-label {
+            font-size: 0.8125rem;
+            color: var(--text);
+            margin-top: 0.25rem;
+        }
+
+        /* CTA section */
+        .cta-section {
+            background: var(--tertiary);
+        }
+        .cta-inner {
+            max-width: 42rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .cta-inner h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+        .cta-inner p {
+            color: var(--text);
+            margin-bottom: 2rem;
+            font-size: 1.0625rem;
+        }
+        .cta-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover { background: var(--secondary); }
+        .btn-secondary {
+            background: white;
+            color: var(--fg);
+            border: 1px solid var(--border);
+        }
+        .btn-secondary:hover { background: var(--tertiary); }
+
+        /* Code block */
+        .code-block {
+            background: var(--fg);
+            color: #e2e8f0;
+            border-radius: 0.75rem;
+            padding: 1.5rem 2rem;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.875rem;
+            line-height: 1.8;
+            max-width: 32rem;
+            margin: 2rem auto 0;
+            text-align: left;
+            overflow-x: auto;
+        }
+        .code-comment { color: #64748b; }
+        .code-cmd { color: #a5b4fc; }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+        }
+        .footer-inner {
+            max-width: 64rem;
+            margin: 0 auto;
+        }
+        .footer-brand {
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--fg);
+            margin-bottom: 0.5rem;
+        }
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .footer-links a {
+            font-size: 0.8125rem;
+            color: var(--text);
+            text-decoration: none;
+        }
+        .footer-links a:hover { color: var(--primary); }
+        .footer-copy {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        /* Alt bg */
+        .bg-tertiary { background: var(--tertiary); }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .hero { padding: 4rem 1.5rem 3.5rem; }
+            .hero p { font-size: 1rem; }
+            .nav-links a:not(.nav-cta) { display: none; }
+            section { padding: 3rem 1.5rem; }
+            .screenshot-section { margin-top: -1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+    <div class="nav-inner">
+        <div style="display: flex; align-items: center; gap: 1.5rem;">
+            <a href="https://aimronline.org" class="nav-logo">
+                <img src="aimr-logo.jpg" alt="American Institute for Medical Research">
+            </a>
+            <span style="width: 1px; height: 1.5rem; background: var(--border);"></span>
+            <span style="font-size: 1.125rem; font-weight: 700; color: var(--fg); letter-spacing: -0.02em;">Trialibre</span>
+        </div>
+        <div class="nav-links">
+            <a href="https://aimronline.org/resources">Resources</a>
+            <a href="https://aimronline.org/learning">Learning</a>
+            <a href="https://github.com/matthewhmaxwell/trialibre" class="nav-cta">View on GitHub</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+    <div class="hero-inner">
+        <div style="font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 0.75rem; opacity: 0.95;">Trialibre</div>
+        <div class="hero-badge">Beta &middot; Open Source &middot; Free &middot; MIT License</div>
+        <h1>Clinical trial matching for everyone.</h1>
+        <p>Trialibre helps clinicians and researchers find clinical trials for their patients. Upload a patient description, and Trialibre checks it against trial eligibility criteria — one by one.</p>
+        <div class="hero-actions">
+            <a href="https://github.com/matthewhmaxwell/trialibre" class="btn btn-white">Get Started on GitHub</a>
+            <a href="#how-it-works" class="btn btn-outline">See How It Works</a>
+        </div>
+    </div>
+</div>
+
+<!-- Screenshot -->
+<div class="screenshot-section">
+    <div class="screenshot-wrapper">
+        <img src="screenshot.png" alt="Trialibre interface showing patient matching">
+    </div>
+</div>
+
+<!-- Stats -->
+<section>
+    <div class="section-inner">
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">12</div>
+                <div class="stat-label">Therapeutic areas covered</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Languages supported</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">4</div>
+                <div class="stat-label">LLM providers</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">8</div>
+                <div class="stat-label">Input formats</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features -->
+<section class="bg-tertiary">
+    <div class="section-inner">
+        <div class="section-header">
+            <span class="section-label">Features</span>
+            <h2>Built for real clinical workflows</h2>
+            <p>Every feature designed around the needs of coordinators, investigators, and research teams — not just engineers.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3>Patient Matching</h3>
+                <p>Type, upload, or photograph a patient record. Trialibre checks each eligibility criterion individually and shows which are met, not met, or need verification.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📄</div>
+                <h3>Protocol Upload</h3>
+                <p>Upload your own protocol (PDF, DOCX, or paste text) and match patients against it. Inclusion and exclusion criteria are extracted automatically.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h3>ClinicalTrials.gov Import</h3>
+                <p>Enter an NCT number to import a trial directly from ClinicalTrials.gov with full eligibility criteria and site locations.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Privacy First</h3>
+                <p>Built-in de-identification strips patient names and IDs before cloud processing. Or run fully offline with a local AI model — nothing leaves your device.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌍</div>
+                <h3>Multilingual</h3>
+                <p>Interface available in English, French, Portuguese, Spanish, and Arabic. Patient notes in any language are automatically detected and processed.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3>LLM Agnostic</h3>
+                <p>Works with Claude, GPT-4, Llama via Ollama, or any OpenAI-compatible endpoint. Switch providers without changing anything else.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📋</div>
+                <h3>Batch Screening</h3>
+                <p>Upload a CSV of patients to screen against all loaded trials at once. Export results for your team.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📨</div>
+                <h3>Referral Management</h3>
+                <p>Generate referral summaries and send them via email or WhatsApp. Track referral status from your dashboard.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Evaluation Framework</h3>
+                <p>Built-in metrics (Precision, NDCG, MRR) with annotated ground truth data across 12 therapeutic areas for validating match quality.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How it works -->
+<section id="how-it-works">
+    <div class="section-inner">
+        <div class="section-header">
+            <span class="section-label">How It Works</span>
+            <h2>Three steps to a match</h2>
+        </div>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Describe Your Patient</h3>
+                <p>Type a clinical note, upload a PDF, or take a photo of a patient record. Supports 8 input formats including FHIR and HL7.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>AI Checks Each Criterion</h3>
+                <p>Trialibre evaluates every inclusion and exclusion criterion individually, with plain-language reasoning for each decision.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Review Ranked Results</h3>
+                <p>Trials are ranked as Strong Match, Possible Match, or Unlikely. See exactly which criteria were met, not met, or need verification.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Providers -->
+<section class="bg-tertiary">
+    <div class="section-inner">
+        <div class="section-header">
+            <span class="section-label">Flexibility</span>
+            <h2>Works with your AI provider</h2>
+            <p>Choose the provider that fits your budget, privacy requirements, and infrastructure.</p>
+        </div>
+        <div class="providers">
+            <div class="provider">☁️ Anthropic (Claude)</div>
+            <div class="provider">☁️ OpenAI (GPT-4)</div>
+            <div class="provider">💻 Ollama (Local)</div>
+            <div class="provider">🔌 Any OpenAI-Compatible</div>
+        </div>
+    </div>
+</section>
+
+<!-- Quickstart -->
+<section>
+    <div class="section-inner">
+        <div class="section-header">
+            <span class="section-label">Get Started</span>
+            <h2>Up and running in three commands</h2>
+            <p>No API key needed — sandbox mode lets you explore the full interface with sample data immediately.</p>
+        </div>
+        <div class="code-block">
+            <span class="code-comment"># Clone and install</span><br>
+            <span class="code-cmd">git clone</span> https://github.com/matthewhmaxwell/trialibre.git<br>
+            <span class="code-cmd">cd</span> trialibre/backend && <span class="code-cmd">pip install</span> -e ".[dev]"<br><br>
+            <span class="code-comment"># Start the server (opens your browser)</span><br>
+            <span class="code-cmd">trialibre serve</span>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="cta-inner">
+        <h2>Open source. Free forever.</h2>
+        <p>Trialibre is developed by the American Institute for Medical Research because clinical trial matching should be accessible to every clinician and researcher — not locked behind expensive proprietary platforms.</p>
+        <div class="cta-actions">
+            <a href="https://github.com/matthewhmaxwell/trialibre" class="btn btn-primary">View on GitHub</a>
+            <a href="https://github.com/matthewhmaxwell/trialibre/releases" class="btn btn-secondary">Download v0.1.0</a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">American Institute for Medical Research</div>
+        <div class="footer-links">
+            <a href="https://aimronline.org">AIMR Home</a>
+            <a href="https://github.com/matthewhmaxwell/trialibre">GitHub</a>
+            <a href="https://github.com/matthewhmaxwell/trialibre/discussions">Discussions</a>
+            <a href="https://github.com/matthewhmaxwell/trialibre/blob/main/CONTRIBUTING.md">Contributing</a>
+            <a href="https://github.com/matthewhmaxwell/trialibre/blob/main/LICENSE">MIT License</a>
+        </div>
+        <div class="footer-copy">&copy; 2026 American Institute for Medical Research. Trialibre is open-source software released under the MIT License.</div>
+    </div>
+</footer>
+
+</body>
+</html>
