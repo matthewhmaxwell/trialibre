@@ -67,8 +67,12 @@ export function SettingsPage() {
       if (!prev) return prev;
       const copy = structuredClone(prev);
       const keys = path.split('.');
-      let obj: Record<string, unknown> = copy as unknown as Record<string, unknown>;
-      for (let i = 0; i < keys.length - 1; i++) obj = obj[keys[i]] as Record<string, unknown>;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      let obj: any = copy;
+      for (let i = 0; i < keys.length - 1; i++) {
+        if (!obj[keys[i]] || typeof obj[keys[i]] !== 'object') obj[keys[i]] = {};
+        obj = obj[keys[i]];
+      }
       obj[keys[keys.length - 1]] = value;
       return copy;
     });

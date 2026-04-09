@@ -16,12 +16,18 @@ export function TrialsPage() {
   const [trials, setTrials] = useState<TrialSummary[]>([]);
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
   useEffect(() => {
-    fetch('/api/v1/trials')
-      .then(r => { if (!r.ok) throw new Error(); return r.json(); })
-      .then(data => { setTrials(data.trials || []); setLoading(false); })
-      .catch(() => { setTrials([]); setLoading(false); });
+    fetch('/api/v1/trials?limit=200')
+      .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
+      .then(data => {
+        // Handle both paginated {trials:[...]} and bare array responses
+        const list = Array.isArray(data) ? data : (data.trials || []);
+        setTrials(list);
+        setLoading(false);
+      })
+      .catch(e => { setError(e.message || 'Failed to load trials'); setTrials([]); setLoading(false); });
   }, []);
 
   const filtered = trials.filter(tr =>
@@ -40,6 +46,12 @@ export function TrialsPage() {
       <input type="text" value={search} onChange={e => setSearch(e.target.value)}
         placeholder="Search trials by name, NCT ID, or disease..."
         className="w-full px-4 py-2 border border-gray-300 rounded-lg text-sm mb-4" />
+
+      {error && (
+        <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">
+          Failed to load trials: {error}
+        </div>
+      )}
 
       {loading ? (
         <div className="space-y-3">

@@ -10,12 +10,10 @@ router = APIRouter()
 class SettingsUpdate(BaseModel):
     llm_provider: str | None = None
     llm_model: str | None = None
-    api_key: str | None = None
+    # API keys must NOT be set via HTTP — use environment variables only
     base_url: str | None = None
     language: str | None = None
     sandbox_mode: bool | None = None
-    privacy_level: str | None = None
-    deid_mode: str | None = None
 
 
 @router.get("/settings")
@@ -46,8 +44,6 @@ async def update_settings(request: Request, body: SettingsUpdate):
             s.llm.provider = body.llm_provider
     if body.llm_model is not None:
         s.llm.model = body.llm_model
-    if body.api_key is not None and body.api_key:
-        s.llm.api_key = body.api_key
     if body.base_url is not None:
         s.llm.base_url = body.base_url
     if body.language is not None:

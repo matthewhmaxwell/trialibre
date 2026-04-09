@@ -1,31 +1,35 @@
 """Batch screening endpoints."""
 from __future__ import annotations
 
-import asyncio
+import logging
 import uuid
 from datetime import datetime, timezone
 
 from fastapi import APIRouter, HTTPException, Request
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from ctm.models.patient import PatientNote
 from ctm.pipeline.orchestrator import PipelineOrchestrator
 from ctm.sandbox.loader import load_sample_protocols
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter()
 
 # In-memory job store
 _jobs: dict[str, dict] = {}
 
+MAX_BATCH_SIZE = 100
+
 
 class BatchPatient(BaseModel):
-    patient_id: str
-    text: str
+    patient_id: str = Field(..., min_length=1, max_length=255)
+    text: str = Field(..., min_length=10, max_length=500_000)
 
 
 class BatchRequest(BaseModel):
-    patients: list[BatchPatient]
-    max_trials: int = 20
+    patients: list[BatchPatient] = Field(..., min_length=1, max_length=MAX_BATCH_SIZE)
+    max_trials: int = Field(default=20, ge=1, le=100)
 
 
 @router.post("/batch")
@@ -49,8 +53,12 @@ async def start_batch(request: Request, body: BatchRequest):
     }
     _jobs[job_id] = job
 
-    # Run matching for each patient
+    # Merge sandbox + custom trials
     trials = load_sample_protocols()
+    custom = getattr(request.app.state, "custom_trials", {})
+    if custom:
+        trials = trials + list(custom.values())
+
     orchestrator = PipelineOrchestrator(settings, llm)
 
     for bp in body.patients:
@@ -65,11 +73,14 @@ async def start_batch(request: Request, body: BatchRequest):
                 "top_trial": ranking.scores[0].trial_title if ranking.scores else None,
             })
             job["completed"] += 1
+        except (MemoryError, SystemExit, KeyboardInterrupt):
+            raise  # Never catch fatal errors
         except Exception as e:
+            logger.error(f"Batch processing error for {bp.patient_id}: {type(e).__name__}: {e}")
             job["failed"] += 1
-            job["results"].append({"patient_id": bp.patient_id, "error": str(e)})
+            job["results"].append({"patient_id": bp.patient_id, "error": f"{type(e).__name__}: {e}"})
 
-    job["status"] = "completed"
+    job["status"] = "completed" if job["failed"] == 0 else "partial_failure"
     return job
 
 

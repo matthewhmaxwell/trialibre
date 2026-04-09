@@ -58,17 +58,26 @@ class FhirIngestor:
 
     def _parse(self, source: str | bytes) -> dict:
         if isinstance(source, bytes):
-            return json.loads(source.decode("utf-8"))
+            try:
+                return json.loads(source.decode("utf-8"))
+            except (UnicodeDecodeError, json.JSONDecodeError) as e:
+                raise ValueError(f"Invalid FHIR JSON (bytes): {e}")
         # Try as JSON string first, then as file path
-        if isinstance(source, str) and source.lstrip().startswith("{"):
+        if isinstance(source, str) and source.lstrip().startswith(("{", "[")):
             try:
                 return json.loads(source)
             except json.JSONDecodeError:
                 pass
-        path = Path(source)
-        if len(str(path)) < 1024 and path.exists():
-            return json.loads(path.read_text())
-        return json.loads(source)
+        try:
+            path = Path(source)
+            if len(str(path)) < 1024 and path.exists() and path.is_file():
+                return json.loads(path.read_text())
+        except (OSError, json.JSONDecodeError):
+            pass
+        try:
+            return json.loads(source)
+        except json.JSONDecodeError as e:
+            raise ValueError(f"Could not parse as FHIR JSON: {e}")
 
     def _extract_from_bundle(self, bundle: dict) -> dict:
         result: dict = {

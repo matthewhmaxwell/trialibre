@@ -16,12 +16,15 @@ export function DashboardPage() {
 
   useEffect(() => {
     fetch('/api/v1/dashboard/summary')
-      .then(r => { if (!r.ok) throw new Error(); return r.json(); })
+      .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
       .then(setData)
-      .catch(() => setData({
-        total_matches: 0, total_referrals: 0, avg_match_score: 0,
-        top_trials: [], recent_matches: [], ta_distribution: {},
-      }));
+      .catch(e => {
+        console.warn('Dashboard fetch failed:', e.message);
+        setData({
+          total_matches: 0, total_referrals: 0, avg_match_score: 0,
+          top_trials: [], recent_matches: [], ta_distribution: {},
+        });
+      });
   }, []);
 
   if (!data) {

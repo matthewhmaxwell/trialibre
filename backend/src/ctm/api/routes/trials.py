@@ -6,8 +6,19 @@ router = APIRouter()
 
 
 @router.get("/trials")
-async def list_trials(request: Request, condition: str | None = None, phase: str | None = None):
-    """List available trials (sandbox + uploaded)."""
+async def list_trials(
+    request: Request,
+    condition: str | None = None,
+    phase: str | None = None,
+    offset: int = 0,
+    limit: int = 50,
+):
+    """List available trials (sandbox + uploaded) with pagination."""
+    if limit > 200:
+        limit = 200
+    if offset < 0:
+        offset = 0
+
     trials = load_sample_protocols()
 
     # Merge in custom uploaded trials
@@ -20,19 +31,27 @@ async def list_trials(request: Request, condition: str | None = None, phase: str
     if phase:
         trials = [t for t in trials if t.phase and phase.lower() in t.phase.lower()]
 
-    return [
-        {
-            "nct_id": t.nct_id,
-            "brief_title": t.brief_title,
-            "diseases": t.diseases,
-            "phase": t.phase,
-            "status": t.status,
-            "source": t.source_registry or "sandbox",
-            "inclusion_count": len(t.inclusion_criteria),
-            "exclusion_count": len(t.exclusion_criteria),
-        }
-        for t in trials
-    ]
+    total = len(trials)
+    page = trials[offset:offset + limit]
+
+    return {
+        "trials": [
+            {
+                "nct_id": t.nct_id,
+                "brief_title": t.brief_title,
+                "diseases": t.diseases,
+                "phase": t.phase,
+                "status": t.status,
+                "source": t.source_registry or "sandbox",
+                "inclusion_count": len(t.inclusion_criteria),
+                "exclusion_count": len(t.exclusion_criteria),
+            }
+            for t in page
+        ],
+        "total": total,
+        "offset": offset,
+        "limit": limit,
+    }
 
 
 @router.get("/trials/{nct_id}")

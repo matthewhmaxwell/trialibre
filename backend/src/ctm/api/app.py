@@ -53,8 +53,10 @@ async def lifespan(app: FastAPI):
         settings.sandbox.enabled = True
         logger.info("No AI service configured. Sandbox mode activated.")
 
-    # In-memory storage for uploaded custom trials
+    # In-memory storage for uploaded custom trials (with lock for concurrency safety)
+    import threading
     app.state.custom_trials: dict = {}
+    app.state.custom_trials_lock = threading.Lock()
 
     yield
 
