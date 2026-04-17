@@ -1,15 +1,17 @@
 """Patient and trial data ingestion endpoints."""
 from __future__ import annotations
 
+import asyncio
 import re
 import uuid
 import logging
 
 from fastapi import APIRouter, Depends, UploadFile, File, Form, HTTPException, Request
+from pydantic import BaseModel, Field
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from ctm.api.dependencies import get_db_session
-from ctm.db.repositories import TrialRepository
+from ctm.db.repositories import BatchJobRepository, TrialRepository
 from ctm.models.trial import ClinicalTrial
 
 logger = logging.getLogger(__name__)
@@ -276,3 +278,173 @@ async def import_from_ctgov(
         "source": "ctgov",
         "already_loaded": False,
     }
+
+
+# ─────────────────────────────────────────────────────────────────
+# Bulk ClinicalTrials.gov sync
+# ─────────────────────────────────────────────────────────────────
+
+
+class CTGovSyncRequest(BaseModel):
+    """Parameters for a bulk CT.gov sync job."""
+
+    condition: str | None = None
+    intervention: str | None = None
+    location: str | None = None
+    status: list[str] | None = None
+    phase: list[str] | None = None
+    max_trials: int = Field(default=500, ge=1, le=10_000)
+    page_size: int = Field(default=100, ge=10, le=1000)
+
+
+@router.post("/ingest/ctgov-sync")
+async def start_ctgov_sync(
+    request: Request,
+    body: CTGovSyncRequest,
+    session: AsyncSession = Depends(get_db_session),
+):
+    """Start a background job that bulk-imports trials from ClinicalTrials.gov.
+
+    Returns immediately with a job_id. Poll `/api/v1/ingest/ctgov/sync/{job_id}`
+    for progress.
+
+    The sync paginates through CT.gov results matching the search criteria
+    and upserts each trial into the local database. Existing trials with
+    the same NCT ID are updated.
+    """
+    if not any([body.condition, body.intervention, body.location, body.phase, body.status]):
+        raise HTTPException(
+            400,
+            "Provide at least one filter (condition, intervention, location, phase, or status)."
+        )
+
+    job_id = str(uuid.uuid4())[:8]
+    jobs = BatchJobRepository(session)
+    await jobs.create(
+        job_id=job_id,
+        total=0,  # filled in by background task once first page arrives
+        job_type="ctgov_sync",
+        job_metadata=body.model_dump(),
+    )
+    # Commit the job record before launching the background task
+    await session.commit()
+
+    db = request.app.state.db
+    asyncio.create_task(_run_ctgov_sync(db, job_id, body))
+
+    return {
+        "job_id": job_id,
+        "status": "running",
+        "message": "Sync started. Poll /api/v1/ingest/ctgov-sync/{job_id} for progress.",
+    }
+
+
+@router.get("/ingest/ctgov-sync/{job_id}")
+async def get_ctgov_sync_status(
+    job_id: str,
+    session: AsyncSession = Depends(get_db_session),
+):
+    """Get the status of a running or completed CT.gov sync job."""
+    jobs = BatchJobRepository(session)
+    job = await jobs.get(job_id)
+    if job is None:
+        raise HTTPException(404, f"Sync job {job_id} not found")
+    if job["job_type"] != "ctgov_sync":
+        raise HTTPException(400, f"Job {job_id} is not a CT.gov sync job (it's a {job['job_type']} job)")
+    return job
+
+
+async def _run_ctgov_sync(db, job_id: str, body: CTGovSyncRequest) -> None:
+    """Background task: paginate CT.gov, upsert each trial, update job state.
+
+    Uses fresh DB sessions per page to avoid holding a connection for the
+    duration of the sync. Failures on individual trials are recorded but
+    don't stop the sync.
+    """
+    from ctm.data.registries.ctgov_client import CTGovClient
+
+    client = CTGovClient()
+    page_token: str | None = None
+    completed = 0
+    failed = 0
+    failure_log: list[dict] = []
+    total_announced: int | None = None
+
+    try:
+        while True:
+            try:
+                page = await client.search(
+                    condition=body.condition,
+                    intervention=body.intervention,
+                    location=body.location,
+                    status=body.status,
+                    phase=body.phase,
+                    page_size=body.page_size,
+                    page_token=page_token,
+                )
+            except Exception as e:
+                logger.error(f"CT.gov search failed during sync {job_id}: {e}")
+                async with db.session() as s:
+                    await BatchJobRepository(s).update(
+                        job_id,
+                        status="failed",
+                        results=failure_log + [{"error": f"Search failed: {e}"}],
+                    )
+                return
+
+            # On the first page, record the total (capped at max_trials)
+            if total_announced is None:
+                api_total = page.get("total", 0) or 0
+                total_announced = min(api_total, body.max_trials)
+                async with db.session() as s:
+                    await BatchJobRepository(s).update(job_id, total=total_announced)
+
+            # Upsert each trial in this page (within a single session)
+            async with db.session() as s:
+                trial_repo = TrialRepository(s)
+                for trial in page["trials"]:
+                    if completed + failed >= body.max_trials:
+                        break
+                    try:
+                        await trial_repo.upsert(trial)
+                        completed += 1
+                    except Exception as e:
+                        failed += 1
+                        failure_log.append({
+                            "nct_id": getattr(trial, "nct_id", "?"),
+                            "error": f"{type(e).__name__}: {e}",
+                        })
+
+            # Persist progress after each page
+            async with db.session() as s:
+                await BatchJobRepository(s).update(
+                    job_id,
+                    completed=completed,
+                    failed=failed,
+                    results=failure_log,
+                )
+
+            page_token = page.get("next_page_token")
+            if not page_token or completed + failed >= body.max_trials:
+                break
+
+        # Mark complete
+        final_status = "completed" if failed == 0 else "partial_failure"
+        async with db.session() as s:
+            await BatchJobRepository(s).update(job_id, status=final_status)
+
+    except (MemoryError, SystemExit, KeyboardInterrupt):
+        raise
+    except Exception as e:
+        logger.exception(f"CT.gov sync {job_id} crashed")
+        try:
+            async with db.session() as s:
+                await BatchJobRepository(s).update(
+                    job_id,
+                    status="failed",
+                    results=failure_log + [{"error": f"{type(e).__name__}: {e}"}],
+                )
+        except Exception:
+            logger.exception(f"Could not record final failure state for sync {job_id}")
+    finally:
+        await client.close()

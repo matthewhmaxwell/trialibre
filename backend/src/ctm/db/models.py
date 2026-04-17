@@ -124,16 +124,18 @@ class NotificationRecord(Base):
 
 
 class BatchJobRecord(Base):
-    """Stored batch processing job."""
+    """Stored batch processing job (matching or trial sync)."""
 
     __tablename__ = "batch_jobs"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     job_id: Mapped[str] = mapped_column(String(64), unique=True, index=True)
+    job_type: Mapped[str] = mapped_column(String(30), default="match", index=True)
     status: Mapped[str] = mapped_column(String(20), default="pending")
     total: Mapped[int] = mapped_column(Integer, default=0)
     completed: Mapped[int] = mapped_column(Integer, default=0)
     failed: Mapped[int] = mapped_column(Integer, default=0)
     results: Mapped[list] = mapped_column(JSON, default=list)
+    job_metadata: Mapped[dict] = mapped_column(JSON, default=dict)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=_utcnow)
     updated_at: Mapped[datetime] = mapped_column(DateTime, default=_utcnow)
