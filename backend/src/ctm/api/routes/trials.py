@@ -1,7 +1,13 @@
 """Trial browsing and management endpoints."""
 from __future__ import annotations
-from fastapi import APIRouter, HTTPException, Request
-from ctm.sandbox.loader import load_sample_protocols, get_sample_trial
+
+from fastapi import APIRouter, Depends, HTTPException, Request
+from sqlalchemy.ext.asyncio import AsyncSession
+
+from ctm.api.dependencies import get_db_session
+from ctm.db.repositories import TrialRepository
+from ctm.sandbox.loader import get_sample_trial, load_sample_protocols
+
 router = APIRouter()
 
 
@@ -12,19 +18,22 @@ async def list_trials(
     phase: str | None = None,
     offset: int = 0,
     limit: int = 50,
+    session: AsyncSession = Depends(get_db_session),
 ):
-    """List available trials (sandbox + uploaded) with pagination."""
+    """List available trials (sandbox + persisted) with pagination."""
     if limit > 200:
         limit = 200
     if offset < 0:
         offset = 0
 
+    # Sandbox trials are loaded from disk
     trials = load_sample_protocols()
 
-    # Merge in custom uploaded trials
-    custom = getattr(request.app.state, "custom_trials", {})
-    if custom:
-        trials = trials + list(custom.values())
+    # Persisted custom/imported trials from DB
+    repo = TrialRepository(session)
+    persisted = await repo.list_all()
+    if persisted:
+        trials = trials + persisted
 
     if condition:
         trials = [t for t in trials if any(condition.lower() in d.lower() for d in t.diseases)]
@@ -32,7 +41,7 @@ async def list_trials(
         trials = [t for t in trials if t.phase and phase.lower() in t.phase.lower()]
 
     total = len(trials)
-    page = trials[offset:offset + limit]
+    page = trials[offset : offset + limit]
 
     return {
         "trials": [
@@ -55,30 +64,38 @@ async def list_trials(
 
 
 @router.get("/trials/{nct_id}")
-async def get_trial(request: Request, nct_id: str):
+async def get_trial(
+    request: Request,
+    nct_id: str,
+    session: AsyncSession = Depends(get_db_session),
+):
     """Get trial details."""
-    # Check custom trials first
-    custom = getattr(request.app.state, "custom_trials", {})
-    if nct_id in custom:
-        return custom[nct_id].model_dump()
+    repo = TrialRepository(session)
+    trial = await repo.get(nct_id)
+    if trial is not None:
+        return trial.model_dump()
 
-    trial = get_sample_trial(nct_id)
-    if not trial:
+    sample = get_sample_trial(nct_id)
+    if sample is None:
         raise HTTPException(404, f"Trial {nct_id} not found")
-    return trial.model_dump()
+    return sample.model_dump()
 
 
 @router.delete("/trials/{nct_id}")
-async def delete_trial(request: Request, nct_id: str):
-    """Delete an uploaded trial. Only uploaded trials can be deleted."""
-    custom = getattr(request.app.state, "custom_trials", {})
-    if nct_id not in custom:
-        # Check if it's a sandbox trial
-        trial = get_sample_trial(nct_id)
-        if trial:
-            raise HTTPException(403, "Cannot delete sandbox trials")
-        raise HTTPException(404, f"Trial {nct_id} not found")
+async def delete_trial(
+    request: Request,
+    nct_id: str,
+    session: AsyncSession = Depends(get_db_session),
+):
+    """Delete an uploaded trial. Sandbox trials cannot be deleted."""
+    repo = TrialRepository(session)
+    deleted = await repo.delete(nct_id)
+    if deleted:
+        return {"status": "deleted", "nct_id": nct_id}
 
-    del custom[nct_id]
-    request.app.state.custom_trials = custom
-    return {"status": "deleted", "nct_id": nct_id}
+    # If not in DB, check if it's a sandbox trial (which can't be deleted)
+    sample = get_sample_trial(nct_id)
+    if sample is not None:
+        raise HTTPException(403, "Cannot delete sandbox trials")
+
+    raise HTTPException(404, f"Trial {nct_id} not found")

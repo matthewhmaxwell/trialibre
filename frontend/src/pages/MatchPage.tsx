@@ -84,6 +84,16 @@ export function MatchPage() {
       {/* Results phase */}
       {phase === 'done' && result && (
         <>
+          {result.warnings && result.warnings.length > 0 && (
+            <div className="mb-4 p-3 bg-amber-50 border border-amber-200 rounded-lg text-sm">
+              {result.warnings.map((w, i) => (
+                <p key={i} className="text-amber-900 flex gap-2 py-0.5">
+                  <span aria-hidden="true">⚠</span>
+                  <span>{w}</span>
+                </p>
+              ))}
+            </div>
+          )}
           <div className="flex items-center justify-between mb-4">
             <div>
               <p className="text-sm text-gray-700">

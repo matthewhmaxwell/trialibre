@@ -34,6 +34,7 @@ export interface MatchResponse {
   matching_time_ms: number;
   ranking_time_ms: number;
   sandbox_mode: boolean;
+  warnings?: string[];
 }
 
 export interface HealthResponse {
@@ -44,6 +45,8 @@ export interface HealthResponse {
   sandbox_mode: boolean;
   trial_count: number;
   database_backend: string;
+  warnings?: string[];
+  capabilities?: Record<string, boolean>;
 }
 
 export interface PrivacyStatus {

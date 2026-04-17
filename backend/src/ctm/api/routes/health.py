@@ -5,6 +5,7 @@ from __future__ import annotations
 from fastapi import APIRouter, Request
 
 from ctm import __version__
+from ctm.api.diagnostics import check_capabilities, warnings_from_state
 from ctm.models.api import HealthResponse
 
 router = APIRouter()
@@ -15,6 +16,9 @@ async def health_check(request: Request) -> HealthResponse:
     settings = request.app.state.settings
     llm = getattr(request.app.state, "llm", None)
 
+    capabilities = check_capabilities()
+    warnings = warnings_from_state(settings, llm, capabilities)
+
     return HealthResponse(
         status="ok",
         version=__version__,
@@ -22,4 +26,6 @@ async def health_check(request: Request) -> HealthResponse:
         llm_connected=llm is not None,
         sandbox_mode=settings.sandbox.enabled,
         database_backend=settings.database.backend.value,
+        capabilities=capabilities,
+        warnings=warnings,
     )

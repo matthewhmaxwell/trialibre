@@ -34,6 +34,7 @@ class MatchResponse(BaseModel):
     matching_time_ms: float
     ranking_time_ms: float
     sandbox_mode: bool = False
+    warnings: list[str] = []  # User-visible issues detected during the match
 
 
 class BatchMatchRequest(BaseModel):
@@ -99,6 +100,8 @@ class HealthResponse(BaseModel):
     sandbox_mode: bool = False
     trial_count: int = 0
     database_backend: str = ""
+    warnings: list[str] = []  # Environment/config issues a user should know about
+    capabilities: dict[str, bool] = {}  # Which optional features are available (ocr, email, etc.)
 
 
 class PrivacyStatusResponse(BaseModel):

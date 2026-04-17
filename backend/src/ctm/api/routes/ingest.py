@@ -5,8 +5,11 @@ import re
 import uuid
 import logging
 
-from fastapi import APIRouter, UploadFile, File, Form, HTTPException, Request
+from fastapi import APIRouter, Depends, UploadFile, File, Form, HTTPException, Request
+from sqlalchemy.ext.asyncio import AsyncSession
 
+from ctm.api.dependencies import get_db_session
+from ctm.db.repositories import TrialRepository
 from ctm.models.trial import ClinicalTrial
 
 logger = logging.getLogger(__name__)
@@ -22,29 +25,16 @@ async def _read_upload(file: UploadFile) -> bytes:
     """Read an uploaded file with size limit enforcement."""
     content = await file.read(MAX_UPLOAD_BYTES + 1)
     if len(content) > MAX_UPLOAD_BYTES:
-        raise HTTPException(413, f"File too large. Maximum size is {MAX_UPLOAD_BYTES // (1024*1024)} MB.")
+        raise HTTPException(
+            413, f"File too large. Maximum size is {MAX_UPLOAD_BYTES // (1024 * 1024)} MB."
+        )
     return content
 
 
-def _get_custom_trials(request: Request) -> dict:
-    return getattr(request.app.state, "custom_trials", {})
-
-
-def _store_trial(request: Request, trial: ClinicalTrial) -> None:
-    """Thread-safe trial storage using the app-level lock."""
-    lock = getattr(request.app.state, "custom_trials_lock", None)
-    custom = _get_custom_trials(request)
-    if lock:
-        with lock:
-            custom[trial.nct_id] = trial
-            request.app.state.custom_trials = custom
-    else:
-        custom[trial.nct_id] = trial
-        request.app.state.custom_trials = custom
-
-
 @router.post("/ingest/patient")
-async def ingest_patient(text: str | None = Form(None), file: UploadFile | None = File(None)):
+async def ingest_patient(
+    text: str | None = Form(None), file: UploadFile | None = File(None)
+):
     """Ingest patient data from text or file upload."""
     if not text and not file:
         raise HTTPException(400, "Provide either text or a file")
@@ -52,7 +42,11 @@ async def ingest_patient(text: str | None = Form(None), file: UploadFile | None 
     if file:
         content = await _read_upload(file)
         source = content.decode("utf-8", errors="replace")
-    return {"status": "ingested", "text_length": len(source), "source_format": "text" if text else file.content_type}
+    return {
+        "status": "ingested",
+        "text_length": len(source),
+        "source_format": "text" if text else file.content_type,
+    }
 
 
 @router.post("/ingest/trial")
@@ -62,15 +56,13 @@ async def ingest_trial(
     text: str | None = Form(None),
     title: str | None = Form(None),
     nct_id: str | None = Form(None),
+    session: AsyncSession = Depends(get_db_session),
 ):
-    """Upload a single protocol document and extract eligibility criteria.
-
-    Accepts PDF, DOCX, TXT files, or pasted text. Extracts inclusion/exclusion
-    criteria using heuristic parsing and stores the trial for matching.
-    """
+    """Upload a single protocol document and extract eligibility criteria."""
     if not file and not text:
         raise HTTPException(400, "Provide either a file or text")
 
+    repo = TrialRepository(session)
     trial_id = nct_id or f"UPLOAD-{uuid.uuid4().hex[:8]}"
     trial_title = title or ""
     source_format = "text"
@@ -86,7 +78,9 @@ async def ingest_trial(
             raw_text = await PdfIngestor().extract_text(content)
             if not raw_text.strip():
                 raise HTTPException(
-                    422, "Could not extract text from this PDF. It may be image-based. Try pasting the text instead."
+                    422,
+                    "Could not extract text from this PDF. It may be image-based. "
+                    "Try pasting the text instead.",
                 )
 
         elif filename.endswith(".docx"):
@@ -101,7 +95,7 @@ async def ingest_trial(
             results = []
             for t in trials:
                 t.source_registry = "upload"
-                _store_trial(request, t)
+                await repo.upsert(t)
                 results.append({
                     "nct_id": t.nct_id,
                     "brief_title": t.brief_title,
@@ -117,11 +111,18 @@ async def ingest_trial(
             raw_text = content.decode("utf-8", errors="replace")
 
         if not trial_title and file.filename:
-            trial_title = file.filename.rsplit(".", 1)[0].replace("_", " ").replace("-", " ").title()
+            trial_title = (
+                file.filename.rsplit(".", 1)[0]
+                .replace("_", " ")
+                .replace("-", " ")
+                .title()
+            )
 
     elif text:
         if len(text) > MAX_TEXT_LENGTH:
-            raise HTTPException(413, f"Text too long. Maximum is {MAX_TEXT_LENGTH:,} characters.")
+            raise HTTPException(
+                413, f"Text too long. Maximum is {MAX_TEXT_LENGTH:,} characters."
+            )
         raw_text = text
         source_format = "text"
 
@@ -133,10 +134,7 @@ async def ingest_trial(
 
     if not trial_title:
         first_line = raw_text.strip().split("\n")[0].strip()
-        if len(first_line) < 200:
-            trial_title = first_line
-        else:
-            trial_title = f"Uploaded Protocol {trial_id}"
+        trial_title = first_line if len(first_line) < 200 else f"Uploaded Protocol {trial_id}"
 
     trial = ClinicalTrial(
         nct_id=trial_id,
@@ -152,8 +150,10 @@ async def ingest_trial(
         },
     )
 
-    _store_trial(request, trial)
-    logger.info(f"Uploaded trial {trial_id}: {len(inclusion)} inc + {len(exclusion)} exc criteria")
+    await repo.upsert(trial)
+    logger.info(
+        f"Uploaded trial {trial_id}: {len(inclusion)} inc + {len(exclusion)} exc criteria"
+    )
 
     return {
         "nct_id": trial_id,
@@ -168,7 +168,11 @@ async def ingest_trial(
 
 
 @router.post("/ingest/trials")
-async def ingest_trials(request: Request, file: UploadFile = File(...)):
+async def ingest_trials(
+    request: Request,
+    file: UploadFile = File(...),
+    session: AsyncSession = Depends(get_db_session),
+):
     """Upload a structured trial data file (JSON, JSONL, or CSV)."""
     content = await _read_upload(file)
 
@@ -178,9 +182,10 @@ async def ingest_trials(request: Request, file: UploadFile = File(...)):
     if not trials:
         raise HTTPException(422, "No trials found in file")
 
+    repo = TrialRepository(session)
     for t in trials:
         t.source_registry = "upload"
-        _store_trial(request, t)
+        await repo.upsert(t)
 
     return {
         "status": "ingested",
@@ -189,12 +194,11 @@ async def ingest_trials(request: Request, file: UploadFile = File(...)):
     }
 
 
-async def _ctgov_curl_fallback(nct_id: str, client: "CTGovClient") -> "ClinicalTrial | None":
+async def _ctgov_curl_fallback(nct_id: str, client) -> ClinicalTrial | None:
     """Fallback: fetch from CT.gov via curl subprocess when httpx has SSL issues."""
     import asyncio
     import json as _json
 
-    # nct_id is already validated by caller — safe for subprocess
     proc = await asyncio.create_subprocess_exec(
         "curl", "-s", "--max-time", "30",
         f"https://clinicaltrials.gov/api/v2/studies/{nct_id}",
@@ -213,27 +217,32 @@ async def _ctgov_curl_fallback(nct_id: str, client: "CTGovClient") -> "ClinicalT
 
 
 @router.post("/ingest/ctgov/{nct_id}")
-async def import_from_ctgov(request: Request, nct_id: str):
+async def import_from_ctgov(
+    request: Request,
+    nct_id: str,
+    session: AsyncSession = Depends(get_db_session),
+):
     """Import a trial from ClinicalTrials.gov by NCT ID."""
     from ctm.data.registries.ctgov_client import CTGovClient
 
-    # Strict NCT ID validation
     nct_id = nct_id.strip().upper()
     if not nct_id.startswith("NCT"):
         nct_id = f"NCT{nct_id}"
     if not NCT_ID_PATTERN.match(nct_id):
-        raise HTTPException(400, "Invalid NCT ID format. Expected NCT followed by 8 digits (e.g. NCT04560881).")
+        raise HTTPException(
+            400,
+            "Invalid NCT ID format. Expected NCT followed by 8 digits (e.g. NCT04560881).",
+        )
 
-    # Check if already loaded
-    custom = _get_custom_trials(request)
-    if nct_id in custom:
-        t = custom[nct_id]
+    repo = TrialRepository(session)
+    existing = await repo.get(nct_id)
+    if existing is not None:
         return {
-            "nct_id": t.nct_id,
-            "brief_title": t.brief_title,
-            "inclusion_count": len(t.inclusion_criteria),
-            "exclusion_count": len(t.exclusion_criteria),
-            "source": t.source_registry,
+            "nct_id": existing.nct_id,
+            "brief_title": existing.brief_title,
+            "inclusion_count": len(existing.inclusion_criteria),
+            "exclusion_count": len(existing.exclusion_criteria),
+            "source": existing.source_registry,
             "already_loaded": True,
         }
 
@@ -241,7 +250,7 @@ async def import_from_ctgov(request: Request, nct_id: str):
     trial = None
     try:
         trial = await client.get_trial(nct_id)
-    except (Exception,) as e:
+    except Exception as e:
         logger.warning(f"httpx failed for {nct_id}: {type(e).__name__}: {e}")
         try:
             trial = await _ctgov_curl_fallback(nct_id, client)
@@ -253,7 +262,7 @@ async def import_from_ctgov(request: Request, nct_id: str):
     if trial is None:
         raise HTTPException(404, f"Trial {nct_id} not found on ClinicalTrials.gov")
 
-    _store_trial(request, trial)
+    await repo.upsert(trial)
 
     return {
         "nct_id": trial.nct_id,

@@ -142,6 +142,18 @@ class APIConfig(BaseModel):
     serve_frontend: bool = True
     frontend_build_path: str = "../frontend/dist"
 
+    # Access control. When api_keys is empty, auth is disabled (open access).
+    # When populated, requests must include a matching X-API-Key header or
+    # ?api_key= query parameter. /health and /docs remain public for
+    # load-balancer probes and OpenAPI discovery.
+    api_keys: list[str] = []
+    auth_exempt_paths: list[str] = [
+        "/api/v1/health",
+        "/docs",
+        "/redoc",
+        "/openapi.json",
+    ]
+
 
 class AuditConfig(BaseModel):
     """Audit trail configuration."""

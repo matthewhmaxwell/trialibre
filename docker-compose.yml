@@ -1,26 +1,44 @@
 version: "3.9"
 
+# Default development compose. For production, see docs/DEPLOYMENT.md
+# and docker-compose.prod.yml.
+
 services:
   trialibre:
     build: .
     ports:
-      - "8000:8000"
+      - "127.0.0.1:8000:8000"  # Bind to localhost only
     volumes:
       - trialibre-data:/data
     environment:
-      - TRIALIBRE_LLM_PROVIDER=${TRIALIBRE_LLM_PROVIDER:-ollama}
-      - TRIALIBRE_LLM_BASE_URL=${TRIALIBRE_LLM_BASE_URL:-http://ollama:11434}
-      - TRIALIBRE_LLM_MODEL=${TRIALIBRE_LLM_MODEL:-llama3.1}
-      - TRIALIBRE_LLM_API_KEY=${TRIALIBRE_LLM_API_KEY:-}
+      # Database
+      - CTM_DATABASE__SQLITE_PATH=/data/trialibre.db
+      # LLM provider (defaults to Ollama for safety)
+      - CTM_LLM__PROVIDER=${CTM_LLM__PROVIDER:-ollama}
+      - CTM_LLM__BASE_URL=${CTM_LLM__BASE_URL:-http://ollama:11434}
+      - CTM_LLM__MODEL=${CTM_LLM__MODEL:-llama3.1}
+      - CTM_LLM__API_KEY=${CTM_LLM__API_KEY:-}
+      # API keys for auth — comma-separated JSON list
+      - CTM_API__API_KEYS=${CTM_API__API_KEYS:-[]}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
     restart: unless-stopped
 
   # Optional: local Ollama for fully offline operation
   ollama:
     image: ollama/ollama:latest
-    ports:
-      - "11434:11434"
     volumes:
       - ollama-models:/root/.ollama
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
     profiles: ["local"]
 
 volumes:

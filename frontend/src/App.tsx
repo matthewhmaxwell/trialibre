@@ -8,6 +8,7 @@ import { TrialsPage } from './pages/TrialsPage';
 import { SettingsPage } from './pages/SettingsPage';
 import { SandboxBanner } from './components/SandboxBanner';
 import { DemoBanner } from './components/DemoBanner';
+import { WarningsBanner } from './components/WarningsBanner';
 import { PrivacyIndicator } from './components/PrivacyIndicator';
 import { LanguageSwitcher } from './components/LanguageSwitcher';
 import { useSettings } from './hooks/useSettings';
@@ -70,6 +71,7 @@ function Layout({ children }: { children: React.ReactNode }) {
       </div>
 
       <SandboxBanner visible={health?.sandbox_mode ?? false} />
+      <WarningsBanner warnings={health?.warnings ?? []} />
 
       {/* Main content */}
       <main className="flex-1 pb-24 md:pb-16">

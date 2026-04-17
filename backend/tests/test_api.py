@@ -1,9 +1,14 @@
 """Tests for the FastAPI endpoints."""
 
+import tempfile
+from pathlib import Path
+
 import pytest
+from asgi_lifespan import LifespanManager
 from httpx import AsyncClient, ASGITransport
 
 from ctm.api.app import create_app
+from ctm.config import load_settings
 
 
 def _has_nltk_punkt():
@@ -19,15 +24,21 @@ needs_nltk = pytest.mark.skipif(not _has_nltk_punkt(), reason="NLTK punkt_tab da
 
 
 @pytest.fixture
-def app():
-    return create_app()
+def app(tmp_path):
+    """Create a test app with an isolated SQLite database."""
+    settings = load_settings()
+    db_file = tmp_path / "test.db"
+    settings.database.sqlite_path = str(db_file)
+    return create_app(settings=settings)
 
 
 @pytest.fixture
 async def client(app):
-    transport = ASGITransport(app=app)
-    async with AsyncClient(transport=transport, base_url="http://test") as c:
-        yield c
+    """AsyncClient that also runs the lifespan context (DB connect/disconnect)."""
+    async with LifespanManager(app):
+        transport = ASGITransport(app=app)
+        async with AsyncClient(transport=transport, base_url="http://test") as c:
+            yield c
 
 
 class TestHealthEndpoint:

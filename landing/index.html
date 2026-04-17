@@ -525,17 +525,17 @@
             <div class="feature-card">
                 <div class="feature-icon">📋</div>
                 <h3>Batch Screening</h3>
-                <p>Upload a CSV of patients to screen against all loaded trials at once. Export results for your team.</p>
+                <p>Submit up to 100 patients at once via the API or UI. Each patient is matched against all loaded trials with per-patient strong/possible/unlikely counts.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">📨</div>
-                <h3>Referral Management</h3>
-                <p>Generate referral summaries and send them via email or WhatsApp. Track referral status from your dashboard.</p>
+                <h3>Referral Tracking</h3>
+                <p>Generate referral records with patient, trial, and recipient details. Track status lifecycle (created → sent → accepted/declined). Delivery integrations are on the roadmap.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">📊</div>
                 <h3>Evaluation Framework</h3>
-                <p>Built-in metrics (Precision, NDCG, MRR) with annotated ground truth data across 12 therapeutic areas for validating match quality.</p>
+                <p>Standard IR metrics (Precision@K, NDCG, MRR, strength accuracy) with 24 annotated patient-trial pairs across 12 therapeutic areas for regression testing match quality.</p>
             </div>
         </div>
     </div>
@@ -552,7 +552,7 @@
             <div class="step">
                 <div class="step-number">1</div>
                 <h3>Describe Your Patient</h3>
-                <p>Type a clinical note, upload a PDF, or take a photo of a patient record. Supports 8 input formats including FHIR and HL7.</p>
+                <p>Type or paste a clinical note, or upload a PDF, DOCX, CSV, FHIR bundle, or HL7 message. Photo-to-text via Tesseract is available when the system dependency is installed.</p>
             </div>
             <div class="step">
                 <div class="step-number">2</div>
@@ -608,10 +608,13 @@
     <div class="cta-inner">
         <h2>Open source. Free forever.</h2>
         <p>Trialibre is developed by the American Institute for Medical Research because clinical trial matching should be accessible to every clinician and researcher — not locked behind expensive proprietary platforms.</p>
+        <p style="font-size:0.85rem;color:var(--text-light);margin-top:-1rem;margin-bottom:2rem;padding:0.75rem 1rem;background:#fff8e6;border-radius:0.5rem;border:1px solid #f5d583;display:inline-block;">
+            <strong>Beta:</strong> Trialibre is a screening tool, not a medical device. All matches must be verified by a qualified clinician. Handling real patient data requires a BAA with your chosen AI provider — see the <a href="https://github.com/matthewhmaxwell/trialibre/blob/main/docs/PRIVACY.md" style="color:var(--primary);">privacy guide</a>.
+        </p>
         <div class="cta-actions">
             <a href="./demo/" class="btn btn-primary">Try the Demo</a>
             <a href="https://github.com/matthewhmaxwell/trialibre" class="btn btn-secondary">View on GitHub</a>
-            <a href="https://github.com/matthewhmaxwell/trialibre/releases" class="btn btn-secondary">Download v0.1.0</a>
+            <a href="https://github.com/matthewhmaxwell/trialibre/releases" class="btn btn-secondary">Releases</a>
         </div>
     </div>
 </section>

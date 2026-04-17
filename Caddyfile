@@ -1,0 +1,43 @@
+{
+    # Global options
+    email {$ADMIN_EMAIL}
+    # Disable admin API (security)
+    admin off
+}
+
+{$DOMAIN} {
+    # TLS auto-provisioned via Let's Encrypt
+    encode zstd gzip
+
+    # Security headers
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "DENY"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        Permissions-Policy "geolocation=(), microphone=(), camera=()"
+        # Hide server header
+        -Server
+    }
+
+    # Rate limiting on the API
+    @api path /api/*
+    handle @api {
+        reverse_proxy trialibre:8000 {
+            header_up X-Real-IP {remote_host}
+            header_up X-Forwarded-For {remote_host}
+            header_up X-Forwarded-Proto https
+        }
+    }
+
+    # Static frontend
+    handle {
+        reverse_proxy trialibre:8000
+    }
+
+    # Logs go to stdout (Docker captures them)
+    log {
+        output stdout
+        format json
+    }
+}

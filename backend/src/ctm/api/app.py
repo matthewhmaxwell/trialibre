@@ -20,6 +20,7 @@ from fastapi.staticfiles import StaticFiles
 from ctm import __version__
 from ctm.config import Settings, load_settings
 from ctm.db.base import Database
+from ctm.db import models as _db_models  # noqa: F401 — register ORM models with Base.metadata
 from ctm.providers.registry import create_provider, validate_config
 
 logger = logging.getLogger(__name__)
@@ -53,11 +54,6 @@ async def lifespan(app: FastAPI):
         settings.sandbox.enabled = True
         logger.info("No AI service configured. Sandbox mode activated.")
 
-    # In-memory storage for uploaded custom trials (with lock for concurrency safety)
-    import threading
-    app.state.custom_trials: dict = {}
-    app.state.custom_trials_lock = threading.Lock()
-
     yield
 
     # Shutdown
@@ -88,6 +84,16 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         allow_methods=["*"],
         allow_headers=["*"],
     )
+
+    # Optional API key auth (only active when api_keys is configured)
+    if settings.api.api_keys:
+        from ctm.api.auth import APIKeyAuthMiddleware
+        app.add_middleware(
+            APIKeyAuthMiddleware,
+            api_keys=settings.api.api_keys,
+            exempt_paths=settings.api.auth_exempt_paths,
+        )
+        logger.info(f"API key authentication enabled ({len(settings.api.api_keys)} keys configured)")
 
     # API routes
     from ctm.api.routes import audit, batch, dashboard, health, ingest, match, privacy, referrals, sandbox, settings as settings_routes, trials

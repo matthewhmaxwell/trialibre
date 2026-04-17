@@ -3,11 +3,13 @@ from __future__ import annotations
 
 import logging
 import uuid
-from datetime import datetime, timezone
 
-from fastapi import APIRouter, HTTPException, Request
+from fastapi import APIRouter, Depends, HTTPException, Request
 from pydantic import BaseModel, Field
+from sqlalchemy.ext.asyncio import AsyncSession
 
+from ctm.api.dependencies import get_db_session
+from ctm.db.repositories import BatchJobRepository, TrialRepository
 from ctm.models.patient import PatientNote
 from ctm.pipeline.orchestrator import PipelineOrchestrator
 from ctm.sandbox.loader import load_sample_protocols
@@ -15,9 +17,6 @@ from ctm.sandbox.loader import load_sample_protocols
 logger = logging.getLogger(__name__)
 
 router = APIRouter()
-
-# In-memory job store
-_jobs: dict[str, dict] = {}
 
 MAX_BATCH_SIZE = 100
 
@@ -33,8 +32,12 @@ class BatchRequest(BaseModel):
 
 
 @router.post("/batch")
-async def start_batch(request: Request, body: BatchRequest):
-    """Start a batch patient screening job."""
+async def start_batch(
+    request: Request,
+    body: BatchRequest,
+    session: AsyncSession = Depends(get_db_session),
+):
+    """Start a batch patient screening job (synchronous in this implementation)."""
     settings = request.app.state.settings
     llm = getattr(request.app.state, "llm", None)
 
@@ -42,51 +45,66 @@ async def start_batch(request: Request, body: BatchRequest):
         settings.sandbox.enabled = True
 
     job_id = str(uuid.uuid4())[:8]
-    job = {
-        "job_id": job_id,
-        "status": "running",
-        "total": len(body.patients),
-        "completed": 0,
-        "failed": 0,
-        "results": [],
-        "created_at": datetime.now(timezone.utc).isoformat(),
-    }
-    _jobs[job_id] = job
+    jobs = BatchJobRepository(session)
+    await jobs.create(job_id=job_id, total=len(body.patients))
 
-    # Merge sandbox + custom trials
+    # Build trial corpus
     trials = load_sample_protocols()
-    custom = getattr(request.app.state, "custom_trials", {})
-    if custom:
-        trials = trials + list(custom.values())
+    trial_repo = TrialRepository(session)
+    persisted = await trial_repo.list_all()
+    if persisted:
+        trials = trials + persisted
 
     orchestrator = PipelineOrchestrator(settings, llm)
+
+    completed = 0
+    failed = 0
+    results: list[dict] = []
 
     for bp in body.patients:
         try:
             patient = PatientNote(patient_id=bp.patient_id, raw_text=bp.text)
-            ranking = await orchestrator.match_patient(patient, trials, max_trials=body.max_trials)
-            job["results"].append({
+            ranking = await orchestrator.match_patient(
+                patient, trials, max_trials=body.max_trials
+            )
+            results.append({
                 "patient_id": bp.patient_id,
                 "strong": len(ranking.strong_matches),
                 "possible": len(ranking.possible_matches),
                 "unlikely": len(ranking.unlikely_matches),
                 "top_trial": ranking.scores[0].trial_title if ranking.scores else None,
             })
-            job["completed"] += 1
+            completed += 1
         except (MemoryError, SystemExit, KeyboardInterrupt):
-            raise  # Never catch fatal errors
+            raise
         except Exception as e:
-            logger.error(f"Batch processing error for {bp.patient_id}: {type(e).__name__}: {e}")
-            job["failed"] += 1
-            job["results"].append({"patient_id": bp.patient_id, "error": f"{type(e).__name__}: {e}"})
+            logger.error(
+                f"Batch processing error for {bp.patient_id}: {type(e).__name__}: {e}"
+            )
+            failed += 1
+            results.append({
+                "patient_id": bp.patient_id,
+                "error": f"{type(e).__name__}: {e}",
+            })
 
-    job["status"] = "completed" if job["failed"] == 0 else "partial_failure"
-    return job
+    final_status = "completed" if failed == 0 else "partial_failure"
+    return await jobs.update(
+        job_id,
+        status=final_status,
+        completed=completed,
+        failed=failed,
+        results=results,
+    )
 
 
 @router.get("/batch/{job_id}")
-async def get_batch_status(job_id: str):
+async def get_batch_status(
+    job_id: str,
+    session: AsyncSession = Depends(get_db_session),
+):
     """Get batch job status."""
-    if job_id not in _jobs:
+    jobs = BatchJobRepository(session)
+    job = await jobs.get(job_id)
+    if job is None:
         raise HTTPException(404, f"Job {job_id} not found")
-    return _jobs[job_id]
+    return job
