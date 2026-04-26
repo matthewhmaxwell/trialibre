@@ -83,13 +83,15 @@ class OllamaProvider:
                 raise
 
             except (httpx.HTTPError, Exception) as e:
+                # httpx exceptions often have empty str(); fall back to type name
+                err_msg = str(e) or repr(e) or type(e).__name__
                 if attempt == self._max_retries - 1:
                     raise LLMError(
-                        f"Ollama error after {self._max_retries} retries: {e}",
+                        f"Ollama error after {self._max_retries} retries: {err_msg}",
                         provider="ollama",
                     ) from e
                 wait = min(2**attempt, 15)
-                logger.warning(f"Ollama error (attempt {attempt + 1}): {e}")
+                logger.warning(f"Ollama error (attempt {attempt + 1}): {err_msg}")
                 await asyncio.sleep(wait)
 
         raise LLMError("Unexpected: exhausted retries", provider="ollama")

@@ -30,11 +30,17 @@ class LLMAggregator:
         self._template = self._load_template()
 
     def _load_template(self) -> Template:
-        prompts_dir = Path(__file__).parent.parent.parent.parent / "config" / "prompts"
-        path = prompts_dir / "aggregation.jinja2"
-        if path.exists():
-            return Template(path.read_text())
-        return Template("Score the patient-trial match. Output JSON with relevance_score_R and eligibility_score_E.")
+        # 1. Packaged location (works after pip install)
+        package_path = Path(__file__).parent.parent.parent / "prompts" / "aggregation.jinja2"
+        if package_path.exists():
+            return Template(package_path.read_text())
+        # 2. Dev fallback
+        dev_path = Path(__file__).parent.parent.parent.parent.parent / "config" / "prompts" / "aggregation.jinja2"
+        if dev_path.exists():
+            return Template(dev_path.read_text())
+        raise FileNotFoundError(
+            f"Aggregation prompt template not found. Tried: {package_path}, {dev_path}."
+        )
 
     async def aggregate(
         self,

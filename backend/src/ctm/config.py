@@ -53,7 +53,7 @@ class LLMConfig(BaseModel):
     api_key: str | None = None
     base_url: str | None = None
     max_retries: int = 5
-    timeout: float = 120.0
+    timeout: float = 600.0  # CPU inference of 3-8B models can take minutes per call
     temperature: float = 0.0
     max_tokens: int = 16384
 

@@ -39,14 +39,25 @@ class CriterionMatcher:
         self._exclusion_template = self._load_template("exclusion_matching.jinja2")
 
     def _load_template(self, name: str) -> Template:
-        """Load a Jinja2 prompt template."""
-        prompts_dir = Path(__file__).parent.parent.parent.parent / "config" / "prompts"
-        template_path = prompts_dir / name
-        if template_path.exists():
-            return Template(template_path.read_text())
-        # Fallback: use a basic template
-        logger.warning(f"Prompt template not found: {template_path}")
-        return Template("Evaluate the patient against these criteria. Output JSON.")
+        """Load a Jinja2 prompt template.
+
+        Looks first inside the installed package (src/ctm/prompts/), then falls
+        back to the dev-layout `backend/config/prompts/`. Always raises if no
+        template can be found — silent fallback to a useless dummy prompt was
+        the source of v0.2-era LLM eval bugs.
+        """
+        # 1. Packaged location (works after pip install)
+        package_path = Path(__file__).parent.parent.parent / "prompts" / name
+        if package_path.exists():
+            return Template(package_path.read_text())
+        # 2. Dev fallback (project source tree)
+        dev_path = Path(__file__).parent.parent.parent.parent.parent / "config" / "prompts" / name
+        if dev_path.exists():
+            return Template(dev_path.read_text())
+        raise FileNotFoundError(
+            f"Prompt template '{name}' not found. Tried: {package_path}, {dev_path}. "
+            "Reinstall the package or check that src/ctm/prompts/ contains the templates."
+        )
 
     async def match(
         self, patient: PatientNote, trial: ClinicalTrial
