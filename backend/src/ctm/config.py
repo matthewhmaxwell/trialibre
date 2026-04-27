@@ -46,10 +46,21 @@ class DeIdMode(str, Enum):
 
 
 class LLMConfig(BaseModel):
-    """LLM provider configuration."""
+    """LLM provider configuration.
+
+    Default is Claude Sonnet 4.5 (claude-sonnet-4-5-20250929) — the model
+    we validated end-to-end against the sandbox ground truth (19/24 = 79.2%
+    strict accuracy, no gross errors; see docs/REAL_LLM_EVAL_FINDINGS.md).
+
+    Local Ollama mode is opt-in for privacy. Models under ~13B parameters
+    (e.g. llama3.2:3b, llama3.1:8b) will hallucinate clinical facts in
+    practice — the v6 smoke test produced a confident "amlodipine is an
+    SGLT2 inhibitor" claim from llama3.2:3b. Use llama3.1:70b or larger
+    on a GPU if you need real-time-usable local inference.
+    """
 
     provider: LLMProviderType = LLMProviderType.ANTHROPIC
-    model: str = "claude-sonnet-4-20250514"
+    model: str = "claude-sonnet-4-5-20250929"
     api_key: str | None = None
     base_url: str | None = None
     max_retries: int = 3

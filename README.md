@@ -38,11 +38,11 @@ Trialibre automates the screening step. It doesn't replace clinical judgment —
 
 **What makes it different:**
 
-- **LLM-agnostic** — Use Claude, GPT-4, Llama 3 via Ollama, or any OpenAI-compatible endpoint. Switch providers without changing anything else.
+- **LLM-agnostic** — Default is Claude Sonnet 4.5. Also supports GPT-4o, any OpenAI-compatible endpoint, and Ollama for local inference (with caveats — see [LLM Providers](#supported-llm-providers) below).
 - **Multilingual** — Patient notes in Portuguese, Spanish, French, Arabic, or English are automatically detected and translated for matching, then results are presented in the original language.
-- **Privacy-first** — Built-in de-identification (via Presidio) strips PHI before sending to any cloud LLM. Or run entirely offline with Ollama.
+- **Privacy-first** — Built-in de-identification (via Presidio) strips PHI before sending to any cloud LLM. Or run entirely offline with Ollama and a sufficiently large model.
 - **Criterion-level explainability** — Every match shows which criteria were met, not met, or couldn't be verified, with plain-language reasoning.
-- **Works offline** — BM25 retrieval + local Ollama = no internet needed.
+- **Validated against ground truth** — On the included 24-pair sandbox ground truth, the default Sonnet configuration scores 19/24 = 79% strict accuracy with no gross errors (no strong↔unlikely flips). See [`docs/REAL_LLM_EVAL_FINDINGS.md`](docs/REAL_LLM_EVAL_FINDINGS.md).
 
 ## Screenshots
 
@@ -154,10 +154,16 @@ For fully offline operation with a local LLM:
 docker compose --profile local up
 ```
 
-This starts both Trialibre and an Ollama instance. Pull a model with:
+This starts both Trialibre and an Ollama instance. For the **default cloud LLM mode**, you can leave the Ollama sidecar idle and just set `CTM_LLM__API_KEY` for Anthropic. For **local privacy mode**, pull a sufficiently large model:
 
 ```bash
-docker exec -it trialibre-ollama-1 ollama pull llama3.1
+# Recommended for clinical use (requires GPU; ~40 GB VRAM):
+docker exec -it trialibre-ollama-1 ollama pull llama3.1:70b
+
+# Smaller models work for development / non-clinical experimentation
+# but produce hallucinations on real cases — see
+# docs/REAL_LLM_EVAL_FINDINGS.md before relying on results.
+docker exec -it trialibre-ollama-1 ollama pull llama3.1:8b
 ```
 
 ### Option 3: Frontend development
@@ -200,15 +206,20 @@ npm run dev
 - **Pseudonymization** — Reversible mapping so results can be re-identified locally
 - **Delete after match** — Option to purge patient data immediately after results
 - **Audit logging** — Track what was processed and when, without storing PHI
-- **Fully offline** — Ollama + BM25 = zero data leaves your machine
+- **Fully offline** — Ollama + BM25 = zero data leaves your machine. Requires a sufficiently large model (≥13B parameters; llama3.1:70b on a GPU recommended for clinical-grade output).
 
 ### Supported LLM Providers
-| Provider | Setup |
-|----------|-------|
-| Anthropic (Claude) | Set `TRIALIBRE_LLM_API_KEY` |
-| OpenAI (GPT-4) | Set provider to `openai` + API key |
-| Ollama (local) | Install Ollama, pull a model, set base URL |
-| Any OpenAI-compatible | Set provider to `openai_compat` + base URL |
+
+The default is **Claude Sonnet 4.5** — the configuration we validated end-to-end against the sandbox ground truth (see [`docs/REAL_LLM_EVAL_FINDINGS.md`](docs/REAL_LLM_EVAL_FINDINGS.md)).
+
+| Provider | Setup | Notes |
+|----------|-------|-------|
+| **Anthropic (Claude)** — *recommended default* | `export CTM_LLM__API_KEY=sk-ant-...` | Validated. ~$0.10/patient×trial. |
+| OpenAI (GPT-4o) | `CTM_LLM__PROVIDER=openai CTM_LLM__API_KEY=sk-...` | Comparable quality to Sonnet, slightly cheaper. |
+| Ollama (local) — *privacy-mode opt-in* | `CTM_LLM__PROVIDER=ollama CTM_LLM__MODEL=llama3.1:70b` | **Sub-13B models hallucinate clinical facts** (e.g. llama3.2:3b emitted a confident "amlodipine is an SGLT2 inhibitor" claim during testing). Recommend llama3.1:70b on a GPU. CPU-only inference of 3-8B models is technically possible but unsuitable for clinical use as a default. |
+| Any OpenAI-compatible | `CTM_LLM__PROVIDER=openai_compat CTM_LLM__BASE_URL=https://...` + API key | For self-hosted vLLM, LM Studio, etc. |
+
+All settings can be set via `backend/config/settings.yaml` or via `CTM_*` environment variables (env vars override YAML).
 
 ## Architecture
 

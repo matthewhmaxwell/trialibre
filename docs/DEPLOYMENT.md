@@ -57,8 +57,10 @@ DOMAIN=trialibre.example.com
 ADMIN_EMAIL=ops@example.com
 
 # LLM provider configuration
+# Default (claude-sonnet-4-5-20250929) is the model validated against the
+# sandbox ground truth — see docs/REAL_LLM_EVAL_FINDINGS.md.
 CTM_LLM__PROVIDER=anthropic           # or openai, ollama, openai_compat
-CTM_LLM__MODEL=claude-sonnet-4-20250514
+CTM_LLM__MODEL=claude-sonnet-4-5-20250929
 CTM_LLM__API_KEY=sk-ant-...           # required for cloud providers
 
 # API key authentication — REQUIRED for production
@@ -79,8 +81,18 @@ For HIPAA scenarios where you do not want any data leaving your network:
 # Use the local profile to also start Ollama
 docker compose -f docker-compose.prod.yml --profile local up -d
 
-# Pull a model into the Ollama container
-docker compose -f docker-compose.prod.yml exec ollama ollama pull llama3.1:8b
+# Pull a model into the Ollama container.
+#
+# IMPORTANT: models smaller than ~13B parameters hallucinate clinical
+# facts under real criterion-matching prompts (see
+# docs/REAL_LLM_EVAL_FINDINGS.md — llama3.2:3b produced a confident
+# "amlodipine is an SGLT2 inhibitor" claim during testing). For
+# clinical use, run a 70B-class model on a GPU:
+docker compose -f docker-compose.prod.yml exec ollama ollama pull llama3.1:70b
+
+# Smaller models are fine for development / non-clinical experimentation;
+# the registry will log a startup warning to remind you:
+# docker compose -f docker-compose.prod.yml exec ollama ollama pull llama3.1:8b
 
 # Set CTM_LLM__PROVIDER=ollama and CTM_LLM__BASE_URL=http://ollama:11434 in .env
 ```

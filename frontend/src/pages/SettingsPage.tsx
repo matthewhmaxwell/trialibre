@@ -104,7 +104,7 @@ export function SettingsPage() {
           <div>
             <label className="block text-sm text-gray-600 mb-1">Model</label>
             <input type="text" value={settings.model} onChange={e => update('model', e.target.value)}
-              placeholder="claude-sonnet-4-20250514" className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm" />
+              placeholder="claude-sonnet-4-5-20250929" className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm" />
           </div>
           {(settings.llm_provider === 'ollama' || settings.llm_provider === 'openai_compat') && (
             <div>

@@ -2,10 +2,15 @@
 # Override any setting via environment variables: CTM_<SECTION>__<KEY>=value
 
 llm:
+  # Default: Claude Sonnet 4.5 — the model we validated end-to-end against
+  # the sandbox ground truth (see docs/REAL_LLM_EVAL_FINDINGS.md). To run
+  # locally for privacy, set provider: ollama + a model >= 13B. Smaller
+  # local models (3B/8B) hallucinate clinical facts and are not
+  # recommended as a default.
   provider: anthropic
-  model: claude-sonnet-4-20250514
+  model: claude-sonnet-4-5-20250929
   temperature: 0.0
-  max_retries: 5
+  max_retries: 3
 
 embedding:
   provider: sentence_transformer
