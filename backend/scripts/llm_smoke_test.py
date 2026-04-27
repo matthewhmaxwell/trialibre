@@ -46,6 +46,11 @@ async def main() -> int:
     settings.llm.base_url = "http://localhost:11434"
     settings.sandbox.enabled = False
     settings.matching.concurrency = 1  # serialize so logs are readable
+    # Memory + latency relief on CPU-only hardware: batch fewer criteria per
+    # call (less output to generate per call) and truncate patient text to
+    # reduce input token count.
+    settings.matching.max_criteria_per_prompt = 5
+    settings.matching.max_patient_tokens = 1500
 
     # 2. Verify Ollama is reachable + model is loaded
     print("\n[1/5] Verifying Ollama is reachable")

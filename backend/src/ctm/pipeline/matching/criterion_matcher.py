@@ -220,14 +220,12 @@ class CriterionMatcher:
             key = str(criterion.index)
             entry = data.get(key, [])
 
-            if isinstance(entry, list) and len(entry) >= 3:
-                reasoning = str(entry[0])
-                sentence_ids = entry[1] if isinstance(entry[1], list) else []
-                label_str = str(entry[2]).lower().strip()
-            else:
-                reasoning = str(entry) if entry else "No reasoning provided"
-                sentence_ids = []
-                label_str = "not enough information"
+            # Accept either the canonical array shape we ask for in the prompt
+            #   ["reasoning", [sentence_ids], "label"]
+            # or the dict shape that smaller open models (e.g. llama3.2:3b)
+            # tend to emit naturally:
+            #   {"reasoning": ..., "sentence_ids": [...], "label": ...}
+            reasoning, sentence_ids, label_str = self._extract_entry(entry)
 
             # Map label string to enum
             label = self._parse_label(label_str, category)
@@ -238,13 +236,69 @@ class CriterionMatcher:
                     criterion_text=criterion.text,
                     category=category,
                     reasoning=reasoning,
-                    evidence_sentence_ids=[int(s) for s in sentence_ids if isinstance(s, (int, float))],
+                    evidence_sentence_ids=self._coerce_sentence_ids(sentence_ids),
                     label=label,
                     confidence=0.9 if label != EligibilityLabel.NOT_ENOUGH_INFO else 0.5,
                 )
             )
 
         return results
+
+    @staticmethod
+    def _extract_entry(entry: object) -> tuple[str, list, str]:
+        """Pull (reasoning, sentence_ids, label) out of either array- or
+        dict-shaped per-criterion entries from the LLM."""
+        if isinstance(entry, list) and len(entry) >= 3:
+            reasoning = str(entry[0])
+            sentence_ids = entry[1] if isinstance(entry[1], list) else []
+            label_str = str(entry[2]).lower().strip()
+            return reasoning, sentence_ids, label_str
+
+        if isinstance(entry, dict):
+            # Tolerate a few common key aliases the model might emit.
+            reasoning = str(
+                entry.get("reasoning")
+                or entry.get("rationale")
+                or entry.get("explanation")
+                or "No reasoning provided"
+            )
+            raw_ids = (
+                entry.get("sentence_ids")
+                or entry.get("evidence")
+                or entry.get("evidence_sentence_ids")
+                or entry.get("sentences")
+                or []
+            )
+            sentence_ids = raw_ids if isinstance(raw_ids, list) else []
+            label_str = str(
+                entry.get("label")
+                or entry.get("eligibility")
+                or entry.get("status")
+                or "not enough information"
+            ).lower().strip()
+            return reasoning, sentence_ids, label_str
+
+        # Unknown shape (e.g. plain string, None, number) — degrade safely.
+        reasoning = str(entry) if entry else "No reasoning provided"
+        return reasoning, [], "not enough information"
+
+    @staticmethod
+    def _coerce_sentence_ids(raw: list) -> list[int]:
+        """Coerce sentence_ids to ints. The prompt asks for a list of ints,
+        but small models often return strings (e.g. ['1', '6'])."""
+        out: list[int] = []
+        for s in raw:
+            if isinstance(s, bool):  # bool is a subclass of int — exclude
+                continue
+            if isinstance(s, int):
+                out.append(s)
+            elif isinstance(s, float):
+                out.append(int(s))
+            elif isinstance(s, str):
+                stripped = s.strip()
+                if stripped.isdigit():
+                    out.append(int(stripped))
+        return out
 
     def _parse_label(self, label_str: str, category: str) -> EligibilityLabel:
         """Parse a label string to EligibilityLabel enum."""
