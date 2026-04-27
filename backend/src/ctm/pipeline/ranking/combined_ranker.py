@@ -47,8 +47,13 @@ class CombinedRanker:
         # Clamp to [0, 1]
         combined = max(0.0, min(1.0, combined))
 
-        # Determine strength
+        # Determine strength. A definite ineligibility from the aggregator is
+        # treated as a veto — high relevance shouldn't be able to lift a
+        # contraindicated patient back into "possible". This mirrors how
+        # clinicians actually screen: one hard exclusion ends the analysis.
         strength = self._determine_strength(combined)
+        if eligibility <= self._config.hard_exclusion_threshold:
+            strength = MatchStrength.UNLIKELY
 
         return TrialScore(
             trial_id=matching_result.trial_id,

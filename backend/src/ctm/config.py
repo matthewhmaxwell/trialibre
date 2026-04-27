@@ -103,6 +103,19 @@ class RankingConfig(BaseModel):
     score_range: tuple[float, float] = (0.0, 1.0)
     strong_match_threshold: float = 0.7
     possible_match_threshold: float = 0.4
+    # Hard-exclusion veto: when the LLM aggregator returns an eligibility
+    # score this negative or worse, force strength to UNLIKELY regardless
+    # of the combined score. Reflects the clinical reality that a definite
+    # contraindication (e.g. age out of range, prior systemic therapy when
+    # excluded) overrides any amount of trial relevance.
+    #
+    # The aggregator emits E ∈ [-R, R] which we normalize to [-1, 1]; a
+    # value of -1.0 means the model said "definitely ineligible" (E = -R).
+    # The default of -0.85 captures the "definitely / very-confidently
+    # ineligible" calls without grabbing borderline "leans ineligible"
+    # cases (e.g. unverified inclusion criteria) that may flip with more
+    # patient data. Set ≤ -1.0 to disable the veto.
+    hard_exclusion_threshold: float = -0.85
 
 
 class PrivacyConfig(BaseModel):
