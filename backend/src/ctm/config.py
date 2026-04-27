@@ -52,8 +52,8 @@ class LLMConfig(BaseModel):
     model: str = "claude-sonnet-4-20250514"
     api_key: str | None = None
     base_url: str | None = None
-    max_retries: int = 5
-    timeout: float = 600.0  # CPU inference of 3-8B models can take minutes per call
+    max_retries: int = 3
+    timeout: float = 1800.0  # CPU inference of 3-8B models can take 10+ min per call
     temperature: float = 0.0
     max_tokens: int = 16384
 
