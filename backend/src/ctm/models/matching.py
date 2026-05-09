@@ -106,6 +106,15 @@ class TrialScore(BaseModel):
     criteria_unknown: int = 0
     criteria_total: int = 0
 
+    # Per-criterion details for UI explainability. The README promises
+    # "criterion-level explainability — every match shows which criteria
+    # were met, not met, or couldn't be verified, with plain-language
+    # reasoning"; surfacing these lists is what makes that true. Each
+    # CriterionResult carries reasoning + evidence_sentence_ids that
+    # point back into the patient note's numbered sentences.
+    inclusion_results: list[CriterionResult] = []
+    exclusion_results: list[CriterionResult] = []
+
     # Geographic info
     nearest_site_distance_km: float | None = None
     nearest_site_name: str = ""

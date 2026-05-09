@@ -10,7 +10,12 @@ ends the analysis.
 from __future__ import annotations
 
 from ctm.config import RankingConfig
-from ctm.models.matching import MatchingResult, MatchStrength
+from ctm.models.matching import (
+    CriterionResult,
+    EligibilityLabel,
+    MatchingResult,
+    MatchStrength,
+)
 from ctm.pipeline.ranking.combined_ranker import CombinedRanker
 
 
@@ -102,3 +107,59 @@ def test_eligibility_score_passed_through_untouched():
     )
     assert score.eligibility_score == -1.0
     assert score.relevance_score == 0.95
+
+
+def test_per_criterion_results_propagate_to_trial_score():
+    """README promises 'criterion-level explainability' — that requires
+    the per-criterion lists to actually reach TrialScore so the UI can
+    render them. Pin it: the ranker must pass these through, not drop
+    them after computing counts."""
+    inclusion = [
+        CriterionResult(
+            criterion_index=0,
+            criterion_text="Age 18-65",
+            category="inclusion",
+            reasoning="Patient is 45.",
+            evidence_sentence_ids=[1, 6],
+            label=EligibilityLabel.INCLUDED,
+        ),
+        CriterionResult(
+            criterion_index=1,
+            criterion_text="HbA1c >= 7.5%",
+            category="inclusion",
+            reasoning="HbA1c is 8.2%.",
+            evidence_sentence_ids=[16],
+            label=EligibilityLabel.INCLUDED,
+        ),
+    ]
+    exclusion = [
+        CriterionResult(
+            criterion_index=0,
+            criterion_text="Active malignancy",
+            category="exclusion",
+            reasoning="No malignancy in note.",
+            evidence_sentence_ids=[],
+            label=EligibilityLabel.NOT_ENOUGH_INFO,
+        ),
+    ]
+    mr = MatchingResult(
+        patient_id="P", trial_id="T",
+        inclusion_results=inclusion, exclusion_results=exclusion,
+    )
+
+    ranker = _ranker()
+    score = ranker.score(
+        mr,
+        formula_score=0.7,
+        agg_scores={"relevance_score": 0.9, "eligibility_score": 0.8},
+    )
+
+    # Counts are still the summary path the card header uses.
+    assert score.criteria_met == 2
+    assert score.criteria_total == 3
+    # And the full lists must come through for the expanded view.
+    assert len(score.inclusion_results) == 2
+    assert len(score.exclusion_results) == 1
+    assert score.inclusion_results[0].criterion_text == "Age 18-65"
+    assert score.inclusion_results[0].evidence_sentence_ids == [1, 6]
+    assert score.exclusion_results[0].label == EligibilityLabel.NOT_ENOUGH_INFO

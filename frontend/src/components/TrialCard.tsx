@@ -1,12 +1,57 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import type { TrialScore } from '../types/api';
+import type { CriterionResult, TrialScore } from '../types/api';
 
 const strengthStyles = {
   strong: { bg: 'bg-green-50 border-green-200', badge: 'bg-green-100 text-green-800', icon: '●' },
   possible: { bg: 'bg-yellow-50 border-yellow-200', badge: 'bg-yellow-100 text-yellow-800', icon: '◐' },
   unlikely: { bg: 'bg-gray-50 border-gray-200', badge: 'bg-gray-100 text-gray-600', icon: '○' },
 };
+
+// Visual treatment for each per-criterion verdict. Greens = patient meets
+// the inclusion / clears the exclusion. Reds = blocks enrollment. Amber =
+// model couldn't tell. Mirrors the badge styling at the top of the card
+// so the expanded view feels continuous with the summary.
+const labelStyles: Record<string, { badge: string; icon: string; label: string }> = {
+  included: { badge: 'bg-green-100 text-green-800', icon: '✓', label: 'Met' },
+  'not included': { badge: 'bg-red-100 text-red-800', icon: '✗', label: 'Not met' },
+  excluded: { badge: 'bg-red-100 text-red-800', icon: '✗', label: 'Excluded' },
+  'not excluded': { badge: 'bg-green-100 text-green-800', icon: '✓', label: 'Cleared' },
+  'not applicable': { badge: 'bg-gray-100 text-gray-600', icon: '—', label: 'N/A' },
+  'not enough information': { badge: 'bg-amber-100 text-amber-800', icon: '?', label: 'Unknown' },
+};
+
+function CriterionRow({ result }: { result: CriterionResult }) {
+  const style = labelStyles[result.label] || labelStyles['not enough information'];
+  const reasoning = result.plain_reasoning || result.reasoning;
+  return (
+    <li className="border-l-2 border-gray-200 pl-3 py-2">
+      <div className="flex items-start gap-2">
+        <span className={`inline-flex items-center justify-center shrink-0 w-5 h-5 rounded-full text-[10px] font-bold ${style.badge}`}
+              title={style.label} aria-label={style.label}>
+          {style.icon}
+        </span>
+        <div className="flex-1 min-w-0">
+          <p className="text-xs text-gray-900 leading-snug">{result.criterion_text}</p>
+          {reasoning && (
+            <p className="text-xs text-gray-600 mt-1 leading-snug">{reasoning}</p>
+          )}
+          {result.evidence_sentence_ids.length > 0 && (
+            <div className="mt-1 flex flex-wrap items-center gap-1 text-[10px] text-gray-500">
+              <span>Evidence:</span>
+              {result.evidence_sentence_ids.map((id) => (
+                <span key={id} className="px-1.5 py-0.5 bg-gray-100 rounded font-mono">
+                  s{id}
+                </span>
+              ))}
+              <span className="text-gray-400">— from patient note</span>
+            </div>
+          )}
+        </div>
+      </div>
+    </li>
+  );
+}
 
 export function TrialCard({ trial, onRefer }: { trial: TrialScore; onRefer?: (t: TrialScore) => void }) {
   const { t } = useTranslation();
@@ -76,6 +121,36 @@ export function TrialCard({ trial, onRefer }: { trial: TrialScore; onRefer?: (t:
             <h4 className="font-medium text-gray-700 text-xs uppercase tracking-wide mb-1">Eligibility</h4>
             <p className="text-gray-600 text-sm">{trial.eligibility_explanation}</p>
           </div>
+
+          {/* Per-criterion breakdown — the actual "criterion-level
+              explainability" the README promises. Renders only when the
+              backend supplied the per-criterion data (recent backends
+              do; older saved results and demo-mode fixtures may not). */}
+          {(trial.inclusion_results ?? []).length > 0 && (
+            <div>
+              <h4 className="font-medium text-gray-700 text-xs uppercase tracking-wide mb-1">
+                Inclusion criteria ({trial.inclusion_results!.length})
+              </h4>
+              <ul className="space-y-0">
+                {trial.inclusion_results!.map((r) => (
+                  <CriterionRow key={`inc-${r.criterion_index}`} result={r} />
+                ))}
+              </ul>
+            </div>
+          )}
+          {(trial.exclusion_results ?? []).length > 0 && (
+            <div>
+              <h4 className="font-medium text-gray-700 text-xs uppercase tracking-wide mb-1">
+                Exclusion criteria ({trial.exclusion_results!.length})
+              </h4>
+              <ul className="space-y-0">
+                {trial.exclusion_results!.map((r) => (
+                  <CriterionRow key={`exc-${r.criterion_index}`} result={r} />
+                ))}
+              </ul>
+            </div>
+          )}
+
           <div className="flex gap-2 pt-2">
             {onRefer && (
               <button onClick={() => onRefer(trial)}

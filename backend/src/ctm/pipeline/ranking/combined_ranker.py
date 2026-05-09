@@ -70,6 +70,10 @@ class CombinedRanker:
             criteria_excluded=matching_result.excluded_count,
             criteria_unknown=matching_result.unknown_count,
             criteria_total=len(matching_result.all_results),
+            # Pass through per-criterion detail so the UI can render the
+            # "criterion-level explainability" promise from the README.
+            inclusion_results=matching_result.inclusion_results,
+            exclusion_results=matching_result.exclusion_results,
         )
 
     def _determine_strength(self, combined_score: float) -> MatchStrength:

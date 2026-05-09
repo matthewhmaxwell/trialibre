@@ -2,6 +2,14 @@
 
 export type MatchStrength = 'strong' | 'possible' | 'unlikely';
 
+export type EligibilityLabel =
+  | 'included'
+  | 'not included'
+  | 'excluded'
+  | 'not excluded'
+  | 'not applicable'
+  | 'not enough information';
+
 export interface TrialScore {
   trial_id: string;
   trial_title: string;
@@ -18,6 +26,12 @@ export interface TrialScore {
   criteria_excluded: number;
   criteria_unknown: number;
   criteria_total: number;
+  // Per-criterion details — populated for any match result produced by a
+  // recent backend; may be absent on legacy or demo-mode responses, which
+  // is why the field is optional. The TrialCard expanded view uses these
+  // to render the "criterion-level explainability" promise.
+  inclusion_results?: CriterionResult[];
+  exclusion_results?: CriterionResult[];
   nearest_site_distance_km: number | null;
   nearest_site_name: string;
   drug_interaction_flags: string[];
