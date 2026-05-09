@@ -6,6 +6,7 @@ import { TrialCard } from '../components/TrialCard';
 import { FilterBar } from '../components/FilterBar';
 import { Explainer } from '../components/Explainer';
 import { TrialUpload } from '../components/TrialUpload';
+import { AIDisclaimerBanner } from '../components/AIDisclaimerBanner';
 import { useMatch } from '../hooks/useMatch';
 
 interface UploadedTrial {
@@ -109,6 +110,8 @@ export function MatchPage() {
               New Search
             </button>
           </div>
+
+          <AIDisclaimerBanner />
 
           <FilterBar filter={filter} setFilter={setFilter} result={result} />
 

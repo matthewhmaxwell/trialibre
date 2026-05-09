@@ -49,7 +49,10 @@
     "criteria_met": "Met",
     "criteria_not_met": "Not Met",
     "criteria_unknown": "To Verify",
-    "see_original": "See original criterion"
+    "see_original": "See original criterion",
+    "ai_disclaimer_short": "AI-generated — verify before clinical use",
+    "ai_disclaimer_banner_title": "Decision-support only",
+    "ai_disclaimer_banner_body": "These results are produced by an AI model interpreting the patient note against eligibility criteria. They are intended to help shortlist candidate trials, not to determine eligibility. Verify reasoning, evidence, and exclusions against the source documents and clinical judgment before contacting a trial site or making any care decision."
   },
   "nav": {
     "match": "Match",

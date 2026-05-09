@@ -33,7 +33,10 @@
     "view_details": "Ver Detalles",
     "criteria_met": "Cumplido",
     "criteria_not_met": "No Cumplido",
-    "criteria_unknown": "Por Verificar"
+    "criteria_unknown": "Por Verificar",
+    "ai_disclaimer_short": "Generado por IA — verifique antes de uso clínico",
+    "ai_disclaimer_banner_title": "Solo apoyo a la decisión",
+    "ai_disclaimer_banner_body": "Estos resultados los produce un modelo de IA al interpretar la nota del paciente frente a los criterios de elegibilidad. Su propósito es ayudar a preseleccionar ensayos candidatos, no determinar la elegibilidad. Verifique el razonamiento, la evidencia y las exclusiones contra los documentos originales y el juicio clínico antes de contactar un sitio del ensayo o tomar cualquier decisión clínica."
   },
   "nav": {
     "match": "Buscar",

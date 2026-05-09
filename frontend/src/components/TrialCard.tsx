@@ -163,6 +163,14 @@ export function TrialCard({ trial, onRefer }: { trial: TrialScore; onRefer?: (t:
               {t('match.print')}
             </button>
           </div>
+
+          {/* Per-card AI disclaimer — sits under the actions so any
+              clinician about to click "Refer" sees the warning at the
+              point of the decision, not just on page load. */}
+          <p className="pt-2 text-[10px] text-gray-500 italic flex items-center gap-1">
+            <span aria-hidden="true">⚠</span>
+            {t('match.ai_disclaimer_short')}
+          </p>
         </div>
       )}
     </div>

@@ -19,7 +19,10 @@
     "possible": "Correspondance possible",
     "unlikely": "Peu probable",
     "refer": "Référer ce patient",
-    "print": "Imprimer le résumé"
+    "print": "Imprimer le résumé",
+    "ai_disclaimer_short": "Généré par IA — vérifiez avant tout usage clinique",
+    "ai_disclaimer_banner_title": "Aide à la décision uniquement",
+    "ai_disclaimer_banner_body": "Ces résultats sont produits par un modèle d'IA qui interprète la note du patient au regard des critères d'éligibilité. Ils sont destinés à présélectionner des essais candidats, non à déterminer l'éligibilité. Vérifiez le raisonnement, les preuves et les exclusions par rapport aux documents sources et au jugement clinique avant de contacter un site d'essai ou de prendre toute décision clinique."
   },
   "nav": {
     "match": "Recherche",
