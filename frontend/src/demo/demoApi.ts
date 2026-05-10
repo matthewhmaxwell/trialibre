@@ -4,19 +4,32 @@
  * When demo mode is active, intercepts all /api/v1/* fetch calls
  * and returns pre-built responses from bundled sandbox data.
  * No backend server required — works as pure static files.
+ *
+ * The demo fixture (`demoData.json`) is ~240 KB. We lazy-import it
+ * via dynamic `import()` so the data only enters the bundle (and
+ * downloads to the user's browser) when demo mode actually
+ * activates — typically on the deployed static demo, not for local
+ * development against a real backend.
  */
 
-import demoData from './demoData.json';
+// Type-only import keeps this dependency-free at runtime.
+// The actual JSON is loaded on demand inside activateDemoMode().
+type DemoData = typeof import('./demoData.json');
 
 let _demoMode = false;
+let _demoData: DemoData | null = null;
 const _originalFetch = window.fetch;
 
 export function isDemoMode(): boolean {
   return _demoMode;
 }
 
-export function activateDemoMode(): void {
+export async function activateDemoMode(): Promise<void> {
   if (_demoMode) return;
+
+  // Lazy-load the fixture — Vite emits this as its own chunk so the
+  // 240 KB payload doesn't ship in the main bundle for non-demo users.
+  _demoData = (await import('./demoData.json')).default as unknown as DemoData;
   _demoMode = true;
 
   window.fetch = async (input: RequestInfo | URL, init?: RequestInit): Promise<Response> => {
@@ -59,7 +72,7 @@ function routeRequest(path: string, method: string, init?: RequestInit): unknown
       llm_provider: 'demo',
       llm_connected: false,
       sandbox_mode: true,
-      trial_count: demoData.trials.length,
+      trial_count: _demoData!.trials.length,
       database_backend: 'demo',
       demo_mode: true,
     };
@@ -92,17 +105,17 @@ function routeRequest(path: string, method: string, init?: RequestInit): unknown
 
   // Trials list
   if (path === '/trials' && method === 'GET') {
-    return demoData.trials;
+    return _demoData!.trials;
   }
 
   // Sandbox patients
   if (path === '/sandbox/patients' && method === 'GET') {
-    return demoData.patients;
+    return _demoData!.patients;
   }
 
   // Sandbox protocols
   if (path === '/sandbox/protocols' && method === 'GET') {
-    return demoData.trials;
+    return _demoData!.trials;
   }
 
   // Sandbox scenarios
@@ -116,10 +129,10 @@ function routeRequest(path: string, method: string, init?: RequestInit): unknown
       total_matches: 47,
       total_referrals: 12,
       avg_match_score: 0.72,
-      top_trials: demoData.trials.slice(0, 3).map(t => ({
+      top_trials: _demoData!.trials.slice(0, 3).map(t => ({
         trial_id: t.nct_id, title: t.brief_title, match_count: Math.floor(Math.random() * 10 + 3),
       })),
-      recent_matches: demoData.patients.slice(0, 5).map(p => ({
+      recent_matches: _demoData!.patients.slice(0, 5).map(p => ({
         patient_id: p.patient_id, timestamp: new Date().toISOString(),
         strong: Math.floor(Math.random() * 3 + 1), possible: Math.floor(Math.random() * 3),
       })),
@@ -169,13 +182,14 @@ function routeRequest(path: string, method: string, init?: RequestInit): unknown
       }
     }
 
-    const result = demoData.match_results[bestMatch as keyof typeof demoData.match_results];
+    const matchResults = _demoData!.match_results;
+    const result = matchResults[bestMatch as keyof typeof matchResults];
     if (result) {
       return { ...result, patient_id: body.patient_id || 'demo-patient' };
     }
 
     // Fallback to first patient's results
-    return { ...Object.values(demoData.match_results)[0], patient_id: 'demo-patient' };
+    return { ...Object.values(matchResults)[0], patient_id: 'demo-patient' };
   }
 
   // Ingest trial (stub for demo)

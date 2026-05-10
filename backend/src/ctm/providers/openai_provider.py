@@ -105,3 +105,10 @@ class OpenAIProvider:
 
     def count_tokens(self, text: str) -> int:
         return int(len(text.split()) * 1.3)
+
+    async def close(self) -> None:
+        """Release the underlying HTTP client. Idempotent.
+        Matches the OllamaProvider/AnthropicProvider close() contract."""
+        close = getattr(self._client, "close", None)
+        if close is not None:
+            await close()

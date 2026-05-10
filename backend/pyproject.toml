@@ -84,6 +84,12 @@ dev = [
     "pytest-cov>=5.0",
     "httpx[http2]",
     "ruff>=0.5",
+    # asgi-lifespan is required by tests/test_api.py, test_auth.py,
+    # test_ctgov_sync.py, test_persistence.py to drive FastAPI's
+    # lifespan handlers under TestClient. Without it those four files
+    # fail at collection and their entire API/auth/persistence surface
+    # goes uncovered in CI.
+    "asgi-lifespan>=2.1",
 ]
 
 [project.scripts]

@@ -60,6 +60,17 @@ class LLMProvider(Protocol):
         """
         ...
 
+    async def close(self) -> None:
+        """Release any underlying client resources. Idempotent.
+
+        Long-running scripts should `await provider.close()` at shutdown
+        so HTTP connection pools and SDK clients don't leak. The Ollama,
+        Anthropic, and OpenAI providers all implement this; tests that
+        construct ad-hoc providers (e.g. RecordedLLMProvider) may rely
+        on the default no-op behavior.
+        """
+        ...
+
 
 class LLMError(Exception):
     """Base exception for LLM provider errors."""

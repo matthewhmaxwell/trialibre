@@ -118,3 +118,15 @@ class AnthropicProvider:
     def count_tokens(self, text: str) -> int:
         # Rough estimate: ~1.3 tokens per word for English
         return int(len(text.split()) * 1.3)
+
+    async def close(self) -> None:
+        """Release the underlying HTTP client. Idempotent.
+
+        Matches the close() contract on OllamaProvider so callers can
+        uniformly do `await llm.close()` regardless of provider — the
+        eval script's cleanup line previously crashed with
+        AttributeError on Anthropic.
+        """
+        close = getattr(self._client, "close", None)
+        if close is not None:
+            await close()
