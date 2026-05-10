@@ -150,6 +150,30 @@ function routeRequest(path: string, method: string, init?: RequestInit): unknown
     return { entries: [], total: 0, chain_valid: true };
   }
 
+  // Feedback (demo): accept the verdict, return a fake row. Demo mode
+  // doesn't persist anywhere; the widget just shows its "thanks"
+  // confirmation and the UX feels real. The aggregate endpoint returns
+  // a small fixture so the dashboard tile renders something useful.
+  if (path === '/feedback' && method === 'POST') {
+    return {
+      feedback_id: `demo-fb-${Date.now()}`,
+      patient_id: 'demo-patient',
+      trial_id: 'demo-trial',
+      feedback_type: 'correct',
+      created_at: new Date().toISOString(),
+    };
+  }
+  if (path === '/feedback' && method === 'GET') {
+    return [];
+  }
+  if (path === '/feedback/aggregate') {
+    return {
+      total: 18,
+      counts: { correct: 14, incorrect: 3, unsure: 1 },
+      agreement_rate: 14 / 18,
+    };
+  }
+
   // Match
   if (path === '/match' && method === 'POST') {
     const body = JSON.parse(init?.body as string || '{}');
