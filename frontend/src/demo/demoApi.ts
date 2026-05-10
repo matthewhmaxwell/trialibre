@@ -63,7 +63,13 @@ export async function activateDemoMode(): Promise<void> {
   console.log('[Trialibre Demo] Demo mode activated — using sample data, no backend required');
 }
 
-function routeRequest(path: string, method: string, init?: RequestInit): unknown {
+function routeRequest(rawPath: string, method: string, init?: RequestInit): unknown {
+  // Strip query string + trailing slash before matching, so handlers
+  // written as `path === '/trials'` correctly match real requests like
+  // `/trials?limit=200` or `/trials/`. Without this, the TrialsPage
+  // (and any other paginated/filtered call) 404s in demo mode.
+  const path = rawPath.split('?')[0].replace(/\/$/, '') || '/';
+
   // Health
   if (path === '/health') {
     return {
