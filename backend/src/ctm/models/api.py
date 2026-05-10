@@ -21,6 +21,20 @@ class MatchRequest(BaseModel):
     include_reasoning: bool = True
 
 
+class DeIdSummary(BaseModel):
+    """Summary of de-identification applied to the patient text before
+    the LLM call. When `applied=False`, the configured provider was local
+    (Ollama) and the data never left the device. When `applied=True`,
+    `entities_removed` enumerates the PHI categories Presidio stripped
+    so the UI can show e.g. "3 names, 2 dates redacted before send."
+    """
+
+    applied: bool = False
+    processing_location: str = "local"  # "local" or "cloud"
+    entities_removed: list[str] = []  # e.g. ["PERSON", "PERSON", "DATE_TIME"]
+    validation_flags: list[str] = []  # heuristic warnings from Presidio
+
+
 class MatchResponse(BaseModel):
     """Response from a match request."""
 
@@ -35,6 +49,7 @@ class MatchResponse(BaseModel):
     ranking_time_ms: float
     sandbox_mode: bool = False
     warnings: list[str] = []  # User-visible issues detected during the match
+    deid: DeIdSummary = DeIdSummary()  # privacy gate outcome
 
 
 class BatchMatchRequest(BaseModel):

@@ -113,6 +113,33 @@ export function MatchPage() {
 
           <AIDisclaimerBanner />
 
+          {/* Privacy receipt: when the cloud-LLM path actually de-identified
+              the patient note before sending, show the user what categories
+              of PHI were stripped. The /match endpoint always returns this
+              block (even for local LLM runs, where applied=false). */}
+          {result.deid && result.deid.applied && (
+            <div className="mb-4 rounded-lg border border-blue-200 bg-blue-50 px-3 py-2 text-xs text-blue-900">
+              <span aria-hidden="true" className="mr-1">🔒</span>
+              PHI removed before sending to cloud LLM:{' '}
+              {(() => {
+                const counts = result.deid.entities_removed.reduce<Record<string, number>>(
+                  (acc, t) => ({ ...acc, [t]: (acc[t] ?? 0) + 1 }),
+                  {},
+                );
+                const summary = Object.entries(counts)
+                  .map(([t, n]) => `${n} ${t.toLowerCase().replace(/_/g, ' ')}`)
+                  .join(', ');
+                return summary || 'none detected';
+              })()}
+              .
+              {result.deid.validation_flags.length > 0 && (
+                <span className="ml-1 text-blue-700">
+                  {' '}({result.deid.validation_flags.length} low-confidence detection{result.deid.validation_flags.length === 1 ? '' : 's'} — review the original note)
+                </span>
+              )}
+            </div>
+          )}
+
           <FilterBar filter={filter} setFilter={setFilter} result={result} />
 
           <div className="mt-4">

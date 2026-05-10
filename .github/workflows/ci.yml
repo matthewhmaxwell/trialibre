@@ -33,6 +33,11 @@ jobs:
       - name: Download NLTK data
         run: python -c "import nltk; nltk.download('punkt_tab', quiet=True)"
 
+      - name: Download Presidio NER model (en_core_web_lg)
+        # Required so the de-ID regression tests in test_privacy_wireup.py
+        # actually run instead of skipping. ~400 MB; cached by setup-python.
+        run: python -m spacy download en_core_web_lg
+
       - name: Lint
         working-directory: backend
         run: ruff check src/

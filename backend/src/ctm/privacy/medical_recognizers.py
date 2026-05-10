@@ -52,4 +52,64 @@ def get_medical_recognizers() -> list:
     )
     recognizers.append(health_plan_recognizer)
 
+    # SSN backup recognizer.
+    #
+    # Presidio ships a US_SSN recognizer but it failed to flag the canonical
+    # `123-45-6789` example in the test_privacy_wireup PHI sample (caught by
+    # commit-pending regression test). The likely cause: the built-in scoring
+    # discounts SSN-shaped numbers when surrounding context is weak, and our
+    # clinical notes don't always have a "SSN:" prefix. We add a high-score
+    # catch-all keyed on either the explicit prefix OR the strict
+    # ###-##-#### shape, so anything that LOOKS like an SSN is treated as
+    # one. False positives here (a 9-digit identifier that happens to match)
+    # cost us a redacted token; false negatives leak PHI.
+    ssn_backup = PatternRecognizer(
+        supported_entity="US_SSN",
+        patterns=[
+            Pattern(
+                name="ssn_with_prefix",
+                regex=r"\b(?:SSN|Social\s*Security|SS\s*#)\s*[:#]?\s*\d{3}[-\s]?\d{2}[-\s]?\d{4}\b",
+                score=0.95,
+            ),
+            Pattern(
+                name="ssn_dashed_strict",
+                regex=r"\b\d{3}-\d{2}-\d{4}\b",
+                score=0.7,
+            ),
+        ],
+        supported_language="en",
+    )
+    recognizers.append(ssn_backup)
+
+    # US street address recognizer.
+    #
+    # Presidio's spaCy-backed LOCATION recognizer catches city / state names
+    # (e.g. "Asheville", "NC") but does not catch the street line ("1428
+    # Maplewood Drive"). Street addresses are HIPAA Safe Harbor identifier
+    # #2 and need to go. Pattern: <number> <Word(s)> <street-suffix>, with
+    # the suffix list covering the common abbreviations and full forms.
+    street_recognizer = PatternRecognizer(
+        supported_entity="LOCATION",
+        patterns=[
+            Pattern(
+                name="us_street_address",
+                regex=(
+                    r"\b\d{1,6}\s+(?:[A-Z][a-zA-Z]+\s+){1,4}"
+                    r"(?:St(?:reet)?|Ave(?:nue)?|Rd|Road|Blvd|Boulevard|"
+                    r"Ln|Lane|Dr|Drive|Ct|Court|Pl|Place|Way|Pkwy|Parkway|"
+                    r"Cir|Circle|Ter|Terrace|Hwy|Highway)\b\.?"
+                ),
+                score=0.85,
+            ),
+            # 5- or 9-digit ZIP — HIPAA Safe Harbor identifier #2.
+            Pattern(
+                name="us_zip",
+                regex=r"\b\d{5}(?:-\d{4})?\b",
+                score=0.4,  # low score so a year like 12345 is unlikely to false-positive
+            ),
+        ],
+        supported_language="en",
+    )
+    recognizers.append(street_recognizer)
+
     return recognizers

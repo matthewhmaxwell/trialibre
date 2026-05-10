@@ -36,7 +36,22 @@ docker compose -f docker-compose.prod.yml up -d
 
 # 4. Verify
 curl https://your-domain.example.com/api/v1/health
+
+# 5. (Cloud-LLM only) Confirm the de-ID NER model is loaded.
+#    The first /match request triggers Presidio initialization, which
+#    requires the en_core_web_lg spaCy model. The Dockerfile pre-bakes
+#    it; verify by running:
+docker compose -f docker-compose.prod.yml exec backend \
+    python -c "import spacy; spacy.load('en_core_web_lg'); print('ok')"
 ```
+
+> **Privacy note:** Cloud-LLM mode (`CTM_LLM__PROVIDER=anthropic|openai`)
+> de-identifies the patient note via Presidio + medical recognizers
+> *before* the LLM call. Each /match response includes a `deid` block
+> showing what was stripped (PERSON, DATE_TIME, PHONE_NUMBER, US_SSN,
+> LOCATION, MEDICAL_RECORD_NUMBER, etc.). Local Ollama mode skips
+> de-ID since data never leaves the device.
+> Pinned by `tests/test_privacy_wireup.py`.
 
 Caddy will obtain a TLS cert from Let's Encrypt automatically on first start
 (takes 15-60 seconds). Logs:

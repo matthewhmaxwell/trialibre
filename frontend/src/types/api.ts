@@ -37,6 +37,13 @@ export interface TrialScore {
   drug_interaction_flags: string[];
 }
 
+export interface DeIdSummary {
+  applied: boolean;
+  processing_location: 'local' | 'cloud';
+  entities_removed: string[];
+  validation_flags: string[];
+}
+
 export interface MatchResponse {
   patient_id: string;
   rankings: TrialScore[];
@@ -49,6 +56,11 @@ export interface MatchResponse {
   ranking_time_ms: number;
   sandbox_mode: boolean;
   warnings?: string[];
+  // Privacy-gate outcome from the /match response. Optional because
+  // older backends and demo-mode fixtures don't have it; new backends
+  // always do (default `{ applied: false, processing_location: 'local',
+  // entities_removed: [], validation_flags: [] }`).
+  deid?: DeIdSummary;
 }
 
 export interface HealthResponse {

@@ -7,9 +7,10 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from ctm.api.dependencies import get_db_session
 from ctm.db.repositories import TrialRepository
-from ctm.models.api import MatchRequest, MatchResponse
+from ctm.models.api import DeIdSummary, MatchRequest, MatchResponse
 from ctm.models.patient import PatientNote
 from ctm.pipeline.orchestrator import PipelineOrchestrator
+from ctm.privacy.engine import PrivacyEngine
 from ctm.sandbox.loader import load_sample_protocols
 
 router = APIRouter()
@@ -36,6 +37,15 @@ async def match_patient(
         patient_id=body.patient_id or "anonymous",
         raw_text=body.patient_text,
     )
+
+    # Privacy gate: when the configured LLM is a cloud provider, run the
+    # patient note through Presidio-based de-identification BEFORE handing
+    # it to the orchestrator. The README's biggest privacy claim — "strips
+    # PHI before sending to any cloud LLM" — is only true if this call
+    # actually happens here. Local-LLM matches skip de-ID (data never
+    # leaves the device).
+    privacy = PrivacyEngine(settings)
+    patient, deid_metadata = await privacy.process_patient(patient)
 
     # Build trial corpus: sandbox + persisted custom trials
     trials = load_sample_protocols()
@@ -83,4 +93,14 @@ async def match_patient(
         ranking_time_ms=ranking.ranking_time_ms,
         sandbox_mode=settings.sandbox.enabled,
         warnings=warnings,
+        deid=DeIdSummary(
+            applied=bool(deid_metadata.get("deid_applied", False)),
+            processing_location=str(deid_metadata.get("processing_location", "local")),
+            entities_removed=[
+                e.get("type", "UNKNOWN")
+                for e in deid_metadata.get("entities_found", [])
+                if isinstance(e, dict)
+            ],
+            validation_flags=list(deid_metadata.get("flags", [])),
+        ),
     )

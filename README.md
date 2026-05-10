@@ -136,6 +136,11 @@ cd trialibre
 cd backend
 pip install -e ".[dev]"
 
+# Required for cloud-LLM mode: download the spaCy model that
+# Presidio uses for PHI detection. Skip if you only ever use
+# local Ollama (no data leaves the device → no de-ID needed).
+python -m spacy download en_core_web_lg
+
 # Start the server (opens browser automatically)
 trialibre serve
 ```
