@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { CriterionResult, TrialScore } from '../types/api';
+import { FeedbackWidget } from './FeedbackWidget';
 
 const strengthStyles = {
   strong: { bg: 'bg-green-50 border-green-200', badge: 'bg-green-100 text-green-800', icon: '●' },
@@ -53,7 +54,18 @@ function CriterionRow({ result }: { result: CriterionResult }) {
   );
 }
 
-export function TrialCard({ trial, onRefer }: { trial: TrialScore; onRefer?: (t: TrialScore) => void }) {
+export function TrialCard({
+  trial,
+  onRefer,
+  patientId,
+}: {
+  trial: TrialScore;
+  onRefer?: (t: TrialScore) => void;
+  // patientId is needed to attach feedback to the right (patient, trial)
+  // pair. Optional so older callers (and the demo path) still compile;
+  // when missing the feedback widget hides itself.
+  patientId?: string;
+}) {
   const { t } = useTranslation();
   const [expanded, setExpanded] = useState(false);
   const s = strengthStyles[trial.strength];
@@ -171,6 +183,15 @@ export function TrialCard({ trial, onRefer }: { trial: TrialScore; onRefer?: (t:
             <span aria-hidden="true">⚠</span>
             {t('match.ai_disclaimer_short')}
           </p>
+
+          {/* Feedback widget: closes the loop on whether the model got
+              this match right, with the score / strength / criteria
+              counts captured at the moment of the verdict for later
+              drift analysis. Only renders when we know which patient
+              this card belongs to (real /match flow, not demo). */}
+          {patientId && (
+            <FeedbackWidget patientId={patientId} trial={trial} />
+          )}
         </div>
       )}
     </div>

@@ -54,6 +54,17 @@
     "ai_disclaimer_banner_title": "Decision-support only",
     "ai_disclaimer_banner_body": "These results are produced by an AI model interpreting the patient note against eligibility criteria. They are intended to help shortlist candidate trials, not to determine eligibility. Verify reasoning, evidence, and exclusions against the source documents and clinical judgment before contacting a trial site or making any care decision."
   },
+  "feedback": {
+    "prompt": "Was this match correct?",
+    "correct": "Correct",
+    "incorrect": "Incorrect",
+    "unsure": "Unsure",
+    "notes_placeholder": "What did the AI miss or get wrong? (optional)",
+    "send": "Send feedback",
+    "sending": "Sending…",
+    "thanks": "Thanks — your feedback was recorded.",
+    "error": "Couldn't send feedback"
+  },
   "nav": {
     "match": "Match",
     "batch": "Batch",

@@ -150,7 +150,11 @@ export function MatchPage() {
               </div>
             ) : (
               filteredTrials.map(trial => (
-                <TrialCard key={trial.trial_id} trial={trial} />
+                <TrialCard
+                  key={trial.trial_id}
+                  trial={trial}
+                  patientId={result.patient_id}
+                />
               ))
             )}
           </div>

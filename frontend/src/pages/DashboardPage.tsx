@@ -10,9 +10,16 @@ interface DashboardData {
   ta_distribution: Record<string, number>;
 }
 
+interface FeedbackAggregate {
+  total: number;
+  counts: { correct: number; incorrect: number; unsure: number };
+  agreement_rate: number | null;
+}
+
 export function DashboardPage() {
   const { t } = useTranslation();
   const [data, setData] = useState<DashboardData | null>(null);
+  const [feedback, setFeedback] = useState<FeedbackAggregate | null>(null);
 
   useEffect(() => {
     fetch('/api/v1/dashboard/summary')
@@ -25,6 +32,15 @@ export function DashboardPage() {
           top_trials: [], recent_matches: [], ta_distribution: {},
         });
       });
+
+    // Surface coordinator feedback aggregate next to match metrics so
+    // operators can see at a glance how often clinicians have agreed
+    // with the model's verdicts. Empty state is fine; the card just
+    // says "no feedback yet."
+    fetch('/api/v1/feedback/aggregate')
+      .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
+      .then(setFeedback)
+      .catch(() => setFeedback({ total: 0, counts: { correct: 0, incorrect: 0, unsure: 0 }, agreement_rate: null }));
   }, []);
 
   if (!data) {
@@ -45,7 +61,7 @@ export function DashboardPage() {
       <h1 className="text-xl font-bold text-gray-900 mb-6">{t('nav.dashboard')}</h1>
 
       {/* Stats cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
         <div className="bg-white border border-gray-200 rounded-lg p-4">
           <p className="text-xs text-gray-500 uppercase tracking-wide">Total Matches</p>
           <p className="text-2xl font-bold text-gray-900 mt-1">{data.total_matches}</p>
@@ -57,6 +73,26 @@ export function DashboardPage() {
         <div className="bg-white border border-gray-200 rounded-lg p-4">
           <p className="text-xs text-gray-500 uppercase tracking-wide">Avg Match Score</p>
           <p className="text-2xl font-bold text-gray-900 mt-1">{Math.round(data.avg_match_score * 100)}%</p>
+        </div>
+        {/* Coordinator agreement card — nullable when no feedback yet,
+            otherwise shows the share of match cards a clinician marked
+            "correct" out of the total verdicts. The single most useful
+            number to track during a clinical pilot. */}
+        <div className="bg-white border border-gray-200 rounded-lg p-4">
+          <p className="text-xs text-gray-500 uppercase tracking-wide">Coordinator agreement</p>
+          {feedback && feedback.total > 0 && feedback.agreement_rate !== null ? (
+            <>
+              <p className="text-2xl font-bold text-gray-900 mt-1">
+                {Math.round(feedback.agreement_rate * 100)}%
+              </p>
+              <p className="text-[10px] text-gray-500 mt-0.5">
+                {feedback.counts.correct} ✓ · {feedback.counts.incorrect} ✗ · {feedback.counts.unsure} ?
+                <span className="text-gray-400"> ({feedback.total} verdicts)</span>
+              </p>
+            </>
+          ) : (
+            <p className="text-sm text-gray-500 mt-1 italic">No feedback yet</p>
+          )}
         </div>
       </div>
 

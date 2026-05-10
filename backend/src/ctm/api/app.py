@@ -96,7 +96,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         logger.info(f"API key authentication enabled ({len(settings.api.api_keys)} keys configured)")
 
     # API routes
-    from ctm.api.routes import audit, batch, dashboard, health, ingest, match, privacy, referrals, sandbox, settings as settings_routes, trials
+    from ctm.api.routes import audit, batch, dashboard, feedback, health, ingest, match, privacy, referrals, sandbox, settings as settings_routes, trials
 
     app.include_router(health.router, prefix="/api/v1", tags=["Health"])
     app.include_router(match.router, prefix="/api/v1", tags=["Match"])
@@ -108,6 +108,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.include_router(sandbox.router, prefix="/api/v1", tags=["Sandbox"])
     app.include_router(dashboard.router, prefix="/api/v1", tags=["Dashboard"])
     app.include_router(audit.router, prefix="/api/v1", tags=["Audit"])
+    app.include_router(feedback.router, prefix="/api/v1", tags=["Feedback"])
     app.include_router(settings_routes.router, prefix="/api/v1", tags=["Settings"])
 
     # Serve frontend static files (if built)
