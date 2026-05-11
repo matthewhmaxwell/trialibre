@@ -95,10 +95,9 @@ describe('TrialCard', () => {
   it('omits the per-criterion section gracefully when the field is missing', async () => {
     const user = userEvent.setup();
     // Legacy / demo-mode response shape: no inclusion_results field at all.
+    // The fields are typed as optional now, so `delete` doesn't error.
     const legacy = makeTrial();
-    // @ts-expect-error simulating a response from an older backend
     delete legacy.inclusion_results;
-    // @ts-expect-error same
     delete legacy.exclusion_results;
 
     render(<TrialCard trial={legacy} />);

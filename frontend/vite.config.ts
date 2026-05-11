@@ -1,4 +1,7 @@
-/// <reference types="vitest" />
+// Vite's defineConfig (NOT vitest's) — vitest's stricter ProxyServer
+// types collide with vite's Server type on the `server.proxy` shape
+// under `tsc -b`. The test config lives in a sibling `vitest.config.ts`
+// so each tool's defineConfig sees only its own option surface.
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
@@ -10,11 +13,5 @@ export default defineConfig({
     proxy: {
       '/api': 'http://127.0.0.1:8000',
     },
-  },
-  test: {
-    environment: 'jsdom',
-    setupFiles: ['./src/test/setup.ts'],
-    globals: true,
-    css: false,  // skip CSS parsing in tests
   },
 })
