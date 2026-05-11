@@ -7,7 +7,6 @@ Uses a medical domain model for better clinical text matching.
 from __future__ import annotations
 
 import logging
-from functools import lru_cache
 
 import numpy as np
 

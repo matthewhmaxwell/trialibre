@@ -67,7 +67,6 @@ class PrivacyEngine:
             await self._initialize_deid()
 
         # De-identify the raw text
-        from ctm.privacy.presidio_deid import PresidioDeid
 
         assert self._deid is not None
         deid_result = await self._deid.deidentify(patient.raw_text, patient.language)

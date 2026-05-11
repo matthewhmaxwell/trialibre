@@ -6,8 +6,7 @@ from typing import Any
 
 from pydantic import BaseModel
 
-from ctm.models.matching import MatchStrength, PatientTrialRanking, TrialScore
-from ctm.models.trial import ClinicalTrial
+from ctm.models.matching import TrialScore
 
 
 class MatchRequest(BaseModel):

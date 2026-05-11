@@ -6,8 +6,6 @@ This allows the full UI to be functional without any API key configuration.
 
 from __future__ import annotations
 
-import uuid
-from datetime import datetime, timezone
 
 from ctm.models.matching import (
     CriterionResult,
@@ -235,14 +233,14 @@ def _generate_plain_reasoning(
 ) -> str:
     """Generate plain-language reasoning for a criterion result."""
     if label == EligibilityLabel.INCLUDED:
-        return f"Patient record supports meeting this requirement."
+        return "Patient record supports meeting this requirement."
     elif label == EligibilityLabel.NOT_INCLUDED:
-        return f"Patient record suggests this requirement is not met."
+        return "Patient record suggests this requirement is not met."
     elif label == EligibilityLabel.EXCLUDED:
-        return f"Patient may have a condition that prevents participation."
+        return "Patient may have a condition that prevents participation."
     elif label == EligibilityLabel.NOT_EXCLUDED:
-        return f"No evidence in patient record that this exclusion applies."
+        return "No evidence in patient record that this exclusion applies."
     elif label == EligibilityLabel.NOT_APPLICABLE:
-        return f"This criterion does not apply to this patient."
+        return "This criterion does not apply to this patient."
     else:
-        return f"Patient record does not mention information related to this. This may need to be confirmed."
+        return "Patient record does not mention information related to this. This may need to be confirmed."

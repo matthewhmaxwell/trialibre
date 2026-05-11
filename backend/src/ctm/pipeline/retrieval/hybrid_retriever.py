@@ -9,7 +9,6 @@ import logging
 from collections import defaultdict
 
 from ctm.config import RetrievalConfig
-from ctm.models.trial import ClinicalTrial
 from ctm.pipeline.retrieval.bm25_retriever import BM25Retriever
 from ctm.pipeline.retrieval.dense_retriever import DenseRetriever
 

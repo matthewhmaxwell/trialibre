@@ -182,7 +182,10 @@ def _keyword_fallback(
         re.IGNORECASE,
     )
 
-    lines = [l.strip() for l in text.split("\n") if l.strip() and len(l.strip()) > 15]
+    lines = [
+        line.strip() for line in text.split("\n")
+        if line.strip() and len(line.strip()) > 15
+    ]
 
     inclusion = []
     exclusion = []

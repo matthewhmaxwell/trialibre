@@ -7,14 +7,9 @@ from pathlib import Path
 from typing import Any
 
 from ctm.models.matching import (
-    CriterionResult,
-    EligibilityLabel,
-    MatchingResult,
-    MatchStrength,
     PatientTrialRanking,
-    TrialScore,
 )
-from ctm.models.patient import PatientNote, PatientSentence
+from ctm.models.patient import PatientNote
 from ctm.models.trial import ClinicalTrial, EligibilityCriteria
 
 

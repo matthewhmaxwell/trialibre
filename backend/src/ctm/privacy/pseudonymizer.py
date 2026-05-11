@@ -8,7 +8,6 @@ readability of the clinical note while protecting privacy.
 from __future__ import annotations
 
 import hashlib
-from typing import Any
 
 # Pseudonym pools
 _FIRST_NAMES = [

@@ -11,7 +11,6 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 import math
-from collections import defaultdict
 
 from ctm.evaluation.ground_truth import GroundTruth, GroundTruthPair
 from ctm.models.matching import TrialScore

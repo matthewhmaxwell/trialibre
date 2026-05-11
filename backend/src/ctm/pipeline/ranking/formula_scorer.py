@@ -43,10 +43,8 @@ class FormulaScorer:
             1 for r in result.inclusion_results
             if r.label == EligibilityLabel.NOT_ENOUGH_INFO
         )
-        inc_na = sum(
-            1 for r in result.inclusion_results
-            if r.label == EligibilityLabel.NOT_APPLICABLE
-        )
+        # NOT_APPLICABLE inclusions are intentionally not counted toward
+        # the denominator below — they neither help nor hurt the score.
 
         # Exclusion analysis
         exc_triggered = sum(

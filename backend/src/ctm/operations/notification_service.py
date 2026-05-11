@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import uuid
-from datetime import datetime, timezone
 
 from ctm.models.notification import Notification, NotificationChannel, NotificationType
 

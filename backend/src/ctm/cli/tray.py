@@ -8,8 +8,6 @@ import subprocess
 import sys
 import signal
 import webbrowser
-import threading
-import os
 from pathlib import Path
 
 # Only import if running as tray app
@@ -81,7 +79,8 @@ def run_macos_tray() -> None:
         def open_ui(self, _):
             if not server.running:
                 server.start()
-                import time; time.sleep(2)
+                import time
+                time.sleep(2)
             server.open_browser()
 
         def toggle_server(self, sender):
@@ -92,7 +91,9 @@ def run_macos_tray() -> None:
             self._update_status()
 
         def _update_status(self):
-            status = self.menu["Server Status: Stopped"] if not server.running else None
+            # Status menu item — currently unused but kept here so future
+            # additions to the tray menu can reference it without re-deriving.
+            _ = self.menu["Server Status: Stopped"] if not server.running else None
             if server.running:
                 self.menu["Start Server"].title = "Stop Server"
                 self.title = "Trialibre ●"
